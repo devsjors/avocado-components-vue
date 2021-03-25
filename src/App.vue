@@ -1,22 +1,38 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
+    <!-- <CustomThemeProvider :customTheme="themeLequ"> -->
+    <CustomThemeProvider>
+      <AMButton label="Button" />
+      <AMButton href="/" label="Link" />
+    </CustomThemeProvider>
   </div>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
+import CustomThemeProvider from "@/theme/Provider";
+import LequTheme from "@/theme/DemoThemes/LequTheme";
+import AMButton from "./components/Button";
 
 export default {
   name: "App",
   components: {
-    HelloWorld,
+    CustomThemeProvider,
+    AMButton,
+  },
+  data() {
+    return {
+      themeLequ: {},
+    };
+  },
+  created() {
+    this.themeLequ = LequTheme;
   },
 };
 </script>
 
-<style>
+<style lang="css">
+@import "./styles/reset.css";
+
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

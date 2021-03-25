@@ -1,24 +1,3 @@
-# avocado-components-vue
+<h1 align="center">Avocado Design System</h1>
 
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+> Avocado is a closed source design system build by Sjors Eveleens commissioned by Avocado Media. The system consists of code examples, design tools, resources and guidelines.
