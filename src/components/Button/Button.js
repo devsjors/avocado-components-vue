@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 import { StyledButton, StyledLink } from "./styles";
 
 const AMButton = {

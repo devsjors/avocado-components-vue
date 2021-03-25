@@ -1,7 +1,9 @@
 <template>
-  <ThemeProvider :theme="theme">
-    <slot></slot>
-  </ThemeProvider>
+  <div>
+    <ThemeProvider :theme="theme">
+      <slot></slot>
+    </ThemeProvider>
+  </div>
 </template>
 
 <script>
@@ -21,20 +23,29 @@ export default {
     };
   },
   created() {
-    this.theme = this.customTheme !== undefined
-      ? (this.theme = this.mergeThemes(DefaultTheme, this.customTheme))
-      : DefaultTheme;
+    this.determainTheme();
+  },
+  watch: {
+    customTheme() {
+      this.determainTheme()
+    }
   },
   methods: {
     mergeThemes(target, source) {
-      Object.keys(source).forEach((sourcekey) => {
-        if (Object.keys(source).find((targetkey) => targetkey === sourcekey) !== undefined && typeof source[sourcekey] === "object") {
-          target[sourcekey] = this.mergeThemes(target[sourcekey], source[sourcekey]);
-        } else {
-          target[sourcekey] = source[sourcekey];
-        }
+      const targetCopy = { ...target }
+      const sourceCopy = { ...source }
+
+      Object.keys(sourceCopy).forEach((sourcekey) => {
+        Object.keys(sourceCopy).find((targetkey) => targetkey === sourcekey) !== undefined && typeof sourceCopy[sourcekey] === "object"
+          ? targetCopy[sourcekey] = this.mergeThemes(targetCopy[sourcekey], sourceCopy[sourcekey])
+          : targetCopy[sourcekey] = sourceCopy[sourcekey];
       });
-      return target;
+      return targetCopy;
+    },
+    determainTheme() {
+      this.theme = this.customTheme
+        ? this.mergeThemes(DefaultTheme, this.customTheme)
+        : DefaultTheme;
     },
   },
 };
