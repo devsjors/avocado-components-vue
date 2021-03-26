@@ -1,9 +1,7 @@
 <template>
-  <div>
-    <ThemeProvider :theme="theme">
-      <slot></slot>
-    </ThemeProvider>
-  </div>
+  <ThemeProvider :theme="theme">
+    <slot></slot>
+  </ThemeProvider>
 </template>
 
 <script>

@@ -1,9 +1,13 @@
 <template>
   <div id="app">
     <button class="toggle-theme" @click="toggleTheme">Toggle Theme</button>
-    <CustomThemeProvider :customTheme="determainTheme">
+    <CustomThemeProvider class="show-buttons" :customTheme="determainTheme">
       <AMButton label="Button" />
+      <AMButton iconStart="mail" label="Button" />
+      <AMButton iconEnd="mail" label="Button" />
       <AMButton href="/" label="Link" />
+      <AMButton iconStart="mail" href="/" label="Link" />
+      <AMButton iconEnd="mail" href="/" label="Link" />
     </CustomThemeProvider>
   </div>
 </template>
@@ -55,5 +59,11 @@ export default {
   position: fixed;
   bottom: 20px;
   right: 20px;
+}
+
+.show-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
 }
 </style>
