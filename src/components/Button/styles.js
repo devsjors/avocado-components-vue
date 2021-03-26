@@ -1,38 +1,57 @@
 import styled, { css } from "vue-styled-components";
 
-const StyledButton = (start, end) => styled.button`
-  ${start ? IconLeft : ""}
-  ${end ? IconRight : ""}
+const StyledButton = (StyledProps) => styled.button`
   ${(props) => DefaultStyling(props)}
-  ${(props) => StateStyling(props)}
-  color: ${(props) => props.theme.atoms.button.textColor};
-  background-color: ${(props) => props.theme.atoms.button.backgroundColor};
-  font-size: ${(props) => props.theme.atoms.button.fontSize};
-  font-weight: ${(props) => props.theme.atoms.button.fontWeight};
-  line-height: ${(props) => props.theme.atoms.button.lineHeight};
-  text-transform: ${(props) => props.theme.atoms.button.textTransform};
-  border-radius: ${(props) => props.theme.atoms.button.borderRadius};
+  ${(props) => StyledProps.variant === "primary" && PrimaryStyling(props)}
+  ${(props) => StyledProps.variant === "secondary" && SecondaryStyling(props)}
+  ${(props) => StyledProps.variant === "ghost" && GhostStyling(props)}
+  ${StyledProps.start && IconLeft}
+  ${StyledProps.end && IconRight}
 `;
 
-const StyledLink = (start, end) => StyledButton(start, end).withComponent("a");
+const StyledAnchor = (start, end) =>
+  StyledButton(start, end).withComponent("a");
 
 const DefaultStyling = (props) => {
+  // eslint-disable-next-line prettier/prettier
+  const { padding, fontSize, fontWeight, lineHeight, textTransform, borderRadius } = props.theme.atoms.button;
   return css`
     border: none;
     text-decoration: none;
     cursor: pointer;
     display: inline-flex;
     align-items: center;
-    padding: ${(props) => props.theme.atoms.button.padding};
+    padding: ${padding};
+    font-size: ${fontSize};
+    font-weight: ${fontWeight};
+    line-height: ${lineHeight};
+    text-transform: ${textTransform};
+    border-radius: ${borderRadius};
   `;
 };
 
-const StateStyling = (props) => {
+const PrimaryStyling = (props) => {
+  const { textColor, backgroundColor } = props.theme.atoms.button;
   return css`
-    &:hover,
-    &:focus {
-      outline: none;
-    }
+    color: ${textColor};
+    background-color: ${backgroundColor};
+  `;
+};
+
+const SecondaryStyling = (props) => {
+  const { textColor, backgroundColor } = props.theme.atoms.button;
+  return css`
+    color: ${backgroundColor};
+    background-color: transparent;
+    border: 1px solid ${backgroundColor};
+  `;
+};
+
+const GhostStyling = (props) => {
+  const textColor = props.theme.cores.colors.base.grey["500"];
+  return css`
+    color: ${textColor};
+    background-color: transparent;
   `;
 };
 
@@ -54,4 +73,4 @@ const IconRight = () => {
   `;
 };
 
-export { StyledButton, StyledLink };
+export { StyledButton, StyledAnchor };

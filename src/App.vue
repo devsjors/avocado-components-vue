@@ -1,13 +1,26 @@
 <template>
   <div id="app">
-    <button class="toggle-theme" @click="toggleTheme">Toggle Theme</button>
-    <CustomThemeProvider class="show-buttons" :customTheme="determainTheme">
-      <AMButton label="Button" />
-      <AMButton iconStart="mail" label="Button" />
-      <AMButton iconEnd="mail" label="Button" />
-      <AMButton href="/" label="Link" />
-      <AMButton iconStart="mail" href="/" label="Link" />
-      <AMButton iconEnd="mail" href="/" label="Link" />
+    <div class="toggle-theme">
+      <p style="margin-bottom: 8px">
+        {{ customTheme ? "Lequ" : "Avocado" }}Theme
+      </p>
+      <button @click="toggleTheme">Toggle Theme</button>
+    </div>
+    <CustomThemeProvider :customTheme="determainTheme">
+      <div class="flex">
+        <AMButton variant="primary" label="Button" />
+        <AMButton variant="secondary" label="Button" />
+        <AMButton variant="ghost" label="Button" />
+        <AMButton iconEnd="mail" label="Button" />
+        <AMButton iconStart="mail" label="Button" />
+      </div>
+      <div class="flex">
+        <AMButton href="/" variant="primary" label="Link" />
+        <AMButton href="/" variant="secondary" label="Link" />
+        <AMButton href="/" variant="ghost" label="Link" />
+        <AMButton iconEnd="mail" href="/" label="Link" />
+        <AMButton iconStart="mail" href="/" label="Link" />
+      </div>
     </CustomThemeProvider>
   </div>
 </template>
@@ -61,9 +74,10 @@ export default {
   right: 20px;
 }
 
-.show-buttons {
+.flex {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 20px;
   gap: 20px;
 }
 </style>

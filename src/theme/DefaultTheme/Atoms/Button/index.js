@@ -8,6 +8,7 @@ const button = {
   fontSize: cores.typography.text.button.desktop.fontSize,
   lineHeight: cores.typography.text.button.desktop.lineHeight,
   fontWeight: cores.typography.text.button.desktop.fontWeight,
+  textTransform: "uppercase",
 };
 
 export default button;
