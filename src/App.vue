@@ -6,20 +6,36 @@
       </p>
       <button @click="toggleTheme">Toggle Theme</button>
     </div>
-    <CustomThemeProvider :customTheme="determainTheme">
-      <div class="flex">
-        <AMButton variant="primary" label="Button" />
-        <AMButton variant="secondary" label="Button" />
-        <AMButton variant="ghost" label="Button" />
-        <AMButton iconEnd="mail" label="Button" />
-        <AMButton iconStart="mail" label="Button" />
-      </div>
-      <div class="flex">
-        <AMButton href="/" variant="primary" label="Link" />
-        <AMButton href="/" variant="secondary" label="Link" />
-        <AMButton href="/" variant="ghost" label="Link" />
-        <AMButton iconEnd="mail" href="/" label="Link" />
-        <AMButton iconStart="mail" href="/" label="Link" />
+    <CustomThemeProvider class="flex" :customTheme="determainTheme">
+      <div class="flex-column">
+        <p>Default</p>
+        <div>
+          <AMButton variant="primary" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="secondary" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="ghost" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="primary" iconStart="mail" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="primary" iconEnd="mail" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="secondary" iconStart="mail" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="secondary" iconEnd="mail" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="ghost" iconStart="mail" label="Button" />
+        </div>
+        <div>
+          <AMButton variant="ghost" iconEnd="mail" label="Button" />
+        </div>
       </div>
     </CustomThemeProvider>
   </div>
@@ -76,6 +92,12 @@ export default {
 
 .flex {
   display: flex;
+  gap: 40px;
+  flex-wrap: wrap;
+}
+.flex-column {
+  display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
   margin-bottom: 20px;
   gap: 20px;

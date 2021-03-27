@@ -1,13 +1,15 @@
 import styled, { css } from "vue-styled-components";
 
-const StyledButton = (StyledProps) => styled.button`
-  ${(props) => DefaultStyling(props)}
-  ${(props) => StyledProps.variant === "primary" && PrimaryStyling(props)}
-  ${(props) => StyledProps.variant === "secondary" && SecondaryStyling(props)}
-  ${(props) => StyledProps.variant === "ghost" && GhostStyling(props)}
-  ${StyledProps.start && IconLeft}
-  ${StyledProps.end && IconRight}
-`;
+const StyledButton = (StyledProps) => {
+  const { start, end, variant } = StyledProps;
+  return styled.button`
+    ${(props) => DefaultStyling(props)}
+    ${(props) => variant === "primary" && PrimaryStyling(props)}
+    ${(props) => variant === "secondary" && SecondaryStyling(props)}
+    ${(props) => variant === "ghost" && GhostStyling(props)}
+    ${IconStyling(start, end)}
+  `;
+};
 
 const StyledAnchor = (start, end) =>
   StyledButton(start, end).withComponent("a");
@@ -27,6 +29,10 @@ const DefaultStyling = (props) => {
     line-height: ${lineHeight};
     text-transform: ${textTransform};
     border-radius: ${borderRadius};
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   `;
 };
 
@@ -55,19 +61,11 @@ const GhostStyling = (props) => {
   `;
 };
 
-const IconLeft = () => {
+const IconStyling = (start, end) => {
+  const direction = start ? "right" : "left";
   return css`
     svg {
-      margin-right: 8px;
-      fill: currentColor;
-    }
-  `;
-};
-
-const IconRight = () => {
-  return css`
-    svg {
-      margin-left: 8px;
+      margin-${direction}: 8px;
       fill: currentColor;
     }
   `;

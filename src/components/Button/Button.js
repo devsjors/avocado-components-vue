@@ -13,22 +13,18 @@ const AMButton = {
     variant: {
       type: String,
       default: "primary",
-      // required: true
+      required: true
     },
     iconStart: {},
     iconEnd: {},
   },
   render(createElement, context) {
-    const { data, props, children, data: { attrs: { href } } } = context;
+    const { data, props, data: { attrs: { href } } } = context;
     const { label, variant, iconStart, iconEnd } = props;
 
     const start = iconStart ? true : false;
     const end = iconEnd ? true : false;
-    const StyledProps = {
-      start,
-      end,
-      variant
-    }
+    const StyledProps = { start, end, variant }
     const element = href === undefined ? StyledButton(StyledProps) : StyledAnchor(StyledProps);
     const iconComponent = (icon) => createElement(IconBase, { attrs: { name: iconStart || iconEnd } });
 
