@@ -1,8 +1,9 @@
 /* eslint-disable prettier/prettier */
+import Vue from 'vue';
 import { StyledButton, StyledAnchor } from "./styles";
 import IconBase from "../../icons/IconBase.vue";
 
-const AMButton = {
+const AMButton = Vue.component("AMButton", {
   functional: true,
   props: {
     label: {
@@ -13,20 +14,19 @@ const AMButton = {
     variant: {
       type: String,
       default: "primary",
-      required: true
+      required: true,
     },
     iconStart: {},
     iconEnd: {},
   },
   render(createElement, context) {
-    const { data, props, data: { attrs: { href } } } = context;
+    const { data, props } = context;
     const { label, variant, iconStart, iconEnd } = props;
 
     const start = iconStart ? true : false;
     const end = iconEnd ? true : false;
-    const StyledProps = { start, end, variant }
-    const element = href === undefined ? StyledButton(StyledProps) : StyledAnchor(StyledProps);
-    const iconComponent = (icon) => createElement(IconBase, { attrs: { name: iconStart || iconEnd } });
+    const StyledProps = { variant, start, end };
+    const element = (((data || {}).attrs || {}).href || undefined) === undefined ? StyledButton(StyledProps) : StyledAnchor(StyledProps);    const iconComponent = (icon) => createElement(IconBase, { attrs: { name: iconStart || iconEnd } });
 
     if (iconStart) {
       return createElement(element, data, [iconComponent(iconStart), label]);
@@ -36,6 +36,6 @@ const AMButton = {
       return createElement(element, data, label);
     }
   },
-};
+});
 
 export default AMButton;

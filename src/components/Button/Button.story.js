@@ -1,36 +1,39 @@
+/* eslint-disable prettier/prettier */
+import Vue from "vue";
 import AMButton from "./Button";
 
-export default {
-  title: "Atoms/Button",
-  component: AMButton,
+export const Primary = () => {
+  const context = { props: { variant: "primary", label: "Button" } };
+  return { render: (h) => h(AMButton, context) };
 };
 
-// Option 1
-// const Template = (args, { argTypes }) => ({
-//   components: { AMButton },
-//   props: Object.keys(argTypes),
-//   template: '<AMButton v-bind="$props" />',
-// });
+export const Secondary = () => {
+  const context = { props: { variant: "secondary", label: "Button" } };
+  return { render: (h) => h(AMButton, context) };
+};
 
-// export const Primary = Template.bind({});
-// Primary.args = {
-//   variant: "primary",
-//   label: "Button",
-// };
+export const Ghost = () => {
+  const context = { props: { variant: "ghost", label: "Button" } };
+  return { render: (h) => h(AMButton, context) };
+};
 
-// export const Secondary = Template.bind({});
-// Secondary.args = {
-//   variant: "secondary",
-//   label: "Button",
-// };
-
-// export const Ghost = Template.bind({});
-// Ghost.args = {
-//   variant: "ghost",
-//   label: "Button",
-// };
-
-// Option 2
-export const Default = () => ({
-  render: (h) => h(AMButton),
-});
+export const Icons = () => {
+  return Vue.component("test", {
+    render(createElement) {
+      return createElement(
+        "div", { style: { width: "100%" } }, [
+          createElement("div", { style: { display: "flex", justifyContent: "space-evenly", width: "100%", "margin-bottom": "24px" } }, [
+            createElement(AMButton, { props: { variant: "primary", label: "Button", iconStart: "mail" } }),
+            createElement(AMButton, { props: { variant: "secondary", label: "Button", iconStart: "mail" } }),
+            createElement(AMButton, { props: { variant: "ghost", label: "Button", iconStart: "mail" } }),
+          ]),
+          createElement("div", { style: { display: "flex", justifyContent: "space-evenly", width: "100%" } }, [
+            createElement(AMButton, { props: { variant: "primary", label: "Button", iconEnd: "mail" } }),
+            createElement(AMButton, { props: { variant: "secondary", label: "Button", iconEnd: "mail" } }),
+            createElement(AMButton, { props: { variant: "ghost", label: "Button", iconEnd: "mail" } }),
+          ])
+        ]
+      );
+    },
+  });
+};

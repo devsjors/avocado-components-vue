@@ -1,0 +1,68 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import * as stories from './Button.story.js';
+import AMButton from "./Button";
+
+<Meta title="Components/Atoms/Button" component={AMButton} />
+
+<style>{`
+  #button {
+    margin-bottom: 24px;
+  }
+  .css-11xgcgt {
+    display: none;
+  }
+  .css-1wjen9k {
+    margin: 0;
+    padding: 20px 0;
+  }
+  #root > div {
+    display: flex;
+    justify-content: space-evenly;
+  }
+`}</style>
+
+# Button
+
+## Table of Contents
+- [Overview](#overview)
+
+## Overview
+<Canvas>
+  <Story story={stories.Primary} />
+</Canvas>
+
+```jsx
+<AMButton variant="primary" label="Button" />
+```
+
+<Canvas>
+  <Story story={stories.Secondary} />
+</Canvas>
+
+```jsx
+<AMButton variant="secondary" label="Button" />
+```
+
+<Canvas>
+  <Story story={stories.Ghost} />
+</Canvas>
+
+```jsx
+<AMButton variant="ghost" label="Button" />
+```
+
+<Canvas>
+  <Story story={stories.Icons} />
+</Canvas>
+
+```jsx
+// Button with icons left from the label
+<AMButton variant="primary" label="Button" iconStart="mail" />
+<AMButton variant="secondary" label="Button" iconStart="mail" />
+<AMButton variant="ghost" label="Button" iconStart="mail" />
+
+// Button with icons right from the label
+<AMButton variant="primary" label="Button" iconEnd="mail" />
+<AMButton variant="secondary" label="Button" iconEnd="mail" />
+<AMButton variant="ghost" label="Button" iconEnd="mail" />
+```

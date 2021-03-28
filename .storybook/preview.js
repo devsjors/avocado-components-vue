@@ -1,6 +1,5 @@
-import Vue from "vue";
-import AMButton from "../src/components/Button";
 import CustomThemeProvider from '../src/theme/Provider';
+import AMButton from "../src/components/Button";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
