@@ -6,6 +6,6 @@ const Button = Vue.component("AMButton", AMButton);
 
 export default {
   components: {
-    Button
-  }
+    Button,
+  },
 }
