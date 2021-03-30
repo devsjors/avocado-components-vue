@@ -1,22 +1,26 @@
 <template>
-  <component :href="href" :is="StyledProps">Button</component>
+  <component :is="ButtonComponent" :href="href">
+    <IconBase v-if="iconStart" :name="iconStart" />
+    {{ label }}
+    <IconBase v-if="iconEnd" :name="iconEnd" />
+  </component>
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
 import { StyledButton, StyledAnchor } from "./styles";
-import styled, { css } from "vue-styled-components";
+import IconBase from "../../icons/IconBase.vue";
 
 export default {
   name: "AMButton",
   components: {
     StyledButton,
     StyledAnchor,
+    IconBase,
   },
   props: {
     label: {
       type: String,
-      default: "Button",
+      default: "Label",
       required: true,
     },
     variant: {
@@ -24,15 +28,21 @@ export default {
       default: "primary",
       required: true,
     },
-    href: {},
-    iconStart: {},
-    iconEnd: {},
-  },
-  data() {
-    return {};
+    href: {
+      type: String,
+      required: false,
+    },
+    iconStart: {
+      type: String,
+      required: false,
+    },
+    iconEnd: {
+      type: String,
+      required: false,
+    },
   },
   computed: {
-    StyledProps() {
+    ButtonComponent() {
       const data = {
         variant: this.variant,
         start: this.iconStart,

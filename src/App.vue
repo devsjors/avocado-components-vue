@@ -7,7 +7,7 @@
       <button @click="toggleTheme">Toggle Theme</button>
     </div>
     <CustomThemeProvider class="flex" :customTheme="determainTheme">
-      <!-- <div class="flex-column">
+      <div class="flex-column">
         <p>Default</p>
         <div>
           <AMButton variant="primary" label="Button" />
@@ -36,10 +36,7 @@
         <div>
           <AMButton variant="ghost" iconEnd="mail" label="Button" />
         </div>
-      </div> -->
-      <AMButton label="Button" variant="primary" href="/" />
-      <AMButton label="Button" variant="secondary" />
-      <AMButton label="Button" variant="ghost" />
+      </div>
     </CustomThemeProvider>
   </div>
 </template>
