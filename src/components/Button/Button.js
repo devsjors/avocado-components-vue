@@ -26,7 +26,8 @@ const AMButton = Vue.component("AMButton", {
     const start = iconStart ? true : false;
     const end = iconEnd ? true : false;
     const StyledProps = { variant, start, end };
-    const element = (((data || {}).attrs || {}).href || undefined) === undefined ? StyledButton(StyledProps) : StyledAnchor(StyledProps);    const iconComponent = (icon) => createElement(IconBase, { attrs: { name: iconStart || iconEnd } });
+    const element = (((data || {}).attrs || {}).href || undefined) === undefined ? StyledButton(StyledProps) : StyledAnchor(StyledProps);
+    const iconComponent = (icon) => createElement(IconBase, { attrs: { name: iconStart || iconEnd } });
 
     if (iconStart) {
       return createElement(element, data, [iconComponent(iconStart), label]);

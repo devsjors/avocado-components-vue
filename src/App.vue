@@ -7,7 +7,7 @@
       <button @click="toggleTheme">Toggle Theme</button>
     </div>
     <CustomThemeProvider class="flex" :customTheme="determainTheme">
-      <div class="flex-column">
+      <!-- <div class="flex-column">
         <p>Default</p>
         <div>
           <AMButton variant="primary" label="Button" />
@@ -36,7 +36,10 @@
         <div>
           <AMButton variant="ghost" iconEnd="mail" label="Button" />
         </div>
-      </div>
+      </div> -->
+      <AMButton label="Button" variant="primary" href="/" />
+      <AMButton label="Button" variant="secondary" />
+      <AMButton label="Button" variant="ghost" />
     </CustomThemeProvider>
   </div>
 </template>
@@ -44,7 +47,7 @@
 <script>
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-import AMButton from "./components/Button";
+import AMButton from "./components/Button/Button.vue";
 
 export default {
   name: "App",

@@ -7,5 +7,5 @@ export const parameters = {
 
 export const decorators = [(story) => ({
   components: { story, CustomThemeProvider, AMButton },
-  template: '<CustomThemeProvider><story /></CustomThemeProvider>'
+  template: '<CustomThemeProvider class="test"><story /></CustomThemeProvider>'
 })];
