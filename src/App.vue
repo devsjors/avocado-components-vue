@@ -44,7 +44,7 @@
 <script>
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-import AMButton from "./components/Button";
+import AMButton from "./components/Button/Button.vue";
 
 export default {
   name: "App",
