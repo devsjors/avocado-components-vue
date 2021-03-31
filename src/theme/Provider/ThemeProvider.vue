@@ -1,6 +1,6 @@
 <template>
   <ThemeProvider :theme="theme">
-    <slot></slot>
+    <slot />
   </ThemeProvider>
 </template>
 

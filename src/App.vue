@@ -62,7 +62,7 @@
 <script>
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-import AMButton from "./components/Button/Button";
+import AMButton from "./components/Button";
 import AMLink from "./components/Link";
 
 export default {
