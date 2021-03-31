@@ -4,9 +4,11 @@
 
 <script>
 import IconMail from "./icons/IconMail";
+import IconLocation from "./icons/IconLocation";
 
 const icons = {
   mail: IconMail,
+  location: IconLocation,
 };
 export default {
   props: {

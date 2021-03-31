@@ -1,5 +1,5 @@
 <template>
-  <component :is="ButtonComponent" :href="href">
+  <component :is="LinkComponent" :href="href">
     <IconBase v-if="iconStart" :name="iconStart" />
     <span>{{ label }}</span>
     <IconBase v-if="iconEnd" :name="iconEnd" />
@@ -7,11 +7,11 @@
 </template>
 
 <script>
-import { StyledButton, StyledAnchor } from "./styles";
+import { StyledLink } from "./styles";
 import IconBase from "../../icons/IconBase.vue";
 
 export default {
-  name: "AMButton",
+  name: "AMLink",
   components: {
     IconBase,
   },
@@ -21,14 +21,14 @@ export default {
       default: "Label",
       required: true,
     },
-    variant: {
-      type: String,
-      default: "primary",
-      required: true,
-    },
     href: {
       type: String,
+      required: true,
+    },
+    disabled: {
+      type: Boolean,
       required: false,
+      default: false,
     },
     iconStart: {
       type: String,
@@ -40,13 +40,13 @@ export default {
     },
   },
   computed: {
-    ButtonComponent() {
+    LinkComponent() {
       const data = {
-        variant: this.variant,
         start: this.iconStart,
         end: this.iconEnd,
+        disabled: this.disabled,
       };
-      return this.href ? StyledAnchor(data) : StyledButton(data);
+      return StyledLink(data);
     },
   },
 };
