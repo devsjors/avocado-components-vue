@@ -31,10 +31,28 @@
           <AMButton variant="secondary" iconEnd="mail" label="Button" />
         </div>
         <div>
-          <AMButton variant="ghost" iconStart="mail" label="Button" />
+          <AMButton variant="ghost" iconEnd="mail" label="Button" />
         </div>
         <div>
           <AMButton variant="ghost" iconEnd="mail" label="Button" />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconStart="mail" />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconEnd="mail" />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" disabled />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconStart="mail" disabled />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconEnd="mail" disabled />
         </div>
       </div>
     </CustomThemeProvider>
@@ -44,13 +62,15 @@
 <script>
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-import AMButton from "./components/Button";
+import AMButton from "./components/Button/Button";
+import AMLink from "./components/Link";
 
 export default {
   name: "App",
   components: {
     CustomThemeProvider,
     AMButton,
+    AMLink,
   },
   data() {
     return {
