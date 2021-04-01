@@ -1,13 +1,14 @@
 <template>
-  <component :is="ButtonComponent" :href="href">
-    <IconBase v-if="iconStart" :name="iconStart" />
-    <span>{{ label }}</span>
-    <IconBase v-if="iconEnd" :name="iconEnd" />
+  <component :is="ButtonComponent" :href="href" @click="clickHandle()">
+    <IconBase v-if="iconStart && !loading" :name="iconStart" />
+    <span v-if="!loading">{{ label }}</span>
+    <span v-if="loading" class="loading" />
+    <IconBase v-if="iconEnd && !loading" :name="iconEnd" />
   </component>
 </template>
 
 <script>
-import { StyledButton, StyledAnchor } from "./styles";
+import { StyledButton, StyledAnchor } from "./styles/index";
 import IconBase from "../../icons/IconBase.vue";
 
 export default {
@@ -30,6 +31,16 @@ export default {
       type: String,
       required: false,
     },
+    disabled: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
+    loading: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     iconStart: {
       type: String,
       required: false,
@@ -39,12 +50,18 @@ export default {
       required: false,
     },
   },
+  methods: {
+    clickHandle() {
+      this.$emit("click");
+    },
+  },
   computed: {
     ButtonComponent() {
       const data = {
         variant: this.variant,
         start: this.iconStart,
         end: this.iconEnd,
+        disabled: this.disabled,
       };
       return this.href ? StyledAnchor(data) : StyledButton(data);
     },

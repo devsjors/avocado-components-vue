@@ -36,7 +36,7 @@
         <div>
           <AMButton variant="ghost" iconEnd="mail" label="Button" />
         </div>
-        <div>
+        <!-- <div>
           <AMLink label="This is a clickable link" href="/" />
         </div>
         <div>
@@ -53,6 +53,48 @@
         </div>
         <div>
           <AMLink label="This is a clickable link" href="/" iconEnd="mail" disabled />
+        </div> -->
+      </div>
+      <div class="flex-column">
+        <p>Disabled</p>
+        <div>
+          <AMButton variant="primary" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="secondary" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="ghost" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="primary" iconStart="mail" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="primary" iconEnd="mail" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="secondary" iconStart="mail" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="secondary" iconEnd="mail" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="ghost" iconEnd="mail" label="Button" disabled />
+        </div>
+        <div>
+          <AMButton variant="ghost" iconEnd="mail" label="Button" disabled />
+        </div>
+      </div>
+      <div class="flex-column">
+        <p>Loading</p>
+        <div>
+          <AMButton variant="primary" label="Button" :loading="loading" @click="clickHandle()" />
+        </div>
+        <div>
+          <AMButton variant="secondary" label="Button" :loading="loading" />
+        </div>
+        <div>
+          <AMButton variant="ghost" label="Button" :loading="loading" />
         </div>
       </div>
     </CustomThemeProvider>
@@ -60,6 +102,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
 import AMButton from "./components/Button";
@@ -76,6 +119,7 @@ export default {
     return {
       customTheme: false,
       themeLequ: {},
+      loading: false,
     };
   },
   created() {
@@ -84,6 +128,9 @@ export default {
   methods: {
     toggleTheme() {
       this.customTheme = !this.customTheme;
+    },
+    clickHandle() {
+      this.loading = !this.loading;
     },
   },
   computed: {

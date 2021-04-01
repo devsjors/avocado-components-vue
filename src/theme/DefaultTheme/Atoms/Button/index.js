@@ -1,14 +1,45 @@
 import cores from "../../Cores";
 
 const button = {
-  backgroundColor: cores.colors.primary.slime,
-  textColor: cores.colors.base.white,
   padding: `${cores.spacing["3"]} ${cores.spacing["5"]}`,
-  borderRadius: "8px",
-  fontSize: cores.typography.text.button.desktop.fontSize,
-  lineHeight: cores.typography.text.button.desktop.lineHeight,
-  fontWeight: cores.typography.text.button.desktop.fontWeight,
+  fontSize: cores.typography.text.button,
+  fontWeight: cores.typography.text.button,
+  lineHeight: cores.typography.text.button,
   textTransform: "uppercase",
+  borderRadius: cores.spacing["2"],
+  primary: {
+    textColor: cores.colors.base.white,
+    backgroundColor: cores.colors.primary["slime-light"],
+    hover: {
+      textColor: cores.colors.base.white,
+      backgroundColor: cores.colors.primary["slime-dark"],
+    },
+    disabled: {
+      textColor: cores.colors.base.white,
+      backgroundColor: cores.colors.base.grey["300"],
+    },
+  },
+  secondary: {
+    textColor: cores.colors.primary["slime-light"],
+    borderColor: cores.colors.primary["slime-light"],
+    hover: {
+      textColor: cores.colors.primary["slime-dark"],
+      borderColor: cores.colors.primary["slime-dark"],
+    },
+    disabled: {
+      textColor: cores.colors.base.grey["300"],
+      borderColor: cores.colors.base.grey["300"],
+    },
+  },
+  ghost: {
+    textColor: cores.colors.base.grey["500"],
+    hover: {
+      textColor: cores.colors.base.grey["700"],
+    },
+    disabled: {
+      textColor: cores.colors.base.grey["300"],
+    },
+  },
 };
 
 export default button;
