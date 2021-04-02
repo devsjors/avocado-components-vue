@@ -9,7 +9,7 @@
 
 <script>
 import { StyledButton, StyledAnchor } from "./styles/index";
-import IconBase from "../../icons/IconBase.vue";
+import IconBase from "../../../icons/IconBase";
 
 export default {
   name: "AMButton",

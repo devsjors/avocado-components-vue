@@ -8,7 +8,7 @@
 
 <script>
 import { StyledLink } from "./styles";
-import IconBase from "../../icons/IconBase.vue";
+import IconBase from "../../../icons/IconBase";
 
 export default {
   name: "AMLink",

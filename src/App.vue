@@ -8,7 +8,7 @@
     </div>
     <CustomThemeProvider class="flex" :customTheme="determainTheme">
       <div class="flex-column">
-        <p>Default</p>
+        <p>Button / Default</p>
         <div>
           <AMButton variant="primary" label="Button" />
         </div>
@@ -36,27 +36,9 @@
         <div>
           <AMButton variant="ghost" iconEnd="mail" label="Button" />
         </div>
-        <!-- <div>
-          <AMLink label="This is a clickable link" href="/" />
-        </div>
-        <div>
-          <AMLink label="This is a clickable link" href="/" iconStart="mail" />
-        </div>
-        <div>
-          <AMLink label="This is a clickable link" href="/" iconEnd="mail" />
-        </div>
-        <div>
-          <AMLink label="This is a clickable link" href="/" disabled />
-        </div>
-        <div>
-          <AMLink label="This is a clickable link" href="/" iconStart="mail" disabled />
-        </div>
-        <div>
-          <AMLink label="This is a clickable link" href="/" iconEnd="mail" disabled />
-        </div> -->
       </div>
       <div class="flex-column">
-        <p>Disabled</p>
+        <p>Button / Disabled</p>
         <div>
           <AMButton variant="primary" label="Button" disabled />
         </div>
@@ -86,7 +68,7 @@
         </div>
       </div>
       <div class="flex-column">
-        <p>Loading</p>
+        <p>Button / Loading</p>
         <div>
           <AMButton variant="primary" label="Button" :loading="loading" @click="clickHandle()" />
         </div>
@@ -97,6 +79,36 @@
           <AMButton variant="ghost" label="Button" :loading="loading" />
         </div>
       </div>
+      <div class="flex-column">
+        <p>Link / Default</p>
+        <div>
+          <AMLink label="This is a clickable link" href="/" />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconStart="mail" />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconEnd="mail" />
+        </div>
+      </div>
+      <div class="flex-column">
+        <p>Link / Disabled</p>
+        <div>
+          <AMLink label="This is a clickable link" href="/" disabled />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconStart="mail" disabled />
+        </div>
+        <div>
+          <AMLink label="This is a clickable link" href="/" iconEnd="mail" disabled />
+        </div>
+      </div>
+      <div class="flex-column">
+        <p>Breadcrumb</p>
+        <div>
+          <AMBreadcrumbs :data="breadcrumbItems" />
+        </div>
+      </div>
     </CustomThemeProvider>
   </div>
 </template>
@@ -105,8 +117,9 @@
 /* eslint-disable vue/no-unused-components */
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-import AMButton from "./components/Button";
-import AMLink from "./components/Link";
+import AMButton from "@/components/atoms/Button";
+import AMLink from "@/components/atoms/Link";
+import AMBreadcrumbs from "@/components/molecules/Breadcrumb";
 
 export default {
   name: "App",
@@ -114,12 +127,27 @@ export default {
     CustomThemeProvider,
     AMButton,
     AMLink,
+    AMBreadcrumbs,
   },
   data() {
     return {
       customTheme: false,
       themeLequ: {},
       loading: false,
+      breadcrumbItems: [
+        {
+          label: "Home",
+          href: "/",
+        },
+        {
+          label: "Project overview",
+          href: "/",
+        },
+        {
+          label: "Project detail",
+          href: "/",
+        },
+      ],
     };
   },
   created() {
