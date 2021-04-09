@@ -1,8 +1,9 @@
 <template>
-  <component :is="BreadcrumbsComponent">
-    <li v-for="(BreadcrumbItem, index) in BreadcrumbItems" :key="index" :class="index !== BreadcrumbItems.length - 1 ? 'ja' : ''">
+  <component :is="BreadcrumbComponent">
+    <li v-for="(BreadcrumbItem, index) in BreadcrumbItems" :key="index">
       <AMLink v-if="index !== BreadcrumbItems.length - 1" :label="BreadcrumbItem.label" :href="BreadcrumbItem.href" />
       <span v-else>{{ BreadcrumbItem.label }}</span>
+      <span v-if="index !== BreadcrumbItems.length - 1" class="separator">/</span>
     </li>
   </component>
 </template>
@@ -12,23 +13,23 @@ import StyledBreadcrumb from "./styles/index";
 import AMLink from "../../atoms/Link";
 
 export default {
-  name: "AMBreadcrumbs",
+  name: "AMBreadcrumb",
   components: {
     AMLink,
   },
   props: {
-    data: {
+    breadcrumbs: {
       type: Array,
     },
   },
   data() {
     return {
-      BreadcrumbItems: this.data,
+      BreadcrumbItems: this.breadcrumbs,
     };
   },
   methods: {},
   computed: {
-    BreadcrumbsComponent() {
+    BreadcrumbComponent() {
       return StyledBreadcrumb();
     },
   },

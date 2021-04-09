@@ -70,7 +70,7 @@
       <div class="flex-column">
         <p>Button / Loading</p>
         <div>
-          <AMButton variant="primary" label="Button" :loading="loading" @click="clickHandle()" />
+          <AMButton variant="primary" label="Button" :loading="loading" />
         </div>
         <div>
           <AMButton variant="secondary" label="Button" :loading="loading" />
@@ -106,7 +106,7 @@
       <div class="flex-column">
         <p>Breadcrumb</p>
         <div>
-          <AMBreadcrumbs :data="breadcrumbItems" />
+          <AMBreadcrumb :breadcrumbs="breadcrumbItems" />
         </div>
       </div>
     </CustomThemeProvider>
@@ -119,7 +119,7 @@ import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
 import AMButton from "@/components/atoms/Button";
 import AMLink from "@/components/atoms/Link";
-import AMBreadcrumbs from "@/components/molecules/Breadcrumb";
+import AMBreadcrumb from "@/components/molecules/Breadcrumb";
 
 export default {
   name: "App",
@@ -127,26 +127,17 @@ export default {
     CustomThemeProvider,
     AMButton,
     AMLink,
-    AMBreadcrumbs,
+    AMBreadcrumb,
   },
   data() {
     return {
       customTheme: false,
       themeLequ: {},
-      loading: false,
+      loading: true,
       breadcrumbItems: [
-        {
-          label: "Home",
-          href: "/",
-        },
-        {
-          label: "Project overview",
-          href: "/",
-        },
-        {
-          label: "Project detail",
-          href: "/",
-        },
+        { label: "Home", href: "/" },
+        { label: "Project overview", href: "/" },
+        { label: "Project detail", href: "/" },
       ],
     };
   },
@@ -156,9 +147,6 @@ export default {
   methods: {
     toggleTheme() {
       this.customTheme = !this.customTheme;
-    },
-    clickHandle() {
-      this.loading = !this.loading;
     },
   },
   computed: {

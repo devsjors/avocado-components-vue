@@ -7,7 +7,7 @@
 </template>
 
 <script>
-import { StyledLink } from "./styles";
+import { StyledLink } from "./styles/index";
 import IconBase from "../../../icons/IconBase";
 
 export default {

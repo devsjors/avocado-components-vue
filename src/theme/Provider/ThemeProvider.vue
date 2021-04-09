@@ -30,8 +30,8 @@ export default {
   },
   methods: {
     mergeThemes(target, source) {
-      const targetCopy = { ...target }
-      const sourceCopy = { ...source }
+      const targetCopy = { ...target };
+      const sourceCopy = { ...source };
 
       Object.keys(sourceCopy).forEach((sourcekey) => {
         Object.keys(sourceCopy).find((targetkey) => targetkey === sourcekey) !== undefined && typeof sourceCopy[sourcekey] === "object"

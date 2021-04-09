@@ -3,9 +3,7 @@ import styled, { css } from "vue-styled-components";
 const DefaultStyling = (props) => {
   const {
     padding,
-    fontSize,
-    fontWeight,
-    lineHeight,
+    typography,
     textTransform,
     borderRadius,
   } = props.theme.atoms.button;
@@ -19,13 +17,13 @@ const DefaultStyling = (props) => {
     text-transform: ${textTransform};
     border-radius: ${borderRadius};
     @media (max-width: 767px) {
-      font-size: ${fontSize.mobile.fontSize};
-      font-weight: ${fontWeight.mobile.fontWeight};
-      line-height: ${lineHeight.mobile.lineHeight};
+      font-size: ${typography.mobile.fontSize};
+      font-weight: ${typography.mobile.fontWeight};
+      line-height: ${typography.mobile.lineHeight};
     }
-    font-size: ${fontSize.desktop.fontSize};
-    font-weight: ${fontWeight.desktop.fontWeight};
-    line-height: ${lineHeight.desktop.lineHeight};
+    font-size: ${typography.desktop.fontSize};
+    font-weight: ${typography.desktop.fontWeight};
+    line-height: ${typography.desktop.lineHeight};
   `;
 };
 

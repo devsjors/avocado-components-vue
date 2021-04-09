@@ -1,9 +1,9 @@
 <template>
-  <component :is="ButtonComponent" :href="href" @click="clickHandle()">
-    <IconBase v-if="iconStart && !loading" :name="iconStart" />
-    <span v-if="!loading">{{ label }}</span>
-    <span v-if="loading" class="loading" />
-    <IconBase v-if="iconEnd && !loading" :name="iconEnd" />
+  <component :is="ButtonComponent" :href="href" @click="clickHandle()" :class="loading ? 'loading' : ''">
+    <IconBase v-if="iconStart" :name="iconStart" />
+    <span>{{ label }}</span>
+    <span class="spinner" />
+    <IconBase v-if="iconEnd" :name="iconEnd" />
   </component>
 </template>
 

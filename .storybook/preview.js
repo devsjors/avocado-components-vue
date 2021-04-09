@@ -3,7 +3,8 @@ import CustomThemeProvider from "../src/theme/Provider";
 
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
-  docs: { inlineStories: true }
+  docs: { inlineStories: true },
+  controls: { expanded: true },
 }
 
 export const decorators = [(story) => ({

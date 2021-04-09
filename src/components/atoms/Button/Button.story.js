@@ -1,10 +1,30 @@
 import AMButton from "./Button.vue";
 import Documentation from "./Button.mdx";
 
+const icons = {
+  none: "",
+  mail: "mail",
+  location: "location",
+};
+
 export default {
   component: AMButton,
   title: "Design System/Atoms/Button",
-  parameters: { docs: { page: Documentation } },
+  parameters: { docs: { page: Documentation }, options: { showPanel: false } },
+  decorators: [
+    () => ({ template: "<CustomThemeProvider><story/></CustomThemeProvider>" }),
+  ],
+  argTypes: {
+    label: { control: { type: "text" } },
+    variant: {
+      control: { type: "select", options: ["primary", "secondary", "ghost"] },
+    },
+    href: { control: { type: "text" } },
+    disabled: { control: { type: "boolean" } },
+    loading: { control: { type: "boolean" } },
+    iconStart: { control: { type: "select", options: icons } },
+    iconEnd: { control: { type: "select", options: icons } },
+  },
 };
 
 export const Variants = () => ({
@@ -53,3 +73,17 @@ export const Disabled = () => ({
   </section>
   `,
 });
+
+const Template = (args, { argTypes }) => ({
+  components: { AMButton },
+  props: Object.keys(argTypes),
+  template: '<AMButton v-bind="$props" />',
+});
+
+export const Playground = Template.bind({});
+Playground.args = {
+  label: "Button",
+  variant: "primary",
+  iconEnd: "mail",
+};
+Playground.parameters = { options: { showPanel: true } };

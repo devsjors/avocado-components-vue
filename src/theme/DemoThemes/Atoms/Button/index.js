@@ -2,9 +2,7 @@ import cores from "../../Cores";
 
 const button = {
   padding: `${cores.spacing["3"]} ${cores.spacing["5"]}`,
-  fontSize: cores.typography.text.button,
-  fontWeight: cores.typography.text.button,
-  lineHeight: cores.typography.text.button,
+  typography: cores.typography.text.button,
   textTransform: "none",
   borderRadius: cores.spacing["2"],
   primary: {
