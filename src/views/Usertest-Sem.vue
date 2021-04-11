@@ -21,7 +21,32 @@
     <div>
       <p style="margin-bottom: 20px">Het uiteindelijk resultaat:</p>
       <button class="result-button">Button</button>
+      <ul>
+        <li>Blauw: #b3fffc</li>
+        <li>Roze: #fb62f6</li>
+        <li>Wit: #ffffff</li>
+        <li>Zwart: #000000</li>
+        <li>Padding: 12px 24px</li>
+        <li>textTransform: uppercase</li>
+        <li>fontSize desktop: 14px</li>
+        <li>fontSize mobile: 14px</li>
+        <li>fontWeight desktop: 700</li>
+        <li>fontWeight mobile: 700</li>
+        <li>lineHeight desktop: 24px</li>
+        <li>lineHeight mobile: 24px</li>
+      </ul>
     </div>
+
+    <!-- desktop: {
+      fontSize: "14px",
+      fontWeight: "700",
+      lineHeight: "24px",
+    },
+    mobile: {
+      fontSize: "14px",
+      fontWeight: "700",
+      lineHeight: "24px",
+    }, -->
 
     <div style="margin: 80px 0">
       <p>Stap 1: Definiëren van de benodigde cores</p>
