@@ -1,10 +1,11 @@
-import { Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Story, Canvas, ArgsTable } from "@storybook/addon-docs/blocks";
 import AMButton from "./Button.vue";
 
 # Button
 
 ## Table of Contents
 - [Overview](#overview)
+- [Theme](#theme)
 
 ## Overview
 
@@ -23,11 +24,63 @@ import AMButton from "./Button.vue";
   <Story id="design-system-atoms-button--loading" />
 </Canvas>
 
-
 ### Disabled
 <Canvas>
   <Story id="design-system-atoms-button--disabled" />
 </Canvas>
+
+### Theme
+```js
+// Define your cores to create a single source of truth
+import cores from "../../Cores";
+
+const button = {
+  // Add default styling for each variant
+  padding: `spacing spacing`,
+  typography: "typography",
+  textTransform: "uppercase",
+  borderRadius: "radius",
+  // Customize primary variant
+  primary: {
+    textColor: "color",
+    backgroundColor: "color",
+    hover: {
+      textColor: "color",
+      backgroundColor: "color",
+    },
+    disabled: {
+      textColor: "color",
+      backgroundColor: "color",
+    },
+  },
+  // Customize secondary variant
+  secondary: {
+    textColor: "color",
+    borderColor: "color",
+    hover: {
+      textColor: "color",
+      borderColor: "color",
+    },
+    disabled: {
+      textColor: "color",
+      borderColor: "color",
+    },
+  },
+  // Customize ghost variant
+  ghost: {
+    textColor: "color",
+    hover: {
+      textColor: "color",
+    },
+    disabled: {
+      textColor: "color",
+    },
+  },
+};
+
+// Export your styles
+export default button;
+```
 
 <ArgsTable of={AMButton} />
 
