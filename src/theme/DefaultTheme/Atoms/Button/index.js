@@ -1,41 +1,42 @@
 import cores from "../../Cores";
+const { colors, typography, spacing } = cores;
 
 const button = {
-  padding: `${cores.spacing["3"]} ${cores.spacing["5"]}`,
-  typography: cores.typography.text.button,
+  padding: `${spacing["3"]} ${spacing["5"]}`,
+  typography: typography.text.button,
   textTransform: "uppercase",
-  borderRadius: cores.spacing["2"],
+  borderRadius: spacing["2"],
   primary: {
-    textColor: cores.colors.base.white,
-    backgroundColor: cores.colors.primary["slime-light"],
+    textColor: colors.base.white,
+    backgroundColor: colors.primary["slime-light"],
     hover: {
-      textColor: cores.colors.base.white,
-      backgroundColor: cores.colors.primary["slime-dark"],
+      textColor: colors.base.white,
+      backgroundColor: colors.primary["slime-dark"],
     },
     disabled: {
-      textColor: cores.colors.base.white,
-      backgroundColor: cores.colors.base.grey["300"],
+      textColor: colors.base.white,
+      backgroundColor: colors.base.grey["300"],
     },
   },
   secondary: {
-    textColor: cores.colors.primary["slime-light"],
-    borderColor: cores.colors.primary["slime-light"],
+    textColor: colors.primary["slime-light"],
+    borderColor: colors.primary["slime-light"],
     hover: {
-      textColor: cores.colors.primary["slime-dark"],
-      borderColor: cores.colors.primary["slime-dark"],
+      textColor: colors.primary["slime-dark"],
+      borderColor: colors.primary["slime-dark"],
     },
     disabled: {
-      textColor: cores.colors.base.grey["300"],
-      borderColor: cores.colors.base.grey["300"],
+      textColor: colors.base.grey["300"],
+      borderColor: colors.base.grey["300"],
     },
   },
   ghost: {
-    textColor: cores.colors.base.grey["500"],
+    textColor: colors.base.grey["500"],
     hover: {
-      textColor: cores.colors.base.grey["700"],
+      textColor: colors.base.grey["700"],
     },
     disabled: {
-      textColor: cores.colors.base.grey["300"],
+      textColor: colors.base.grey["300"],
     },
   },
 };

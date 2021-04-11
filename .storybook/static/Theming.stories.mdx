@@ -1,0 +1,402 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Getting started/Theming" />
+
+<style>{``}</style>
+
+# Avocado Media - Design System - Vue
+
+## Recommended folder structure
+```js
+theme
+└───ThemeName
+    └───index.js
+        Cores
+        └───index.js
+        └───Colors
+        │   └───index.js
+        │   └───primary.js
+        │   └───secondary.js
+        │   └───base.js
+        │   └───feedback.js
+        └───Typography
+        │   └───index.js
+        │   └───titles.js
+        │   └───subtitles.js
+        │   └───text.js
+        └───Spacing
+        │   └───index.js
+        Atoms
+        └───index.js
+        └───Button
+        │   └───index.js
+        └───Link
+            └───index.js
+```
+
+## ThemeName
+
+```js
+// theme / ThemeName / index.js
+import cores from "./Cores";
+import atoms from "./Atoms";
+
+const CustomTheme = {
+  cores,
+  atoms,
+};
+
+export default CustomTheme;
+```
+
+## Cores
+
+```js
+// theme / ThemeName / Cores / index.js
+import colors from "./Colors";
+import typography from "./Typography";
+import spacing from "./Spacing";
+
+const cores = {
+  colors,
+  typography,
+  spacing,
+};
+
+export default cores;
+
+```
+
+---
+
+### Colors
+
+```js
+// theme / ThemeName / Cores / Colors / index.js
+import primary from "./primary";
+import secondary from "./secondary";
+import base from "./base";
+import feedback from "./feedback";
+
+const colors = {
+  primary,
+  secondary,
+  base,
+  feedback,
+};
+
+export default colors;
+
+```
+
+<details><summary>Cores / Colors / primary.js</summary>
+
+```js
+const primary = {
+  navy: "#0A192D",
+  "slime-light": "#00DCB9",
+  "slime-dark": "#00B699",
+};
+
+export default primary;
+```
+</details>
+
+<details><summary>Cores / Colors / secondary.js</summary>
+
+```js
+const secondary = {
+  "light-blue": "#D7EBEB",
+  mist: "EDF2F2",
+};
+
+export default secondary;
+```
+</details>
+
+<details><summary>Cores / Colors / base.js</summary>
+
+```js
+const base = {
+  grey: {
+    100: "#F5F5F5",
+    200: "#EEEEEE",
+    300: "#E0E0E0",
+    400: "#BDBDBD",
+    500: "#9E9E9E",
+    600: "#757575",
+    700: "#616161",
+    800: "#424242",
+    900: "#212121",
+  },
+  white: "#FFFFFF",
+};
+
+export default base;
+```
+</details>
+
+<details><summary>Cores / Colors / feedback.js</summary>
+
+```js
+const feedback = {
+  success: "#14AD48",
+  warning: "#F48A1E",
+  error: "#E01447",
+};
+
+export default feedback;
+```
+</details>
+
+---
+
+### Typography
+
+```js
+// theme / ThemeName / Cores / Typography / index.js
+import titles from "./titles";
+import subtitles from "./subtitles";
+import text from "./text";
+
+const typography = {
+  titles,
+  subtitles,
+  text,
+};
+
+export default typography;
+```
+
+<details><summary>Cores / Typography / titles.js</summary>
+
+```js
+const titles = {
+  huge: {
+    desktop: {
+      fontSize: "72px",
+      fontWeight: "900",
+      lineHeight: "80px",
+    },
+    mobile: {
+      fontSize: "56px",
+      fontWeight: "900",
+      lineHeight: "64px",
+    },
+  },
+  giant: {
+    desktop: {
+      fontSize: "56px",
+      fontWeight: "900",
+      lineHeight: "64px",
+    },
+    mobile: {
+      fontSize: "44px",
+      fontWeight: "900",
+      lineHeight: "50px",
+    },
+  },
+  epic: {
+    desktop: {
+      fontSize: "44px",
+      fontWeight: "700",
+      lineHeight: "50px",
+    },
+    mobile: {
+      fontSize: "36px",
+      fontWeight: "700",
+      lineHeight: "44px",
+    },
+  },
+  large: {
+    desktop: {
+      fontSize: "36px",
+      fontWeight: "700",
+      lineHeight: "44px",
+    },
+    mobile: {
+      fontSize: "32px",
+      fontWeight: "700",
+      lineHeight: "40px",
+    },
+  },
+};
+
+export default titles;
+```
+</details>
+
+<details><summary>Cores / Typography / subtitles.js</summary>
+
+```jsconst subtitles = {
+  medium: {
+    desktop: {
+      fontSize: "32px",
+      fontWeight: "500",
+      lineHeight: "40px",
+    },
+    mobile: {
+      fontSize: "28px",
+      fontWeight: "500",
+      lineHeight: "36px",
+    },
+  },
+  small: {
+    desktop: {
+      fontSize: "28px",
+      fontWeight: "500",
+      lineHeight: "36px",
+    },
+    mobile: {
+      fontSize: "24px",
+      fontWeight: "500",
+      lineHeight: "32px",
+    },
+  },
+  tiny: {
+    desktop: {
+      fontSize: "24px",
+      fontWeight: "500",
+      lineHeight: "32px",
+    },
+    mobile: {
+      fontSize: "20px",
+      fontWeight: "500",
+      lineHeight: "30px",
+    },
+  },
+};
+
+export default subtitles;
+```
+</details>
+
+<details><summary>Cores / Typography / text.js</summary>
+
+```js
+const text = {
+  introduction: {
+    desktop: {
+      fontSize: "20px",
+      fontWeight: "400",
+      lineHeight: "30px",
+    },
+    mobile: {
+      fontSize: "20px",
+      fontWeight: "400",
+      lineHeight: "30px",
+    },
+  },
+  highlighted: {
+    desktop: {
+      fontSize: "18px",
+      fontWeight: "700",
+      lineHeight: "26px",
+    },
+    mobile: {
+      fontSize: "18px",
+      fontWeight: "700",
+      lineHeight: "26px",
+    },
+  },
+  "body-light": {
+    desktop: {
+      fontSize: "16px",
+      fontWeight: "300",
+      lineHeight: "24px",
+    },
+    mobile: {
+      fontSize: "16px",
+      fontWeight: "300",
+      lineHeight: "24px",
+    },
+  },
+  "body-regular": {
+    desktop: {
+      fontSize: "16px",
+      fontWeight: "400",
+      lineHeight: "24px",
+    },
+    mobile: {
+      fontSize: "16px",
+      fontWeight: "400",
+      lineHeight: "24px",
+    },
+  },
+  "body-bold": {
+    desktop: {
+      fontSize: "16px",
+      fontWeight: "700",
+      lineHeight: "24px",
+    },
+    mobile: {
+      fontSize: "16px",
+      fontWeight: "700",
+      lineHeight: "24px",
+    },
+  },
+  button: {
+    desktop: {
+      fontSize: "14px",
+      fontWeight: "700",
+      lineHeight: "24px",
+    },
+    mobile: {
+      fontSize: "14px",
+      fontWeight: "700",
+      lineHeight: "24px",
+    },
+  },
+  caption: {
+    desktop: {
+      fontSize: "14px",
+      fontWeight: "400",
+      lineHeight: "22px",
+    },
+    mobile: {
+      fontSize: "14px",
+      fontWeight: "400",
+      lineHeight: "22px",
+    },
+  },
+  mini: {
+    desktop: {
+      fontSize: "10px",
+      fontWeight: "700",
+      lineHeight: "18px",
+    },
+    mobile: {
+      fontSize: "10px",
+      fontWeight: "700",
+      lineHeight: "18px",
+    },
+  },
+};
+
+export default text;
+```
+</details>
+
+---
+
+### Spacing
+
+```js
+// theme / ThemeName / Cores / Spacing / index.js
+const spacing = {
+  0: "0px",
+  1: "4px",
+  2: "8px",
+  3: "12px",
+  4: "16px",
+  5: "20px",
+  6: "24px",
+  7: "28px",
+  8: "32px",
+  9: "36px",
+  10: "40px",
+};
+
+export default spacing;
+
+```
