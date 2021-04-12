@@ -6,6 +6,7 @@
         Tijdens deze User Test wil ik erachter komen of het jou lukt om het
         Thema van een Button te maken en deze Button te renderen.
         <span style="display: block; margin: 12px 0; font-weight: 700">BELANGRIJK! Je mag/moet de Storybook documentatie gebruiken</span>
+        <a href="https://storybook-avocado-components-vue.netlify.app/" target="_blank">Component Library / Documentatie</a>
       </p>
       <p>Dit gaan we doen in een aantal stappen:</p>
       <ol>
