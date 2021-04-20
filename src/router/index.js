@@ -11,6 +11,21 @@ const routes = [
     component: Home,
   },
   {
+    path: "/cores",
+    name: "cores",
+    component: () => import("../views/Cores.vue"),
+  },
+  {
+    path: "/atoms",
+    name: "atoms",
+    component: () => import("../views/Atoms.vue"),
+  },
+  {
+    path: "/molecules",
+    name: "molecules",
+    component: () => import("../views/Molecules.vue"),
+  },
+  {
     path: "/usertest-sem",
     name: "Usertest-Sem",
     component: () => import("../views/Usertest-Sem.vue"),

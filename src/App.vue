@@ -9,7 +9,11 @@
     <CustomThemeProvider :customTheme="determainTheme">
       <div id="nav">
         <router-link to="/">Home</router-link> |
-        <router-link to="/usertest-sem">User Test Sem</router-link>
+        <router-link to="/cores">Cores</router-link> |
+        <router-link to="/atoms">Atoms</router-link> |
+        <router-link to="/molecules">Molecules</router-link> |
+        <router-link to="/organisms">Organisms</router-link> |
+        <!-- <router-link to="/usertest-sem">User Test Sem</router-link> -->
       </div>
       <router-view />
     </CustomThemeProvider>
@@ -53,20 +57,17 @@ export default {
 
 <style lang="css">
 @import "./styles/reset.css";
-
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   padding: 20px;
 }
-
 .toggle-theme {
   position: fixed;
   bottom: 20px;
   right: 20px;
 }
-
 .flex {
   display: flex;
   gap: 40px;
@@ -78,5 +79,8 @@ export default {
   flex-wrap: wrap;
   margin-bottom: 20px;
   gap: 20px;
+}
+#nav {
+  margin-bottom: 32px;
 }
 </style>
