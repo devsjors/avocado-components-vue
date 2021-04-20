@@ -85,12 +85,12 @@ const text = {
   },
   mini: {
     desktop: {
-      fontSize: "10px",
+      fontSize: "12px",
       fontWeight: "700",
       lineHeight: "18px",
     },
     mobile: {
-      fontSize: "10px",
+      fontSize: "12px",
       fontWeight: "700",
       lineHeight: "18px",
     },
