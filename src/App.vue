@@ -23,7 +23,7 @@
 <script>
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-import userTestSemTheme from "./theme/userTestSem";
+// import userTestSemTheme from "./theme/userTestSem";
 
 export default {
   name: "App",
@@ -38,8 +38,8 @@ export default {
     };
   },
   created() {
-    // this.themeLequ = LequTheme;
-    this.userTestSemTheme = userTestSemTheme;
+    this.themeLequ = LequTheme;
+    // this.userTestSemTheme = userTestSemTheme;
   },
   methods: {
     toggleTheme() {
@@ -48,8 +48,8 @@ export default {
   },
   computed: {
     determainTheme() {
-      // return this.customTheme ? this.themeLequ : null;
-      return this.customTheme ? this.userTestSemTheme : null;
+      return this.customTheme ? this.themeLequ : null;
+      // return this.customTheme ? this.userTestSemTheme : null;
     },
   },
 };

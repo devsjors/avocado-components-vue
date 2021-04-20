@@ -5,10 +5,12 @@
 <script>
 import IconMail from "./icons/IconMail";
 import IconLocation from "./icons/IconLocation";
+import IconExclamation from "./icons/IconExclamation";
 
 const icons = {
   mail: IconMail,
   location: IconLocation,
+  exclamation: IconExclamation,
 };
 export default {
   props: {
