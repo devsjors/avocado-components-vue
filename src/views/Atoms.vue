@@ -105,12 +105,18 @@
         <p>Input with label</p>
         <div>
           <form @submit.prevent="handleSubmit" novalidate>
-            <AMInput @error="pushErrors" ref="example1" label="E-mail" v-model="form.email" type="email" required placeholder="Email" id="example2" icon="mail" />
-            <AMInput @error="pushErrors" ref="example2" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example3" />
+            <AMInput @error="pushErrors" ref="example1" label="E-mail" v-model="form.email" type="email" required placeholder="Email" id="example1" icon="mail" />
+            <AMInput @error="pushErrors" ref="example2" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example2" />
             <AMButton type="submit" variant="primary" label="Submit" />
           </form>
         </div>
       </div>
+    </div>
+    <div class="flex">
+      <AMRadio v-model="form.fruits" label="Appel" name="fruits" id="example3" />
+      <AMRadio v-model="form.fruits" label="Banaan" name="fruits" id="example4" />
+      <AMRadio v-model="form.fruits" label="Peer" name="fruits" id="example5" />
+      <AMRadio v-model="form.toc" label="toc" id="example6" />
     </div>
   </div>
 </template>
@@ -121,6 +127,7 @@ import axios from "axios";
 import AMButton from "@/components/atoms/Button";
 import AMLink from "@/components/atoms/Link";
 import AMInput from "@/components/atoms/Input";
+import AMRadio from "@/components/atoms/Radio";
 
 export default {
   name: "Home",
@@ -128,6 +135,7 @@ export default {
     AMButton,
     AMLink,
     AMInput,
+    AMRadio,
   },
   data() {
     return {
@@ -135,6 +143,8 @@ export default {
       form: {
         email: "",
         phone: "",
+        fruits: [],
+        toc: false,
       },
       errors: [],
     };
@@ -150,6 +160,8 @@ export default {
     handleSubmit() {
       this.errors = [];
       this.handleErrors();
+
+      console.log(this.form);
 
       if (!this.errors.length) {
         axios
