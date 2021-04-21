@@ -1,10 +1,5 @@
 <template>
-  <component
-    :is="ButtonComponent"
-    :href="href"
-    @click="clickHandle()"
-    :class="loading ? 'loading' : ''"
-  >
+  <component :is="ButtonComponent" :href="href" @click="clickHandle()" :class="loading && 'loading'">
     <IconBase v-if="iconStart" :name="iconStart" />
     <span>{{ label }}</span>
     <span class="spinner" />

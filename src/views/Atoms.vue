@@ -104,10 +104,10 @@
       <div class="flex-column">
         <p>Input with label</p>
         <div>
-          <form @submit.prevent="checkForm">
-            <AMTextInput v-model="form.name" label="Label" errorMessage="Error" placeholder="placeholder" id="example" icon="mail" />
-            <AMTextInput v-model="form.surname" label="Label" errorMessage="Error" placeholder="placeholder" id="example2" icon="mail" />
-            <AMButton type="submit" variant="secondary" label="Submit" />
+          <form @submit.prevent="handleSubmit" novalidate>
+            <AMInput @error="pushErrors" ref="example1" label="E-mail" v-model="form.email" type="email" required placeholder="Email" id="example2" icon="mail" />
+            <AMInput @error="pushErrors" ref="example2" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example3" />
+            <AMButton type="submit" variant="primary" label="Submit" />
           </form>
         </div>
       </div>
@@ -116,30 +116,51 @@
 </template>
 
 <script>
+import axios from "axios";
+
 import AMButton from "@/components/atoms/Button";
 import AMLink from "@/components/atoms/Link";
-import AMTextInput from "@/components/atoms/Input/Text";
+import AMInput from "@/components/atoms/Input";
 
 export default {
   name: "Home",
   components: {
     AMButton,
     AMLink,
-    AMTextInput,
+    AMInput,
   },
   data() {
     return {
       loading: true,
       form: {
-        name: null,
-        surname: null,
+        email: "",
+        phone: "",
       },
+      errors: [],
     };
   },
   methods: {
-    checkForm() {
-      const inputs = this.$refs.form.querySelectorAll(".form-input");
-      console.log(inputs);
+    pushErrors(error) {
+      error && this.errors.push(error);
+    },
+    handleErrors() {
+      this.$refs.example1.handleError();
+      this.$refs.example2.handleError();
+    },
+    handleSubmit() {
+      this.errors = [];
+      this.handleErrors();
+
+      if (!this.errors.length) {
+        axios
+          .post("/atoms", this.form)
+          .then(() => {
+            // Write action
+          })
+          .catch(() => {
+            // Write fallback
+          });
+      }
     },
   },
 };

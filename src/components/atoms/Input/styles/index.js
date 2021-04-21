@@ -55,18 +55,16 @@ const HoverStyling = (props) => {
 const IconStyling = (props) => {
   const { base, primary } = props.theme.cores.colors;
   return css`
-    .input-wrapper {
-      &:focus-within .input-icon,
-      &:hover .input-icon {
-        fill: ${primary["slime-light"]};
-      }
-      .input-icon {
-        margin: 14px 8px 14px 20px;
-        fill: ${base.grey["500"]};
-      }
-      input {
-        padding: 12px 20px 12px 48px;
-      }
+    &:focus-within .input-icon,
+    &:hover .input-icon {
+      fill: ${primary["slime-light"]};
+    }
+    .input-icon {
+      margin: 14px 8px 14px 20px;
+      fill: ${base.grey["500"]};
+    }
+    .input-wrapper input {
+      padding: 12px 20px 12px 48px;
     }
   `;
 };
@@ -93,6 +91,7 @@ const ErrorStyling = (props) => {
       input {
         box-shadow: 0 0 0 1px ${feedback.error};
         color: ${feedback.error};
+        padding-right: 48px;
       }
     }
     .error-message {
