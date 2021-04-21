@@ -1,5 +1,5 @@
 <template>
-  <component :is="TextComponent">
+  <component :as="as" :is="TextComponent">
     <slot />
   </component>
 </template>
@@ -13,6 +13,11 @@ export default {
     variant: {
       type: String,
       required: true,
+    },
+    as: {
+      type: String,
+      default: "p",
+      required: false,
     },
   },
   computed: {
