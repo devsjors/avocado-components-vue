@@ -107,35 +107,39 @@
           <form @submit.prevent="handleSubmit" novalidate>
             <AMInput @error="pushErrors" ref="example1" label="E-mail" v-model="form.email" type="email" required placeholder="Email" id="example1" icon="mail" />
             <AMInput @error="pushErrors" ref="example2" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example2" />
+            <div>
+              <AMCheckbox v-model="form.fruits" name="fruits" value="appel" id="example3">
+                <AMText as="label" variant="body-light" for="example3">Appel</AMText>
+              </AMCheckbox>
+              <AMCheckbox v-model="form.fruits" label="Banaan" name="fruits" id="example4" />
+              <AMCheckbox v-model="form.fruits" label="Peer" name="fruits" id="example5" />
+            </div>
+            <AMCheckbox @error="pushErrors" ref="example3" v-model="form.toc" label="Algemene voorwaarden" required id="example6" />
             <AMButton type="submit" variant="primary" label="Submit" />
           </form>
         </div>
       </div>
-    </div>
-    <div class="flex">
-      <AMRadio v-model="form.fruits" label="Appel" name="fruits" id="example3" />
-      <AMRadio v-model="form.fruits" label="Banaan" name="fruits" id="example4" />
-      <AMRadio v-model="form.fruits" label="Peer" name="fruits" id="example5" />
-      <AMRadio v-model="form.toc" label="toc" id="example6" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
+import AMText from "@/components/cores/Text";
 
 import AMButton from "@/components/atoms/Button";
 import AMLink from "@/components/atoms/Link";
 import AMInput from "@/components/atoms/Input";
-import AMRadio from "@/components/atoms/Radio";
+import AMCheckbox from "@/components/atoms/Checkbox";
 
 export default {
   name: "Home",
   components: {
+    AMText,
     AMButton,
     AMLink,
     AMInput,
-    AMRadio,
+    AMCheckbox,
   },
   data() {
     return {
@@ -156,6 +160,7 @@ export default {
     handleErrors() {
       this.$refs.example1.handleError();
       this.$refs.example2.handleError();
+      this.$refs.example3.handleError();
     },
     handleSubmit() {
       this.errors = [];
