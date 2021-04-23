@@ -1,6 +1,6 @@
 <template>
   <div>
-    <AMTitle variant="huge">Welcome</AMTitle>
+    <AMTitle as="h1" variant="huge">Welcome</AMTitle>
   </div>
 </template>
 

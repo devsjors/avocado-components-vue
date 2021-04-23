@@ -6,11 +6,13 @@
 import IconMail from "./icons/IconMail";
 import IconLocation from "./icons/IconLocation";
 import IconExclamation from "./icons/IconExclamation";
+import IconCheck from "./icons/IconCheck";
 
 const icons = {
   mail: IconMail,
   location: IconLocation,
   exclamation: IconExclamation,
+  check: IconCheck,
 };
 export default {
   props: {

@@ -105,22 +105,34 @@
         <p>Input with label</p>
         <div>
           <form @submit.prevent="handleSubmit" novalidate>
-            <AMInput @error="pushErrors" ref="example1" label="E-mail" v-model="form.email" type="email" required placeholder="Email" id="example2" icon="mail" />
-            <AMInput @error="pushErrors" ref="example2" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example3" />
+            <AMInput @error="pushErrors" :validate="trigger" v-model="form.email" type="email" required placeholder="Email" id="example1" icon="mail" />
+            <AMInput @error="pushErrors" :validate="trigger" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example2" />
+            <div>
+              <AMCheckbox v-model="form.fruits" label="Appel" name="fruits" id="example3" />
+              <AMCheckbox v-model="form.fruits" label="Banaan" name="fruits" id="example4" />
+              <AMCheckbox v-model="form.fruits" label="Peer" name="fruits" id="example5" />
+            </div>
+            <AMCheckbox @error="pushErrors" :validate="trigger" v-model="form.toc" label="Algemene voorwaarden" required id="example6" />
             <AMButton type="submit" variant="primary" label="Submit" />
           </form>
         </div>
       </div>
+    </div>
+    <div>
+      <AMRadio v-model="form.candy" label="Chocolade reep" name="candy" id="example7" />
+      <AMRadio v-model="form.candy" label="Popcorn" name="candy" id="example8" />
+      <AMRadio v-model="form.candy" label="Chips" name="candy" id="example9" />
     </div>
   </div>
 </template>
 
 <script>
 import axios from "axios";
-
 import AMButton from "@/components/atoms/Button";
 import AMLink from "@/components/atoms/Link";
 import AMInput from "@/components/atoms/Input";
+import AMCheckbox from "@/components/atoms/Checkbox";
+import AMRadio from "@/components/atoms/Radio";
 
 export default {
   name: "Home",
@@ -128,6 +140,8 @@ export default {
     AMButton,
     AMLink,
     AMInput,
+    AMCheckbox,
+    AMRadio,
   },
   data() {
     return {
@@ -135,21 +149,23 @@ export default {
       form: {
         email: "",
         phone: "",
+        fruits: [],
+        toc: false,
+        candy: "",
       },
       errors: [],
+      trigger: 0,
     };
   },
   methods: {
     pushErrors(error) {
       error && this.errors.push(error);
     },
-    handleErrors() {
-      this.$refs.example1.handleError();
-      this.$refs.example2.handleError();
-    },
     handleSubmit() {
       this.errors = [];
-      this.handleErrors();
+      this.trigger++;
+
+      console.log(this.form);
 
       if (!this.errors.length) {
         axios

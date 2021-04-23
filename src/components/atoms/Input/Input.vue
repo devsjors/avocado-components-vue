@@ -58,6 +58,10 @@ export default {
     value: {
       type: String,
     },
+    validate: {
+      type: Number,
+      required: false,
+    },
   },
   data() {
     return {
@@ -69,6 +73,11 @@ export default {
         tel: "Dit telefoonnummer is ongeldig",
       },
     };
+  },
+  watch: {
+    validate() {
+      this.handleError();
+    },
   },
   methods: {
     handleInput(value) {

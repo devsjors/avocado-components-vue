@@ -22,7 +22,7 @@ const DefaultStyling = (props) => {
       padding: 12px 20px;
       border-radius: 8px;
       color: ${grey["900"]}
-      box-shadow: 0 0 0 1px ${grey["600"]};
+      box-shadow: inset 0 0 0 1px ${grey["600"]};
       ::placeholder {
         color: ${grey["400"]};
       }
@@ -47,7 +47,7 @@ const HoverStyling = (props) => {
   return css`
     input:hover,
     input:focus {
-      box-shadow: 0 0 0 2px ${primary["slime-light"]};
+      box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
     }
   `;
 };
@@ -89,7 +89,7 @@ const ErrorStyling = (props) => {
         fill: ${feedback.error};
       }
       input {
-        box-shadow: 0 0 0 1px ${feedback.error};
+        box-shadow: inset 0 0 0 1px ${feedback.error};
         color: ${feedback.error};
         padding-right: 48px;
       }
