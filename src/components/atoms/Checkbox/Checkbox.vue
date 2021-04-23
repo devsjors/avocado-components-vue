@@ -58,6 +58,10 @@ export default {
       type: [Array, Boolean],
       required: false,
     },
+    validate: {
+      type: Number,
+      required: false,
+    },
   },
   model: {
     prop: "checked",
@@ -75,6 +79,11 @@ export default {
         tel: "Dit telefoonnummer is ongeldig",
       },
     };
+  },
+  watch: {
+    validate() {
+      this.handleError();
+    },
   },
   methods: {
     handleInput() {

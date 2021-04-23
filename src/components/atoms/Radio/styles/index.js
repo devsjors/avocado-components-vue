@@ -1,12 +1,11 @@
 import styled, { css } from "vue-styled-components";
 
-const StyledCheckbox = (StyledProps) => {
+const StyledRadio = (StyledProps) => {
   const { disabled } = StyledProps;
   return styled.div`
     ${(props) => DefaultStyling(props)}
     ${(props) => HoverStyling(props)}
     ${(props) => CheckedStyling(props)}
-    ${(props) => ErrorStyling(props)}
     ${(props) => disabled && DisabledStyling(props)}
   `;
 };
@@ -14,27 +13,28 @@ const StyledCheckbox = (StyledProps) => {
 const DefaultStyling = (props) => {
   const { grey } = props.theme.cores.colors.base;
   return css`
-    .custom-checkbox-wrapper {
+    .custom-radio-wrapper {
       display: flex;
       align-items: center;
-      input {
-        width: 16px;
-        height: 16px;
-        opacity: 0;
-      }
       .custom-input-wrapper {
         position: relative;
         display: flex;
         align-items: center;
-        border-radius: 4px;
-        svg {
-          fill: white;
+        input,
+        .custom-input {
+          width: 16px;
+          height: 16px;
         }
+        input {
+          opacity: 0;
+          z-index: 1;
+        }
+      }
+      .custom-input {
+        position: absolute;
+        border-radius: 999px;
         background: transparent;
         box-shadow: inset 0 0 0 1px ${grey["600"]};
-      }
-      .custom-check {
-        position: absolute;
       }
       label {
         padding-left: 8px;
@@ -49,7 +49,7 @@ const HoverStyling = (props) => {
     &:not(.checked) {
       &:hover,
       &:focus-within {
-        .custom-input-wrapper {
+        .custom-input {
           box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
         }
       }
@@ -57,7 +57,7 @@ const HoverStyling = (props) => {
     &.checked {
       &:hover,
       &:focus-within {
-        .custom-input-wrapper {
+        .custom-input {
           background: ${primary["slime-dark"]};
           box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
         }
@@ -70,9 +70,20 @@ const CheckedStyling = (props) => {
   const { primary } = props.theme.cores.colors;
   return css`
     &.checked {
-      .custom-input-wrapper {
+      .custom-input {
         background: ${primary["slime-light"]};
         box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
+        &:after {
+          content: "";
+          position: absolute;
+          width: 6px;
+          height: 6px;
+          border-radius: 999px;
+          top: 50%;
+          left: 50%;
+          transform: translate(-50%, -50%);
+          background: white;
+        }
       }
     }
   `;
@@ -84,12 +95,12 @@ const DisabledStyling = (props) => {
     pointer-events: none;
     color: ${grey["300"]};
     &:not(.checked) {
-      .custom-input-wrapper {
+      .custom-input {
         box-shadow: inset 0 0 0 1px ${grey["300"]};
       }
     }
     &.checked {
-      .custom-input-wrapper {
+      .custom-input {
         background: ${grey["300"]};
         box-shadow: inset 0 0 0 1px ${grey["300"]};
       }
@@ -97,30 +108,4 @@ const DisabledStyling = (props) => {
   `;
 };
 
-const ErrorStyling = (props) => {
-  const { primary, feedback } = props.theme.cores.colors;
-  return css`
-    &.error {
-      .custom-checkbox-wrapper .custom-input-wrapper {
-        box-shadow: inset 0 0 0 1px ${feedback.error};
-      }
-      .error-message {
-        color: ${feedback.error};
-      }
-      &.checked {
-        .custom-input-wrapper {
-          box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
-        }
-        &:hover,
-        &:focus-within {
-          .custom-input-wrapper {
-            background: ${primary["slime-dark"]};
-            box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
-          }
-        }
-      }
-    }
-  `;
-};
-
-export default StyledCheckbox;
+export default StyledRadio;
