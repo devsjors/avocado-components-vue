@@ -5,7 +5,8 @@
     </AMText>
     <div :class="error && 'error'" class="input-wrapper">
       <IconBase class="input-icon icon" v-if="icon" :name="icon" width="20" height="20" />
-      <input @input="handleInput($event.target.value)" :value="value" :type="type" :id="id" :required="required" :placeholder="placeholder" />
+      <input v-if="type !== 'textarea'" @input="handleInput($event.target.value)" :value="value" :type="type" :id="id" :required="required" :placeholder="placeholder" />
+      <textarea v-if="type === 'textarea'" rows="3" @input="handleInput($event.target.value)" :value="value" :placeholder="placeholder" />
       <IconBase v-if="error" class="error-icon icon" name="exclamation" width="20" height="20" />
     </div>
     <AMText v-if="error" class="error-message" as="span" variant="caption">
@@ -97,6 +98,14 @@ export default {
             this.toggleError(false, this.messages.required);
           } else if (this.value !== "") {
             this.validTel(this.value);
+          }
+          break;
+        case "textarea":
+          console.log(this.value);
+          if (this.value === "" && this.required) {
+            this.toggleError(false, this.messages.required);
+          } else {
+            this.error = false;
           }
           break;
       }

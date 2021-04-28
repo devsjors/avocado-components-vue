@@ -107,6 +107,7 @@
           <form @submit.prevent="handleSubmit" novalidate>
             <AMInput @error="pushErrors" :validate="trigger" v-model="form.email" type="email" required placeholder="Email" id="example1" icon="mail" />
             <AMInput @error="pushErrors" :validate="trigger" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example2" />
+            <AMInput @error="pushErrors" :validate="trigger" label="Search" v-model="form.search" type="search" required placeholder="Telefoonnummer" id="example2" />
             <div>
               <AMCheckbox v-model="form.fruits" label="Appel" name="fruits" id="example3" />
               <AMCheckbox v-model="form.fruits" label="Banaan" name="fruits" id="example4" />
@@ -122,6 +123,9 @@
       <AMRadio v-model="form.candy" label="Chocolade reep" name="candy" id="example7" />
       <AMRadio v-model="form.candy" label="Popcorn" name="candy" id="example8" />
       <AMRadio v-model="form.candy" label="Chips" name="candy" id="example9" />
+    </div>
+    <div class="flex">
+      <AMInput @error="pushErrors" :validate="trigger" v-model="form.message" type="textarea" label="Textarea" required placeholder="Bericht" id="example20" />
     </div>
   </div>
 </template>
@@ -149,6 +153,7 @@ export default {
       form: {
         email: "",
         phone: "",
+        message: "",
         fruits: [],
         toc: false,
         candy: "",
@@ -161,16 +166,20 @@ export default {
     pushErrors(error) {
       error && this.errors.push(error);
     },
-    handleSubmit() {
+    async handleSubmit() {
       this.errors = [];
       this.trigger++;
 
-      console.log(this.form);
+      const errors = await this.errors;
 
-      if (!this.errors.length) {
+      console.log("error", this.form);
+
+      if (!errors.length) {
         axios
           .post("/atoms", this.form)
           .then(() => {
+            console.log("success", this.form);
+
             // Write action
           })
           .catch(() => {

@@ -14,8 +14,9 @@ const DefaultStyling = (props) => {
   const { grey } = props.theme.cores.colors.base;
   return css`
   .input-wrapper {
+    display: flex;
     position: relative;
-    input {
+    input, textarea {
       border: none;
       outline: none;
       width: 100%;
@@ -26,6 +27,15 @@ const DefaultStyling = (props) => {
       ::placeholder {
         color: ${grey["400"]};
       }
+      -webkit-appearance: none;
+      &[type="search"]::-webkit-search-cancel-button,
+      &[type="search"]::-webkit-search-decoration {
+        -webkit-appearance: none;
+        appearance: none;
+      }
+    }
+    textarea {
+      resize: none;
     }
   }
   .label {
@@ -46,7 +56,9 @@ const HoverStyling = (props) => {
   const { primary } = props.theme.cores.colors;
   return css`
     input:hover,
-    input:focus {
+    textarea:hover,
+    input:focus,
+    textarea:focus {
       box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
     }
   `;
@@ -63,7 +75,8 @@ const IconStyling = (props) => {
       margin: 14px 8px 14px 20px;
       fill: ${base.grey["500"]};
     }
-    .input-wrapper input {
+    .input-wrapper input,
+    input-wrapper textarea {
       padding: 12px 20px 12px 48px;
     }
   `;
@@ -88,7 +101,8 @@ const ErrorStyling = (props) => {
         right: 0;
         fill: ${feedback.error};
       }
-      input {
+      input,
+      textarea {
         box-shadow: inset 0 0 0 1px ${feedback.error};
         color: ${feedback.error};
         padding-right: 48px;
