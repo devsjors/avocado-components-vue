@@ -7,12 +7,16 @@ import IconMail from "./icons/IconMail";
 import IconLocation from "./icons/IconLocation";
 import IconExclamation from "./icons/IconExclamation";
 import IconCheck from "./icons/IconCheck";
+import IconSearch from "./icons/IconSearch";
+import IconChevronDown from "./icons/IconChevronDown";
 
 const icons = {
   mail: IconMail,
   location: IconLocation,
   exclamation: IconExclamation,
   check: IconCheck,
+  search: IconSearch,
+  chevron_down: IconChevronDown,
 };
 export default {
   props: {
