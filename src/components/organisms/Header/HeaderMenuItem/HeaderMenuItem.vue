@@ -21,12 +21,20 @@ export default {
     },
   },
   data() {
-    return {};
+    return {
+      active: false,
+    };
   },
   computed: {
     HeaderMenuItemComponent() {
-      return StyledHeaderMenuItem();
+      const data = {
+        active: this.active,
+      };
+      return StyledHeaderMenuItem(data);
     },
+  },
+  created() {
+    this.$data.active = window.location.href.includes(this.$props.href);
   },
 };
 </script>

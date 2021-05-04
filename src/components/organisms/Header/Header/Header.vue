@@ -2,7 +2,11 @@
   <component :is="HeaderComponent" :class="menuOpen && 'open'">
     <div class="header-wrapper">
       <slot />
-      <p @click="toggleHandler" class="toggle">Hi</p>
+      <div @click="toggleHandler" class="toggle" :class="menuOpen ? 'menu-open' : 'menu-close'">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
     </div>
   </component>
 </template>

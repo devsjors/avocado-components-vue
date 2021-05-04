@@ -12,6 +12,9 @@ const DefaultStyling = (props) => {
     align-items: center;
     height: 100%;
     padding: 0 16px;
+    > * {
+      max-height: 80%;
+    }
   `;
 };
 

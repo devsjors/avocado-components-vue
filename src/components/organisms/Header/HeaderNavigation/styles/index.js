@@ -20,10 +20,12 @@ const DefaultStyling = (props) => {
   `;
 };
 
-const MobileStyling = () => {
+const MobileStyling = (props) => {
+  const { grey } = props.theme.cores.colors.base;
   return css`
     @media (max-width: 767px) {
-      padding: 40px 0;
+      padding: 20px 0 40px 0;
+      background: ${grey["200"]};
       > ul {
         flex-direction: column;
         align-items: start;
