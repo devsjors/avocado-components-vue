@@ -7,14 +7,21 @@
       <button @click="toggleTheme">Toggle Theme</button>
     </div>
     <CustomThemeProvider :customTheme="determainTheme">
-      <div id="nav">
-        <router-link to="/">Home</router-link> |
-        <router-link to="/cores">Cores</router-link> |
-        <router-link to="/atoms">Atoms</router-link> |
-        <router-link to="/molecules">Molecules</router-link> |
-        <router-link to="/organisms">Organisms</router-link> |
-        <!-- <router-link to="/usertest-sem">User Test Sem</router-link> -->
-      </div>
+      <AMHeader>
+        <AMHeaderName href="/">Home</AMHeaderName>
+        <AMHeaderNavigation>
+          <AMHeaderMenuItem href="/cores" label="Cores" />
+          <AMHeaderMenuItem href="/atoms" label="Atoms" />
+          <AMHeaderMenuItem href="/molecules" label="Molecules" />
+          <AMHeaderMenuItem href="/organisms" label="Organisms" />
+          <AMHeaderMenu label="Components">
+            <AMHeaderMenuItem href="/cores" label="Cores" />
+            <AMHeaderMenuItem href="/atoms" label="Atoms" />
+            <AMHeaderMenuItem href="/molecules" label="Molecules" />
+            <AMHeaderMenuItem href="/organisms" label="Organisms" />
+          </AMHeaderMenu>
+        </AMHeaderNavigation>
+      </AMHeader>
       <router-view />
     </CustomThemeProvider>
   </div>
@@ -23,12 +30,22 @@
 <script>
 import CustomThemeProvider from "@/theme/Provider";
 import LequTheme from "@/theme/DemoThemes/LequTheme";
-// import userTestSemTheme from "./theme/userTestSem";
+
+import AMHeader from "@/components/organisms/Header/Header";
+import AMHeaderName from "@/components/organisms/Header/HeaderName";
+import AMHeaderNavigation from "@/components/organisms/Header/HeaderNavigation";
+import AMHeaderMenu from "@/components/organisms/Header/HeaderMenu";
+import AMHeaderMenuItem from "@/components/organisms/Header/HeaderMenuItem";
 
 export default {
   name: "App",
   components: {
     CustomThemeProvider,
+    AMHeader,
+    AMHeaderName,
+    AMHeaderNavigation,
+    AMHeaderMenu,
+    AMHeaderMenuItem,
   },
   data() {
     return {
@@ -61,7 +78,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  padding: 20px;
 }
 .toggle-theme {
   position: fixed;

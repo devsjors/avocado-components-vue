@@ -23,7 +23,7 @@ const DefaultStyling = (props) => {
       padding: 12px 20px;
       border-radius: 8px;
       color: ${grey["900"]}
-      box-shadow: inset 0 0 0 1px ${grey["600"]};
+      box-shadow: inset 0 0 0 1px ${grey["400"]};
       ::placeholder {
         color: ${grey["400"]};
       }
@@ -55,9 +55,10 @@ const DefaultStyling = (props) => {
 const HoverStyling = (props) => {
   const { primary } = props.theme.cores.colors;
   return css`
-    input:hover,
+    .input-wrapper:hover input,
+    .input-wrapper:focus input,
+    .input-wrapper:focus-within input,
     textarea:hover,
-    input:focus,
     textarea:focus {
       box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
     }

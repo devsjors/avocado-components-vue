@@ -100,8 +100,14 @@ export default {
             this.validTel(this.value);
           }
           break;
+        case "search":
+          if (this.value === "" && this.required) {
+            this.toggleError(false, this.messages.required);
+          } else {
+            this.error = false;
+          }
+          break;
         case "textarea":
-          console.log(this.value);
           if (this.value === "" && this.required) {
             this.toggleError(false, this.messages.required);
           } else {

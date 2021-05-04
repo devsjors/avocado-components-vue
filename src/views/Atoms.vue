@@ -106,7 +106,7 @@
         <div>
           <form @submit.prevent="handleSubmit" novalidate>
             <AMInput @error="pushErrors" :validate="trigger" v-model="form.email" type="email" required placeholder="Email" id="example1" icon="mail" />
-            <AMInput @error="pushErrors" :validate="trigger" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example2" />
+            <AMInput @error="pushErrors" :validate="trigger" label="Telefoon" v-model="form.phone" type="tel" required placeholder="Telefoonnummer" id="example22" />
             <AMInput @error="pushErrors" :validate="trigger" label="Search" v-model="form.search" type="search" required placeholder="Telefoonnummer" id="example2" />
             <div>
               <AMCheckbox v-model="form.fruits" label="Appel" name="fruits" id="example3" />
