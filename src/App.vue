@@ -8,7 +8,7 @@
     </div>
     <CustomThemeProvider :customTheme="determainTheme">
       <AMHeader>
-        <AMHeaderName href="/">Home</AMHeaderName>
+        <AMHeaderName href="/">Logo</AMHeaderName>
         <AMHeaderNavigation>
           <AMHeaderMenuItem href="/cores" label="Cores" />
           <AMHeaderMenuItem href="/atoms" label="Atoms" />
