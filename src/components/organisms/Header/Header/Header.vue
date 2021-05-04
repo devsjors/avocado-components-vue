@@ -3,9 +3,11 @@
     <div class="header-wrapper">
       <slot />
       <div @click="toggleHandler" class="toggle" :class="menuOpen ? 'menu-open' : 'menu-close'">
-        <span></span>
-        <span></span>
-        <span></span>
+        <div>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
     </div>
   </component>

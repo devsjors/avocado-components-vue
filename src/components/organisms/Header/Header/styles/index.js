@@ -48,29 +48,34 @@ const MenuTogglerStyling = (props) => {
   const { primary } = props.theme.cores.colors;
   return css`
     .toggle {
-      margin: 0 16px;
-      justify-self: end;
       display: flex;
-      flex-direction: column;
-      width: 32px;
-      cursor: pointer;
-      span {
-        background: ${primary["slime-dark"]};
-        border-radius: 10px;
-        height: 3px;
-        margin: 3px 0;
-        transition: 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
-        &:nth-of-type(1) {
-          width: 50%;
-        }
-        &:nth-of-type(2) {
-          width: 100%;
-        }
-        &:nth-of-type(3) {
-          width: 75%;
+      align-items: center;
+      height: 100%;
+      padding: 0 16px;
+      justify-self: end;
+      > div {
+        display: flex;
+        flex-direction: column;
+        width: 32px;
+        cursor: pointer;
+        span {
+          background: ${primary["slime-dark"]};
+          border-radius: 10px;
+          height: 3px;
+          margin: 3px 0;
+          transition: 0.3s cubic-bezier(0.68, -0.6, 0.32, 1.6);
+          &:nth-of-type(1) {
+            width: 50%;
+          }
+          &:nth-of-type(2) {
+            width: 100%;
+          }
+          &:nth-of-type(3) {
+            width: 75%;
+          }
         }
       }
-      &.menu-open {
+      &.menu-open > div {
         span:nth-of-type(1) {
           transform-origin: bottom;
           transform: rotatez(45deg) translate(3px, 0px);
