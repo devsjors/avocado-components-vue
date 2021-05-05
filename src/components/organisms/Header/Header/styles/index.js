@@ -40,6 +40,10 @@ const HeaderLayoutStyling = (headerNavigationPosition) => {
           display: none;
         }
       }
+      & > :first-child,
+      & > :nth-last-child(2) {
+        margin: 0 -16px;
+      }
     }
   `;
 };
@@ -100,6 +104,10 @@ const ToggleStyling = (props) => {
       .header-wrapper {
         position: relative;
         grid-template-columns: auto auto;
+        & > :first-child,
+        & > :last-child {
+          margin: 0 -16px;
+        }
       }
       nav {
         position: absolute;

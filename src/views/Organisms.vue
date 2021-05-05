@@ -1,53 +1,37 @@
 <template>
   <div>
-    <p>Organisms</p>
+    <AMContainer>
+      <AMGrid style="background: green" container>
+        <AMGrid style="background: red" item>1</AMGrid>
+        <AMGrid style="background: red" item>2</AMGrid>
+        <AMGrid style="background: red" item>3</AMGrid>
+        <AMGrid style="background: red" item>4</AMGrid>
+        <AMGrid style="background: red" item>5</AMGrid>
+        <AMGrid style="background: red" item>6</AMGrid>
+        <AMGrid style="background: red" item>7</AMGrid>
+        <AMGrid style="background: red" item>8</AMGrid>
+        <AMGrid style="background: red" item>9</AMGrid>
+        <AMGrid style="background: red" item>10</AMGrid>
+        <AMGrid style="background: red" item>11</AMGrid>
+        <AMGrid style="background: red" item>12</AMGrid>
+      </AMGrid>
+    </AMContainer>
   </div>
 </template>
 
 <script>
-import axios from "axios";
-
-/* eslint-disable vue/no-unused-components */
-import AMHeader from "@/components/organisms/Header/Header";
-import AMHeaderName from "@/components/organisms/Header/HeaderName";
-import AMHeaderNavigation from "@/components/organisms/Header/HeaderNavigation";
-import AMHeaderMenu from "@/components/organisms/Header/HeaderMenu";
-import AMHeaderMenuItem from "@/components/organisms/Header/HeaderMenuItem";
-
-import AMButton from "@/components/atoms/Button";
-import AMInput from "@/components/atoms/Input";
+import AMContainer from "@/components/cores/Container";
+import AMGrid from "@/components/cores/Grid";
 
 export default {
   name: "Home",
   components: {
-    AMHeader,
-    AMHeaderName,
-    AMHeaderNavigation,
-    AMHeaderMenu,
-    AMHeaderMenuItem,
-    AMButton,
-    AMInput,
+    AMContainer,
+    AMGrid,
   },
   data() {
-    return {
-      form: {
-        search: "",
-      },
-    };
+    return {};
   },
-  methods: {
-    handleSubmit() {
-      axios
-        .post("/atoms", this.form)
-        .then(() => {
-          console.log("success", this.form);
-
-          // Write action
-        })
-        .catch(() => {
-          // Write fallback
-        });
-    },
-  },
+  methods: {},
 };
 </script>
