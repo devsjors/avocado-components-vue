@@ -14,6 +14,7 @@
           <AMHeaderMenuItem href="/atoms" label="Atoms" />
           <AMHeaderMenuItem href="/molecules" label="Molecules" />
           <AMHeaderMenuItem href="/organisms" label="Organisms" />
+          <AMHeaderMenuItem href="/sjors" label="Sjors" />
           <AMHeaderMenu label="Components">
             <AMHeaderMenuItem href="/cores" label="Cores" />
             <AMHeaderMenuItem href="/atoms" label="Atoms" />
