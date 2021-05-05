@@ -47,9 +47,6 @@ export default {
       this.theme = this.customTheme
         ? this.mergeThemes(DefaultTheme, this.customTheme)
         : DefaultTheme;
-
-      this.$sjors = "Test";
-      console.log(this);
     },
   },
 };

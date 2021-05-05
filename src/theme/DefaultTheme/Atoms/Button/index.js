@@ -39,6 +39,9 @@ const button = {
       textColor: colors.base.grey["300"],
     },
   },
+  leipeButton: {
+    textColor: "red",
+  },
 };
 
 export default button;

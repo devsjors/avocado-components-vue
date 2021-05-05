@@ -6,7 +6,9 @@ import GhostStyling from "./variants/ghost";
 import IconStyling from "./states/icon";
 
 const StyledButton = (StyledProps) => {
-  const { start, end, variant, disabled } = StyledProps;
+  const { start, end, variant, disabled, all } = StyledProps;
+
+  console.log(all);
   return styled.button`
     ${(props) => DefaultStyling(props)};
     ${(props) => variant === "primary" && PrimaryStyling(props, disabled)};

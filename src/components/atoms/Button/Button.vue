@@ -62,12 +62,10 @@ export default {
         start: this.iconStart,
         end: this.iconEnd,
         disabled: this.disabled,
+        all: this.__theme.atoms.button,
       };
       return this.href ? StyledAnchor(data) : StyledButton(data);
     },
-  },
-  created() {
-    console.log(this);
   },
 };
 </script>
