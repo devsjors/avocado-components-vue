@@ -7,6 +7,7 @@ const DefaultStyling = (props) => {
     textTransform,
     borderRadius,
   } = props.theme.atoms.button;
+
   return css`
     border: none;
     text-decoration: none;

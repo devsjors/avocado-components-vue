@@ -1,12 +1,12 @@
 <template>
   <div id="app">
-    <div class="toggle-theme">
-      <p style="margin-bottom: 8px">
-        {{ customTheme ? "Lequ" : "Avocado" }}Theme
-      </p>
-      <button @click="toggleTheme">Toggle Theme</button>
-    </div>
     <CustomThemeProvider :customTheme="determainTheme">
+      <div class="toggle-theme bg-white p-2 bg-opacity-50">
+        <p class="text-right mb-2">
+          {{ customTheme ? "Lequ" : "Avocado" }}Theme
+        </p>
+        <AMButton @click="toggleTheme" variant="secondary" label="Toggle Theme" />
+      </div>
       <AMHeader>
         <AMHeaderName href="/">Logo</AMHeaderName>
         <AMHeaderNavigation>
@@ -24,6 +24,14 @@
         </AMHeaderNavigation>
       </AMHeader>
       <router-view />
+
+      <AMContainer style="z-index: -1" class="fixed h-screen w-full left-1/2 transform -translate-x-1/2 top-0">
+        <AMGrid style="box-shadow: 0 0 0 1px #e4e4e4" container>
+          <AMGrid class="h-screen" xs="4" item>hi</AMGrid>
+          <AMGrid class="h-screen" xs="4" style="box-shadow: 0 0 0 1px #e4e4e4" item>hi</AMGrid>
+          <AMGrid class="h-screen" xs="4" item>hi</AMGrid>
+        </AMGrid>
+      </AMContainer>
     </CustomThemeProvider>
   </div>
 </template>
@@ -37,6 +45,9 @@ import AMHeaderName from "@/components/organisms/Header/HeaderName";
 import AMHeaderNavigation from "@/components/organisms/Header/HeaderNavigation";
 import AMHeaderMenu from "@/components/organisms/Header/HeaderMenu";
 import AMHeaderMenuItem from "@/components/organisms/Header/HeaderMenuItem";
+import AMButton from "@/components/atoms/Button";
+import AMContainer from "@/components/cores/Container";
+import AMGrid from "@/components/cores/Grid";
 
 export default {
   name: "App",
@@ -47,6 +58,9 @@ export default {
     AMHeaderNavigation,
     AMHeaderMenu,
     AMHeaderMenuItem,
+    AMButton,
+    AMContainer,
+    AMGrid,
   },
   data() {
     return {
@@ -74,7 +88,6 @@ export default {
 </script>
 
 <style lang="css">
-@import "./styles/reset.css";
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -82,8 +95,8 @@ export default {
 }
 .toggle-theme {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 0;
+  right: 0;
 }
 .flex {
   display: flex;

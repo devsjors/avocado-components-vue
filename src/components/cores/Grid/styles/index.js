@@ -4,7 +4,6 @@ const StyledGrid = () => {
   return styled.div`
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
   `;
 };
 
@@ -78,4 +77,8 @@ const XXLStyling = (props, columns) => {
   `;
 };
 
-export { StyledGrid, StyledGridItem };
+const test = (props) => {
+  console.log(props);
+};
+
+export { StyledGrid, StyledGridItem, test };
