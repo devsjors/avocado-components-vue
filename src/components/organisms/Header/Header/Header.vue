@@ -1,6 +1,6 @@
 <template>
   <component :is="HeaderComponent" :class="menuOpen && 'open'">
-    <div class="header-wrapper">
+    <AMContainer class="header-wrapper">
       <slot />
       <div @click="toggleHandler" class="toggle" :class="menuOpen ? 'menu-open' : 'menu-close'">
         <div>
@@ -9,20 +9,23 @@
           <span></span>
         </div>
       </div>
-    </div>
+    </AMContainer>
   </component>
 </template>
 
 <script>
+import AMContainer from "@/components/cores/Container";
 import StyledHeader from "./styles/index";
 
 export default {
   name: "AMHeader",
-  components: {},
+  components: {
+    AMContainer,
+  },
   props: {},
   data() {
     return {
-      menuOpen: true,
+      menuOpen: false,
       headerNavigationPosition: null,
     };
   },
