@@ -1,7 +1,7 @@
 import styled, { css } from "vue-styled-components";
 
 const LoaderStyling = (props, color) => {
-  const { typography } = props.theme.atoms.button;
+  const { typography } = props.theme.atoms.button.default;
   return css`
     &.loading {
       position: relative;

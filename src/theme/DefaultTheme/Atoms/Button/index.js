@@ -2,10 +2,12 @@ import cores from "../../Cores";
 const { colors, typography, spacing } = cores;
 
 const button = {
-  padding: `${spacing["3"]} ${spacing["5"]}`,
-  typography: typography.text.button,
-  textTransform: "uppercase",
-  borderRadius: spacing["2"],
+  default: {
+    padding: `${spacing["3"]} ${spacing["5"]}`,
+    typography: typography.text.button,
+    textTransform: "uppercase",
+    borderRadius: spacing["2"],
+  },
   primary: {
     textColor: colors.base.white,
     backgroundColor: colors.primary["slime-light"],
@@ -40,7 +42,17 @@ const button = {
     },
   },
   leipeButton: {
-    textColor: "red",
+    color: "red",
+    backgroundColor: "green",
+    hover: {
+      color: "green",
+      backgroundColor: "red",
+      borderRadius: "0",
+    },
+    disabled: {
+      color: "purple",
+      backgroundColor: "lightgray",
+    },
   },
 };
 
