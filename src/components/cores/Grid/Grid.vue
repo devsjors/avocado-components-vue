@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import { StyledGrid, StyledGridItem } from "./styles";
+import { StyledGrid, StyledGridItem, test } from "./styles";
 
 export default {
   name: "AMGrid",

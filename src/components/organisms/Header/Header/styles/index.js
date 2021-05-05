@@ -40,9 +40,11 @@ const HeaderLayoutStyling = (headerNavigationPosition) => {
           display: none;
         }
       }
-      & > :first-child,
-      & > :nth-last-child(2) {
-        margin: 0 -16px;
+      @media (min-width: 768px) {
+        & > :first-child,
+        & > :nth-last-child(2) {
+          margin: 0 -16px;
+        }
       }
     }
   `;

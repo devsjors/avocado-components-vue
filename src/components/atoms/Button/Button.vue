@@ -66,5 +66,8 @@ export default {
       return this.href ? StyledAnchor(data) : StyledButton(data);
     },
   },
+  created() {
+    console.log(this);
+  },
 };
 </script>

@@ -5,7 +5,6 @@
 </template>
 
 <script>
-/* eslint-disable prettier/prettier */
 import DefaultTheme from "../DefaultTheme";
 import { ThemeProvider } from "vue-styled-components";
 
@@ -25,8 +24,8 @@ export default {
   },
   watch: {
     customTheme() {
-      this.determainTheme()
-    }
+      this.determainTheme();
+    },
   },
   methods: {
     mergeThemes(target, source) {
@@ -34,9 +33,13 @@ export default {
       const sourceCopy = { ...source };
 
       Object.keys(sourceCopy).forEach((sourcekey) => {
-        Object.keys(sourceCopy).find((targetkey) => targetkey === sourcekey) !== undefined && typeof sourceCopy[sourcekey] === "object"
-          ? targetCopy[sourcekey] = this.mergeThemes(targetCopy[sourcekey], sourceCopy[sourcekey])
-          : targetCopy[sourcekey] = sourceCopy[sourcekey];
+        Object.keys(sourceCopy).find((targetkey) => targetkey === sourcekey) !==
+          undefined && typeof sourceCopy[sourcekey] === "object"
+          ? (targetCopy[sourcekey] = this.mergeThemes(
+            targetCopy[sourcekey],
+            sourceCopy[sourcekey]
+          ))
+          : (targetCopy[sourcekey] = sourceCopy[sourcekey]);
       });
       return targetCopy;
     },
@@ -44,6 +47,9 @@ export default {
       this.theme = this.customTheme
         ? this.mergeThemes(DefaultTheme, this.customTheme)
         : DefaultTheme;
+
+      this.$sjors = "Test";
+      console.log(this);
     },
   },
 };
