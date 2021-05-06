@@ -6,8 +6,7 @@ const DefaultStyling = (props) => {
     typography,
     textTransform,
     borderRadius,
-  } = props.theme.atoms.button;
-
+  } = props.theme.atoms.button.default;
   return css`
     border: none;
     text-decoration: none;
@@ -25,6 +24,10 @@ const DefaultStyling = (props) => {
     font-size: ${typography.desktop.fontSize};
     font-weight: ${typography.desktop.fontWeight};
     line-height: ${typography.desktop.lineHeight};
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   `;
 };
 

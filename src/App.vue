@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <CustomThemeProvider :customTheme="determainTheme">
-      <div class="toggle-theme bg-white p-2 bg-opacity-50">
-        <p class="text-right mb-2">
+      <div class="p-2 bg-white bg-opacity-50 toggle-theme">
+        <p class="mb-2 text-right">
           {{ customTheme ? "Lequ" : "Avocado" }}Theme
         </p>
         <AMButton @click="toggleTheme" variant="secondary" label="Toggle Theme" />
@@ -25,7 +25,7 @@
       </AMHeader>
       <router-view />
 
-      <AMContainer style="z-index: -1" class="fixed h-screen w-full left-1/2 transform -translate-x-1/2 top-0">
+      <AMContainer style="z-index: -1" class="fixed top-0 w-full h-screen transform -translate-x-1/2 left-1/2">
         <AMGrid style="box-shadow: 0 0 0 1px #e4e4e4" container>
           <AMGrid class="h-screen" xs="4" item>hi</AMGrid>
           <AMGrid class="h-screen" xs="4" style="box-shadow: 0 0 0 1px #e4e4e4" item>hi</AMGrid>
@@ -80,7 +80,8 @@ export default {
   },
   computed: {
     determainTheme() {
-      return this.customTheme ? this.themeLequ : null;
+      // return this.customTheme ? this.themeLequ : null;
+      return null;
       // return this.customTheme ? this.userTestSemTheme : null;
     },
   },

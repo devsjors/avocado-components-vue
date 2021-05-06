@@ -77,8 +77,4 @@ const XXLStyling = (props, columns) => {
   `;
 };
 
-const test = (props) => {
-  console.log(props);
-};
-
-export { StyledGrid, StyledGridItem, test };
+export { StyledGrid, StyledGridItem };
