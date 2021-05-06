@@ -24,6 +24,10 @@ const DefaultStyling = (props) => {
     font-size: ${typography.desktop.fontSize};
     font-weight: ${typography.desktop.fontWeight};
     line-height: ${typography.desktop.lineHeight};
+    &:hover,
+    &:focus {
+      outline: none;
+    }
   `;
 };
 

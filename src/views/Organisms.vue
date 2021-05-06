@@ -1,6 +1,9 @@
 <template>
   <div class="py-20">
     <AMContainer>
+      <AMButton variant="primary" label="Label" iconStart="mail" />
+      <AMButton variant="primary" disabled label="Label" iconStart="mail" />
+      <AMButton variant="secondary" label="Label" iconStart="mail" />
       <AMButton variant="leipeButton" label="Label" iconStart="mail" />
       <!-- <AMButton variant="primary" label="Label" iconStart="mail" /> -->
     </AMContainer>

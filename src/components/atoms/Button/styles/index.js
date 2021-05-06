@@ -1,8 +1,6 @@
 import styled, { css } from "vue-styled-components";
 import DefaultStyling from "./default";
-import PrimaryStyling from "./variants/primary";
-import SecondaryStyling from "./variants/secondary";
-import GhostStyling from "./variants/ghost";
+import LoaderStyling from "./states/loading";
 import IconStyling from "./states/icon";
 
 const toCss = (string) =>
@@ -10,52 +8,80 @@ const toCss = (string) =>
     .replace(/((?<=[a-z\d])[A-Z]|(?<=[A-Z\d])[A-Z](?=[a-z]))/g, "-$1")
     .toLowerCase();
 
-const StyledButton = (StyledProps) => {
-  const { start, end, variant, disabled, all } = StyledProps;
-  let basicStyles, hoverStyles, disabledStyles;
+const ObjectToCss = (object) => {
+  return Object.entries(object[1]).map((styles) => {
+    let property, value;
+    if (styles[0] === "borderColor") {
+      property = "box-shadow";
+      value = `0 0 0 1px ${styles[1]}`;
+    } else {
+      property = toCss(styles[0]);
+      value = styles[1];
+    }
+    return css`
+      ${property}: ${value};
+    `;
+  });
+};
 
-  for (const [key, value] of Object.entries(all)) {
+let basicStyles,
+  hoverStyles,
+  disabledStyles,
+  loadingDefault,
+  loadingHover,
+  loadingDisabled;
+
+const StyledButton = (StyledProps) => {
+  const { start, end, variant, disabled, buttonTheme } = StyledProps;
+  for (const [key, value] of Object.entries(buttonTheme)) {
     if (key !== "default" && variant === key) {
       Object.entries(value).forEach((entry) => {
-        if (entry[0] === "hover") {
-          hoverStyles = Object.entries(entry[1]).map((sjors) => {
-            return css`
-              ${toCss(sjors[0])}: ${sjors[1]};
-            `;
-          });
+        if (entry[0] === "default") {
+          basicStyles = ObjectToCss(entry);
+          loadingDefault = Object.entries(entry[1]).filter(
+            (item) => item[0] === "color"
+          );
+        } else if (entry[0] === "hover") {
+          hoverStyles = ObjectToCss(entry);
+          loadingHover = Object.entries(entry[1]).filter(
+            (item) => item[0] === "color"
+          );
         } else if (entry[0] === "disabled") {
-          disabledStyles = Object.entries(entry[1]).map((sjors) => {
-            return css`
-              ${toCss(sjors[0])}: ${sjors[1]};
-            `;
-          });
+          disabledStyles = ObjectToCss(entry);
+          loadingDisabled = Object.entries(entry[1]).filter(
+            (item) => item[0] === "color"
+          );
         }
-      });
-      const defaults = Object.entries(value).filter((entry) => {
-        return entry[0] !== "hover" && entry[0] !== "disabled" && entry;
-      });
-      basicStyles = defaults.map((item) => {
-        return css`
-          ${toCss(item[0])}: ${item[1]};
-        `;
       });
     }
   }
 
   return styled.button`
     ${(props) => DefaultStyling(props)};
-    ${(props) => variant === "primary" && PrimaryStyling(props, disabled)};
-    ${(props) => variant === "secondary" && SecondaryStyling(props, disabled)};
-    ${(props) => variant === "ghost" && GhostStyling(props, disabled)};
     ${IconStyling(start, end)};
-    ${basicStyles}
+    ${basicStyles};
     transition: all 0.15s;
-    &:hover,
-    &:focus {
-      ${hoverStyles}
-    }
-    ${disabled && disabledStyles}
+    ${(props) => StateStyling(props, disabled)}
+    ${(props) => LoaderStyling(props, loadingDefault[0][1])}
   `;
+};
+
+const StateStyling = (props, disabled) => {
+  if (disabled) {
+    return css`
+      pointer-events: none;
+      ${disabledStyles}
+      ${(props) => LoaderStyling(props, loadingDisabled[0][1])}
+    `;
+  } else {
+    return css`
+      &:hover,
+      &:focus {
+        ${hoverStyles}
+        ${(props) => LoaderStyling(props, loadingHover[0][1])}
+      }
+    `;
+  }
 };
 
 const StyledAnchor = (start, end) =>
