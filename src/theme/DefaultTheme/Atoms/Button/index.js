@@ -1,5 +1,29 @@
 import cores from "../../Cores";
-const { colors, typography, spacing } = cores;
+import twConfig from "../../tailwind-js";
+
+const { typography } = cores;
+const { colors, spacing, borderRadius } = twConfig.theme;
+
+// Lequ Button
+const lequYellow = {
+  default: {
+    typography: typography.text.button,
+    textTransform: "none",
+    padding: `${spacing["2"]} ${spacing["12"]}`,
+    borderRadius: borderRadius.full,
+    color: "#2a2a2a",
+    backgroundColor: "#ffed76",
+    fontSize: "16px",
+  },
+  hover: {
+    color: "#2a2a2a",
+    backgroundColor: "#c5a730",
+  },
+  disabled: {
+    color: "#2a2a2a",
+    backgroundColor: colors.base.grey["300"],
+  },
+};
 
 const button = {
   default: {
@@ -47,20 +71,17 @@ const button = {
       color: colors.base.grey["300"],
     },
   },
-  leipeButton: {
+  lequYellow,
+  lequRed: {
+    ...lequYellow,
     default: {
-      color: "red",
-      backgroundColor: "green",
+      ...lequYellow.default,
+      backgroundColor: "#e00f21",
+      color: "white",
     },
     hover: {
-      color: "green",
-      backgroundColor: "red",
-      borderRadius: "0",
-      borderColor: "transparent",
-    },
-    disabled: {
-      color: "purple",
-      backgroundColor: "lightgray",
+      backgroundColor: "#c70e1e",
+      color: "white",
     },
   },
 };

@@ -1,8 +1,10 @@
 import styled, { css } from "vue-styled-components";
 
-const StyledContainer = () => {
+const StyledContainer = (StyledProps) => {
+  const { maxWidth } = StyledProps;
   return styled.section`
     ${(props) => DefaultStyling(props)}
+    ${(props) => maxWidthStyling(props, maxWidth)}
   `;
 };
 
@@ -28,6 +30,15 @@ const DefaultStyling = (props) => {
       padding-left: 0;
       padding-right: 0;
     }
+  `;
+};
+
+const maxWidthStyling = (props, maxWidth) => {
+  return css`
+    ${maxWidth === "sm" && "max-width: 640px;"}
+    ${maxWidth === "md" && "max-width: 768px;"}
+    ${maxWidth === "lg" && "max-width: 1024px;"}
+    ${maxWidth === "xl" && "max-width: 1280px;"}
   `;
 };
 
