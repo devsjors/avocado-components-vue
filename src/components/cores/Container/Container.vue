@@ -9,15 +9,18 @@ import StyledContainer from "./styles";
 
 export default {
   name: "AMContainer",
-  components: {},
-  props: {},
-  data() {
-    return {};
+  props: {
+    maxWidth: {
+      type: String,
+      required: false,
+    },
   },
-  methods: {},
   computed: {
     ContainerComponent() {
-      return StyledContainer();
+      const data = {
+        maxWidth: this.maxWidth,
+      };
+      return StyledContainer(data);
     },
   },
 };

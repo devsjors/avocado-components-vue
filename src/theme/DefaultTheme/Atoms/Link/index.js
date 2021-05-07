@@ -1,10 +1,14 @@
 import cores from "../../Cores";
+import twConfig from "../../tailwind-js";
+
+const { typography } = cores;
+const { colors } = twConfig.theme;
 
 const link = {
-  textColor: cores.colors.base.grey["900"],
-  typography: cores.typography.text["body-bold"],
+  textColor: colors.base.grey["900"],
+  typography: typography.text["body-bold"],
   disabled: {
-    textColor: cores.colors.base.grey["300"],
+    textColor: colors.base.grey["300"],
   },
 };
 
