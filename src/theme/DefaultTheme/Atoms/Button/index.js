@@ -4,27 +4,6 @@ import twConfig from "../../tailwind-js";
 const { typography } = cores;
 const { colors, spacing, borderRadius } = twConfig.theme;
 
-// Lequ Button
-const lequYellow = {
-  default: {
-    typography: typography.text.button,
-    textTransform: "none",
-    padding: `${spacing["2"]} ${spacing["12"]}`,
-    borderRadius: borderRadius.full,
-    color: "#2a2a2a",
-    backgroundColor: "#ffed76",
-    fontSize: "16px",
-  },
-  hover: {
-    color: "#2a2a2a",
-    backgroundColor: "#c5a730",
-  },
-  disabled: {
-    color: "#2a2a2a",
-    backgroundColor: colors.base.grey["300"],
-  },
-};
-
 const button = {
   default: {
     padding: `${spacing["3"]} ${spacing["5"]}`,
@@ -69,19 +48,6 @@ const button = {
     },
     disabled: {
       color: colors.base.grey["300"],
-    },
-  },
-  lequYellow,
-  lequRed: {
-    ...lequYellow,
-    default: {
-      ...lequYellow.default,
-      backgroundColor: "#e00f21",
-      color: "white",
-    },
-    hover: {
-      backgroundColor: "#c70e1e",
-      color: "white",
     },
   },
 };

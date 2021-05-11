@@ -1,15 +1,17 @@
 <template>
-  <div>
+  <AMContainer>
     <AMTitle as="h1" variant="huge">Welcome</AMTitle>
-  </div>
+  </AMContainer>
 </template>
 
 <script>
+import AMContainer from "@/components/cores/Container";
 import AMTitle from "@/components/cores/Title";
 
 export default {
   name: "Home",
   components: {
+    AMContainer,
     AMTitle,
   },
   data() {

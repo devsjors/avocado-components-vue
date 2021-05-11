@@ -2,28 +2,31 @@
   <main>
     <div class="bg-primary-navy">
       <AMContainer>
-        <AMGrid class="pt-40 pb-64">
-          <AMGridItem md="10" lg="8" xl="6">
+        <AMGrid container class="pt-40 pb-64">
+          <AMGrid item md="10" lg="8" xl="6">
             <AMTitle class="text-base-white" variant="giant" as="h1">Digitale oplossingen die verbinden</AMTitle>
-          </AMGridItem>
-          <AMGridItem class="mt-6" xs="12">
+          </AMGrid>
+          <AMGrid item class="mt-6" xs="12">
             <AMText class="text-primary-slime-light" variant="introduction">
               Hoogstaande websites en online platforms, klaar voor de volgende
               stap
             </AMText>
-          </AMGridItem>
-          <AMGridItem class="mt-6">
+          </AMGrid>
+          <AMGrid item class="mt-6">
             <AMButton href="/sjors" variant="primary" label="Bekijk ons werk" />
-          </AMGridItem>
+          </AMGrid>
         </AMGrid>
       </AMContainer>
     </div>
     <AMContainer class="pb-24">
-      <AMGrid>
-        <AMGridItem class="w-full ml-auto -mt-64" md="8">
-          <div class="bg-base-grey-100" style="padding-bottom: 56%" />
-        </AMGridItem>
-        <AMGridItem class="ml-auto" md="8">
+      <AMGrid container>
+        <AMGrid item class="w-full ml-auto -mt-64" md="8">
+          <div class="bg-center bg-no-repeat bg-cover bg-base-grey-100" style="
+              padding-bottom: 56%;
+              background-image: url(https://picsum.photos/2000/3000);
+            " />
+        </AMGrid>
+        <AMGrid item class="ml-auto" md="8">
           <AMTitle class="mt-12 md:max-w-xl text-base-grey-900" variant="epic" as="h2">Wij helpen ondernemingen de volgende stap te zetten</AMTitle>
           <AMText class="mt-6 md:max-w-2xl text-base-grey-900" variant="body-light">
             Wij ontwikkelen online platforms die werk uit handen nemen en jouw
@@ -33,12 +36,12 @@
             van concept tot oplevering en doorontwikkeling.
           </AMText>
           <AMButton class="mt-6" href="/sjors" variant="secondary" label="Neem contact op" />
-        </AMGridItem>
+        </AMGrid>
       </AMGrid>
     </AMContainer>
     <AMContainer maxWidth="xl" class="pb-32">
-      <AMGrid class="overflow-hidden rounded-md bg-secondary-mist" :class="[flowOrder(index), spaceBetween(index)]" :key="index" v-for="index in 3">
-        <AMGridItem class="p-6 md:p-10" md="6">
+      <AMGrid container class="overflow-hidden rounded-md bg-secondary-mist" :class="[flowOrder(index), spaceBetween(index)]" :key="index" v-for="index in 3">
+        <AMGrid item class="p-6 md:p-10" md="6">
           <AMSubtitle class="mb-6 text-primary-slime-light" variant="small" as="h4">CompanyName</AMSubtitle>
           <AMTitle class="mb-4 text-base-grey-900" variant="epic" as="h3">Title {{ index }}</AMTitle>
           <AMText class="mb-4 lg:w-4/5 text-base-grey-900" variant="body-light">
@@ -48,8 +51,10 @@
             aliquip ex ea commodo consequat.
           </AMText>
           <AMLink label="Read more about title" href="/" />
-        </AMGridItem>
-        <AMGridItem md="6" class="flex items-center justify-center bg-base-grey-100" />
+        </AMGrid>
+        <AMGrid item md="6">
+          <div class="flex h-full bg-center bg-no-repeat bg-base-grey-100" style="background-image: url(https://picsum.photos/1000/800)" />
+        </AMGrid>
       </AMGrid>
       <div class="flex items-center justify-center mt-8">
         <AMButton href="/sjors" variant="secondary" label="Bekijk alle cases" />
@@ -57,15 +62,18 @@
     </AMContainer>
     <div class="my-24 bg-primary-navy">
       <AMContainer>
-        <AMGrid>
-          <AMGridItem class="-mt-24" md="6">
-            <div class="bg-base-grey-100" style="padding-bottom: 56%" />
-          </AMGridItem>
+        <AMGrid container>
+          <AMGrid item class="-mt-24" md="6">
+            <div class="bg-center bg-no-repeat bg-cover bg-base-grey-100" style="
+                padding-bottom: 56%;
+                background-image: url(https://picsum.photos/720/420);
+              " />
+          </AMGrid>
         </AMGrid>
       </AMContainer>
       <AMContainer>
-        <AMGrid>
-          <AMGridItem class="pt-12 pb-20" md="6">
+        <AMGrid container>
+          <AMGrid item class="pt-12 pb-20" md="6">
             <AMTitle class="mt-8 text-primary-slime-light" variant="epic" as="h2">Specialist in online platforms</AMTitle>
             <AMText class="mt-3 text-base-white lg:mr-20" variant="body-light">
               Aan de basis van ieder project staat een centraal vraagstuk. Een
@@ -77,29 +85,32 @@
               business kan helpen?
             </AMText>
             <AMButton class="mt-6" href="/sjors" variant="primary" label="Meer over online platforms" />
-          </AMGridItem>
-          <AMGridItem class="relative ml-auto -mt-36" md="4">
-            <div class="absolute w-full bg-base-grey-100" style="padding-bottom: 135%" />
-          </AMGridItem>
+          </AMGrid>
+          <AMGrid item class="relative ml-auto -mt-36" md="4">
+            <div class="absolute w-full bg-center bg-no-repeat bg-cover bg-base-grey-100" style="
+                padding-bottom: 135%;
+                background-image: url(https://picsum.photos/480/650);
+              " />
+          </AMGrid>
         </AMGrid>
       </AMContainer>
     </div>
     <AMContainer maxWidth="md" class="py-20 mt-12">
       <AMTitle variant="large" as="h4" class="mb-8">Hoe kunnen wij je helpen?</AMTitle>
       <form @submit.prevent="handleSubmit" novalidate v-if="!loaded">
-        <AMGrid spacing="3">
-          <AMGridItem class="mb-4" xs="12" md="6">
-            <AMInput @error="pushErrors" :validate="trigger" v-model="form.name" type="text" placeholder="Volledige naam" id="form-name" />
-          </AMGridItem>
-          <AMGridItem class="mb-4" xs="12" md="6">
-            <AMInput @error="pushErrors" :validate="trigger" v-model="form.email" type="email" required placeholder="Emailadres" id="form-mail" icon="mail" />
-          </AMGridItem>
-          <AMGridItem class="mb-4" xs="12">
-            <AMInput @error="pushErrors" :validate="trigger" v-model="form.message" type="textarea" required placeholder="Vertel iets over het project" id="form-bericht" />
-          </AMGridItem>
-          <AMGridItem xs="12" md="12">
+        <AMGrid container spacing="3">
+          <AMGrid item class="mb-4" xs="12" md="6">
+            <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.name" type="text" placeholder="Volledige naam" id="form-name" />
+          </AMGrid>
+          <AMGrid item class="mb-4" xs="12" md="6">
+            <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.email" type="email" required placeholder="Emailadres" id="form-mail" icon="mail" />
+          </AMGrid>
+          <AMGrid item class="mb-4" xs="12">
+            <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.message" type="textarea" required placeholder="Vertel iets over het project" id="form-bericht" />
+          </AMGrid>
+          <AMGrid item xs="12" md="12">
             <AMButton type="submit" :loading="loading" variant="primary" label="Verzenden" />
-          </AMGridItem>
+          </AMGrid>
         </AMGrid>
       </form>
       <AMSubtitle v-if="loaded" variant="small" as="p">
@@ -111,12 +122,9 @@
 </template>
 
 <script>
-import axios from "axios";
-
 /* eslint-disable vue/no-unused-components */
 import AMContainer from "@/components/cores/Container";
 import AMGrid from "@/components/cores/Grid";
-import AMGridItem from "@/components/cores/GridItem";
 import AMTitle from "@/components/cores/Title";
 import AMSubtitle from "@/components/cores/Subtitle";
 import AMText from "@/components/cores/Text";
@@ -129,7 +137,6 @@ export default {
   components: {
     AMContainer,
     AMGrid,
-    AMGridItem,
     AMTitle,
     AMSubtitle,
     AMText,
@@ -148,6 +155,11 @@ export default {
       },
       errors: [],
       trigger: 0,
+      errorMessages: {
+        required: "Dit veld is moet worden ingevuld",
+        email: "Dit emailadres is ongeldig",
+        tel: "Dit telefoonnummer is ongeldig",
+      },
     };
   },
   methods: {

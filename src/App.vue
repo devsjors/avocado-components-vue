@@ -26,10 +26,10 @@
       <router-view />
 
       <AMContainer class="fixed top-0 w-full h-screen transform -translate-x-1/2 -z-1 left-1/2">
-        <AMGrid style="box-shadow: 0 0 0 1px #eeeeee">
-          <AMGridItem class="h-screen" xs="4" />
-          <AMGridItem class="h-screen" xs="4" style="box-shadow: 0 0 0 1px #eeeeee" />
-          <AMGridItem class="h-screen" xs="4" />
+        <AMGrid container style="box-shadow: 0 0 0 1px #eeeeee">
+          <AMGrid item class="h-screen" xs="4" />
+          <AMGrid item class="h-screen" xs="4" style="box-shadow: 0 0 0 1px #eeeeee" />
+          <AMGrid item class="h-screen" xs="4" />
         </AMGrid>
       </AMContainer>
     </CustomThemeProvider>
@@ -48,7 +48,6 @@ import AMHeaderMenuItem from "@/components/organisms/Header/HeaderMenuItem";
 import AMButton from "@/components/atoms/Button";
 import AMContainer from "@/components/cores/Container";
 import AMGrid from "@/components/cores/Grid";
-import AMGridItem from "@/components/cores/GridItem";
 
 export default {
   name: "App",
@@ -62,7 +61,6 @@ export default {
     AMButton,
     AMContainer,
     AMGrid,
-    AMGridItem,
   },
   data() {
     return {
