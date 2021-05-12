@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const MiniStyling = (props) => {
   const { mini } = props.theme.cores.typography.text;
   return css`
+    font-family: ${mini.fontFamily};
     font-size: ${mini.mobile.fontSize};
     font-weight: ${mini.mobile.fontWeight};
     line-height: ${mini.mobile.lineHeight};

@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Saira Bold';
+  src: url('../assets/avocado_media/fonts/Saira-Bold.woff2') format('woff2'),
+    url('../assets/avocado_media/fonts/Saira-Bold.woff') format('woff'),
+    url('../assets/avocado_media/fonts/Saira-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Saira Medium';
+  src: url('../assets/avocado_media/fonts/Saira-Medium.woff2') format('woff2'),
+    url('../assets/avocado_media/fonts/Saira-Medium.woff') format('woff'),
+    url('../assets/avocado_media/fonts/Saira-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muli Bold';
+  src: url('../assets/avocado_media/fonts/Muli-Bold.woff2') format('woff2'),
+    url('../assets/avocado_media/fonts/Muli-Bold.woff') format('woff'),
+    url('../assets/avocado_media/fonts/Muli-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muli Medium';
+  src: url('../assets/avocado_media/fonts/Muli-Medium.woff2') format('woff2'),
+    url('../assets/avocado_media/fonts/Muli-Medium.woff') format('woff'),
+    url('../assets/avocado_media/fonts/Muli-Medium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Muli Light';
+  src: url('../assets/avocado_media/fonts/Muli-Light.woff2') format('woff2'),
+    url('../assets/avocado_media/fonts/Muli-Light.woff') format('woff'),
+    url('../assets/avocado_media/fonts/Muli-Light.ttf') format('truetype');
+  font-display: swap;
+}

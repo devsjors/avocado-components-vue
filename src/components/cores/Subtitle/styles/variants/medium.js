@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const MediumSubtitleStyling = (props) => {
   const { medium } = props.theme.cores.typography.subtitles;
   return css`
+    font-family: ${medium.fontFamily};
     font-size: ${medium.mobile.fontSize};
     font-weight: ${medium.mobile.fontWeight};
     line-height: ${medium.mobile.lineHeight};

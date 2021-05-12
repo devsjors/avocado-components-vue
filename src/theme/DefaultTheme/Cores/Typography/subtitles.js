@@ -1,5 +1,7 @@
+const fallback = ", serif";
 const subtitles = {
   medium: {
+    fontFamily: `Saira Medium${fallback}`,
     desktop: {
       fontSize: "32px",
       fontWeight: "500",
@@ -12,6 +14,7 @@ const subtitles = {
     },
   },
   small: {
+    fontFamily: `Saira Medium${fallback}`,
     desktop: {
       fontSize: "28px",
       fontWeight: "500",
@@ -24,6 +27,7 @@ const subtitles = {
     },
   },
   tiny: {
+    fontFamily: `Saira Medium${fallback}`,
     desktop: {
       fontSize: "24px",
       fontWeight: "500",

@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const TinySubtitleStyling = (props) => {
   const { tiny } = props.theme.cores.typography.subtitles;
   return css`
+    font-family: ${tiny.fontFamily};
     font-size: ${tiny.mobile.fontSize};
     font-weight: ${tiny.mobile.fontWeight};
     line-height: ${tiny.mobile.lineHeight};

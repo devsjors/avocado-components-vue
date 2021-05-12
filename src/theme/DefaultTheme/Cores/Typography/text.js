@@ -1,4 +1,6 @@
+const fallback = ", serif";
 const text = {
+  fontFamily: `Muli Medium${fallback}`,
   introduction: {
     desktop: {
       fontSize: "20px",
@@ -12,6 +14,7 @@ const text = {
     },
   },
   highlighted: {
+    fontFamily: `Muli Bold${fallback}`,
     desktop: {
       fontSize: "18px",
       fontWeight: "700",
@@ -24,6 +27,7 @@ const text = {
     },
   },
   "body-light": {
+    fontFamily: `Muli Light${fallback}`,
     desktop: {
       fontSize: "16px",
       fontWeight: "300",
@@ -36,6 +40,7 @@ const text = {
     },
   },
   "body-regular": {
+    fontFamily: `Muli Medium${fallback}`,
     desktop: {
       fontSize: "16px",
       fontWeight: "400",
@@ -48,6 +53,7 @@ const text = {
     },
   },
   "body-bold": {
+    fontFamily: `Muli Bold${fallback}`,
     desktop: {
       fontSize: "16px",
       fontWeight: "700",
@@ -60,6 +66,7 @@ const text = {
     },
   },
   button: {
+    fontFamily: `Muli Bold${fallback}`,
     desktop: {
       fontSize: "14px",
       fontWeight: "700",
@@ -72,6 +79,7 @@ const text = {
     },
   },
   caption: {
+    fontFamily: `Muli Medium, ${fallback}`,
     desktop: {
       fontSize: "14px",
       fontWeight: "400",
@@ -84,6 +92,7 @@ const text = {
     },
   },
   mini: {
+    fontFamily: `Muli Bold, ${fallback}`,
     desktop: {
       fontSize: "12px",
       fontWeight: "700",

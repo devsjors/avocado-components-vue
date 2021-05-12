@@ -1,5 +1,7 @@
+const fallback = ", serif";
 const titles = {
   huge: {
+    fontFamily: `Saira Bold${fallback}`,
     desktop: {
       fontSize: "72px",
       fontWeight: "900",
@@ -12,6 +14,7 @@ const titles = {
     },
   },
   giant: {
+    fontFamily: `Saira Bold${fallback}`,
     desktop: {
       fontSize: "56px",
       fontWeight: "900",
@@ -24,6 +27,7 @@ const titles = {
     },
   },
   epic: {
+    fontFamily: `Saira Bold${fallback}`,
     desktop: {
       fontSize: "44px",
       fontWeight: "700",
@@ -36,6 +40,7 @@ const titles = {
     },
   },
   large: {
+    fontFamily: `Saira Bold${fallback}`,
     desktop: {
       fontSize: "36px",
       fontWeight: "700",

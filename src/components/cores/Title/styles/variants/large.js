@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const LargeTitleStyling = (props) => {
   const { large } = props.theme.cores.typography.titles;
   return css`
+    font-family: ${large.fontFamily};
     font-size: ${large.mobile.fontSize};
     font-weight: ${large.mobile.fontWeight};
     line-height: ${large.mobile.lineHeight};

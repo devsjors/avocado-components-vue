@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const IntroductionStyling = (props) => {
   const { introduction } = props.theme.cores.typography.text;
   return css`
+    font-family: ${introduction.fontFamily};
     font-size: ${introduction.mobile.fontSize};
     font-weight: ${introduction.mobile.fontWeight};
     line-height: ${introduction.mobile.lineHeight};

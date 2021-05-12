@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const EpicTitleStyling = (props) => {
   const { epic } = props.theme.cores.typography.titles;
   return css`
+    font-family: ${epic.fontFamily};
     font-size: ${epic.mobile.fontSize};
     font-weight: ${epic.mobile.fontWeight};
     line-height: ${epic.mobile.lineHeight};
