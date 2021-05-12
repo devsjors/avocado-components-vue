@@ -20,7 +20,7 @@ const DefaultStyling = (props) => {
       border: none;
       outline: none;
       width: 100%;
-      padding: 12px 20px;
+      padding: ${def.padding};
       border-radius: ${def.borderRadius};
       color: ${def.labelColor}
       box-shadow: inset 0 0 0 1px ${def.borderColor};

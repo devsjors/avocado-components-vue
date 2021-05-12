@@ -4,15 +4,16 @@ import router from "./router";
 import "@/styles/index.css/";
 
 import DefaultTheme from "@/theme/DefaultTheme";
+import LequTheme from "@/theme/LequTheme";
 
 Vue.config.productionTip = false;
 
 const theme = () => {
-  if (window.location.pathname === "/sjors") {
+  if (window.location.pathname === "/lequ") {
     return {
       computed: {
         __theme() {
-          return DefaultTheme;
+          return LequTheme;
         },
       },
     };

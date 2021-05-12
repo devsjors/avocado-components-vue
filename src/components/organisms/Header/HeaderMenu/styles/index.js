@@ -42,9 +42,7 @@ const DefaultStyling = (props, menuOpen) => {
     height: 100%;
     position: relative;
     cursor: pointer;
-    color: ${base.grey["900"]}
-    text-transform: uppercase;
-    @media (max-width: 767px) {
+    color: ${base.grey["900"]} @media (max-width: 767px) {
       font-size: ${button.mobile.fontSize};
       font-weight: ${button.mobile.fontWeight};
       line-height: ${button.mobile.lineHeight};
@@ -65,18 +63,18 @@ const DefaultStyling = (props, menuOpen) => {
         transform: rotate(${menuOpen ? "180deg" : "0deg"});
       }
       background: linear-gradient(
-        to left,
-        ${base.grey["900"]} 50%,
-        ${primary["slime-dark"]} 50%
-      )
-      right;
+          to left,
+          ${base.grey["900"]} 50%,
+          ${primary["slime-dark"]} 50%
+        )
+        right;
       color: black;
       background-clip: text;
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-size: 200% 100%;
       background-position: 100%;
-      transition: background-position 0.2s
+      transition: background-position 0.2s;
     }
     ul {
       min-width: 100%;

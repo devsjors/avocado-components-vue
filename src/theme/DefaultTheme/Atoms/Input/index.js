@@ -1,5 +1,4 @@
-import twConfig from "../../tailwind-js";
-
+import twConfig from "@/theme/tailwind-js";
 const { colors, spacing } = twConfig.theme;
 
 const input = {

@@ -5,8 +5,8 @@ const { typography } = cores;
 const { colors } = twConfig.theme;
 
 const link = {
-  textColor: colors.base.grey["900"],
-  typography: typography.text["body-bold"],
+  textColor: "white",
+  typography: typography.text["body-regular"],
   disabled: {
     textColor: colors.base.grey["300"],
   },
