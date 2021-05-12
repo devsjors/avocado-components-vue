@@ -110,7 +110,7 @@
             <AMInput @error="pushErrors" :validate="trigger" label="Search" v-model="form.search" type="search" required placeholder="Telefoonnummer" id="example2" />
             <div>
               <AMCheckbox v-model="form.fruits" label="Appel" name="fruits" id="example3" />
-              <AMCheckbox v-model="form.fruits" label="Banaan" name="fruits" id="example4" />
+              <AMCheckbox v-model="form.fruits" disabled label="Banaan" name="fruits" id="example4" />
               <AMCheckbox v-model="form.fruits" label="Peer" name="fruits" id="example5" />
             </div>
             <AMCheckbox @error="pushErrors" :validate="trigger" v-model="form.toc" label="Algemene voorwaarden" required id="example6" />
@@ -121,7 +121,7 @@
     </div>
     <div>
       <AMRadio v-model="form.candy" label="Chocolade reep" name="candy" id="example7" />
-      <AMRadio v-model="form.candy" label="Popcorn" name="candy" id="example8" />
+      <AMRadio v-model="form.candy" disabled label="Popcorn" name="candy" id="example8" />
       <AMRadio v-model="form.candy" label="Chips" name="candy" id="example9" />
     </div>
     <div class="flex">
@@ -149,12 +149,12 @@ export default {
   },
   data() {
     return {
-      loading: true,
+      loading: false,
       form: {
         email: "",
         phone: "",
         message: "",
-        fruits: [],
+        fruits: ["Appel", "Banaan"],
         toc: false,
         candy: "",
       },

@@ -28,13 +28,6 @@
           </div>
         </AMGrid>
       </AMGrid>
-      <AMGrid class="mt-24" container spacing="1">
-        <AMGrid class="bg-base-grey-400" item xs="12" md="9" lg="12" xl="4">
-          <AMTitle variant="giant" as="h1">
-            Digitale oplossingen die verbinden
-          </AMTitle>
-        </AMGrid>
-      </AMGrid>
     </AMContainer>
   </div>
 </template>

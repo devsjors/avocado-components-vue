@@ -37,7 +37,7 @@ const DefaultStyling = (props) => {
       height: 1px;
       width: 0;
       transition: width 0.15s;
-      background: ${textColor};
+      background: currentColor;
     }
   `;
 };

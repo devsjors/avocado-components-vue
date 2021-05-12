@@ -12,7 +12,7 @@ const StyledCheckbox = (StyledProps) => {
 };
 
 const DefaultStyling = (props) => {
-  const { grey } = props.theme.cores.colors.base;
+  const def = props.theme.atoms.checkbox.default;
   return css`
     .custom-checkbox-wrapper {
       display: flex;
@@ -26,31 +26,33 @@ const DefaultStyling = (props) => {
         position: relative;
         display: flex;
         align-items: center;
-        border-radius: 4px;
+        border-radius: ${def.borderRadius};
         svg {
-          fill: white;
+          fill: transparent;
         }
         background: transparent;
-        box-shadow: inset 0 0 0 1px ${grey["600"]};
+        box-shadow: inset 0 0 0 1px ${def.borderColor};
       }
       .custom-check {
         position: absolute;
       }
       label {
         padding-left: 8px;
+        color: ${def.labelColor};
       }
     }
   `;
 };
 
 const HoverStyling = (props) => {
-  const { primary } = props.theme.cores.colors;
+  const hover = props.theme.atoms.checkbox.hover;
+  const checkedHover = props.theme.atoms.checkbox.checked.hover;
   return css`
     &:not(.checked) {
       &:hover,
       &:focus-within {
         .custom-input-wrapper {
-          box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
+          box-shadow: inset 0 0 0 1px ${hover.borderColor};
         }
       }
     }
@@ -58,8 +60,8 @@ const HoverStyling = (props) => {
       &:hover,
       &:focus-within {
         .custom-input-wrapper {
-          background: ${primary["slime-dark"]};
-          box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
+          background: ${checkedHover.backgroundColor};
+          box-shadow: inset 0 0 0 1px ${checkedHover.borderColor};
         }
       }
     }
@@ -67,55 +69,60 @@ const HoverStyling = (props) => {
 };
 
 const CheckedStyling = (props) => {
-  const { primary } = props.theme.cores.colors;
+  const checked = props.theme.atoms.checkbox.checked;
   return css`
     &.checked {
       .custom-input-wrapper {
-        background: ${primary["slime-light"]};
-        box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
+        background: ${checked.backgroundColor};
+        box-shadow: inset 0 0 0 1px ${checked.borderColor};
+        svg {
+          fill: ${checked.iconColor};
+        }
       }
     }
   `;
 };
 
 const DisabledStyling = (props) => {
-  const { grey } = props.theme.cores.colors.base;
+  const disabled = props.theme.atoms.checkbox.disabled;
   return css`
     pointer-events: none;
-    color: ${grey["300"]};
+    color: ${disabled.labelColor};
     &:not(.checked) {
       .custom-input-wrapper {
-        box-shadow: inset 0 0 0 1px ${grey["300"]};
+        box-shadow: inset 0 0 0 1px ${disabled.borderColor};
       }
     }
     &.checked {
       .custom-input-wrapper {
-        background: ${grey["300"]};
-        box-shadow: inset 0 0 0 1px ${grey["300"]};
+        background: ${disabled.backgroundColor};
+        box-shadow: inset 0 0 0 1px ${disabled.borderColor};
       }
     }
   `;
 };
 
 const ErrorStyling = (props) => {
-  const { primary, feedback } = props.theme.cores.colors;
+  const checked = props.theme.atoms.checkbox.checked;
+  const checkedHover = props.theme.atoms.checkbox.checked.hover;
+  const error = props.theme.atoms.checkbox.error;
   return css`
     &.error {
       .custom-checkbox-wrapper .custom-input-wrapper {
-        box-shadow: inset 0 0 0 1px ${feedback.error};
+        box-shadow: inset 0 0 0 1px ${error.borderColor};
       }
       .error-message {
-        color: ${feedback.error};
+        color: ${error.message};
       }
       &.checked {
         .custom-input-wrapper {
-          box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
+          box-shadow: inset 0 0 0 1px ${checked.borderColor};
         }
         &:hover,
         &:focus-within {
           .custom-input-wrapper {
-            background: ${primary["slime-dark"]};
-            box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
+            background: ${checkedHover.backgroundColor};
+            box-shadow: inset 0 0 0 1px ${checkedHover.borderColor};
           }
         }
       }

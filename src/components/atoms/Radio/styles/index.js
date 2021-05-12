@@ -11,7 +11,7 @@ const StyledRadio = (StyledProps) => {
 };
 
 const DefaultStyling = (props) => {
-  const { grey } = props.theme.cores.colors.base;
+  const def = props.theme.atoms.radio.default;
   return css`
     .custom-radio-wrapper {
       display: flex;
@@ -34,9 +34,10 @@ const DefaultStyling = (props) => {
         position: absolute;
         border-radius: 999px;
         background: transparent;
-        box-shadow: inset 0 0 0 1px ${grey["600"]};
+        box-shadow: inset 0 0 0 1px ${def.borderColor};
       }
       label {
+        color: ${def.labelColor};
         padding-left: 8px;
       }
     }
@@ -44,13 +45,14 @@ const DefaultStyling = (props) => {
 };
 
 const HoverStyling = (props) => {
-  const { primary } = props.theme.cores.colors;
+  const hover = props.theme.atoms.radio.hover;
+  const checkedHover = props.theme.atoms.radio.checked.hover;
   return css`
     &:not(.checked) {
       &:hover,
       &:focus-within {
         .custom-input {
-          box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
+          box-shadow: inset 0 0 0 1px ${hover.borderColor};
         }
       }
     }
@@ -58,8 +60,8 @@ const HoverStyling = (props) => {
       &:hover,
       &:focus-within {
         .custom-input {
-          background: ${primary["slime-dark"]};
-          box-shadow: inset 0 0 0 1px ${primary["slime-dark"]};
+          background: ${checkedHover.backgroundColor};
+          box-shadow: inset 0 0 0 1px ${checkedHover.borderColor};
         }
       }
     }
@@ -67,12 +69,12 @@ const HoverStyling = (props) => {
 };
 
 const CheckedStyling = (props) => {
-  const { primary } = props.theme.cores.colors;
+  const checked = props.theme.atoms.radio.checked;
   return css`
     &.checked {
       .custom-input {
-        background: ${primary["slime-light"]};
-        box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
+        background: ${checked.backgroundColor};
+        box-shadow: inset 0 0 0 1px ${checked.borderColor};
         &:after {
           content: "";
           position: absolute;
@@ -90,19 +92,21 @@ const CheckedStyling = (props) => {
 };
 
 const DisabledStyling = (props) => {
-  const { grey } = props.theme.cores.colors.base;
+  const disabled = props.theme.atoms.radio.disabled;
   return css`
     pointer-events: none;
-    color: ${grey["300"]};
+    .custom-radio-wrapper label {
+      color: ${disabled.labelColor};
+    }
     &:not(.checked) {
       .custom-input {
-        box-shadow: inset 0 0 0 1px ${grey["300"]};
+        box-shadow: inset 0 0 0 1px ${disabled.borderColor};
       }
     }
     &.checked {
       .custom-input {
-        background: ${grey["300"]};
-        box-shadow: inset 0 0 0 1px ${grey["300"]};
+        background: ${disabled.backgroundColor};
+        box-shadow: inset 0 0 0 1px ${disabled.borderColor};
       }
     }
   `;
