@@ -6,7 +6,7 @@
           <AMGrid item md="10" lg="8" xl="6">
             <AMTitle class="text-base-white" variant="giant" as="h1">Digitale oplossingen die verbinden</AMTitle>
           </AMGrid>
-          <AMGrid item class="mt-6" xs="12">
+          <AMGrid item class="mt-6" sm="12">
             <AMText class="text-primary-slime-light" variant="introduction">
               Hoogstaande websites en online platforms, klaar voor de volgende
               stap
@@ -93,16 +93,16 @@
         <AMTitle variant="large" as="h4" class="mb-8">Hoe kunnen wij je helpen?</AMTitle>
         <form @submit.prevent="handleSubmit" novalidate v-if="!loaded">
           <AMGrid container spacing="3">
-            <AMGrid item class="mb-4" xs="12" md="6">
+            <AMGrid item class="mb-4" sm="12" md="6">
               <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.name" type="text" placeholder="Volledige naam" id="form-name" />
             </AMGrid>
-            <AMGrid item class="mb-4" xs="12" md="6">
+            <AMGrid item class="mb-4" sm="12" md="6">
               <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.email" type="email" required placeholder="Emailadres" id="form-mail" icon="mail" />
             </AMGrid>
-            <AMGrid item class="mb-4" xs="12">
+            <AMGrid item class="mb-4" sm="12">
               <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.message" type="textarea" required placeholder="Vertel iets over het project" id="form-bericht" />
             </AMGrid>
-            <AMGrid item xs="12" md="12">
+            <AMGrid item sm="12">
               <AMButton type="submit" :loading="loading" variant="primary" label="Verzenden" />
             </AMGrid>
           </AMGrid>

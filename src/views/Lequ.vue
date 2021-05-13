@@ -67,8 +67,8 @@
     </AMContainer>
     <AMContainer class="pb-36">
       <AMGrid class="text-lequColors-black-light" container>
-        <AMGrid item>
-          <div class="relative w-3/4 px-12 py-10 mt-12 rounded-md bg-lequColors-yellow">
+        <AMGrid md="7" item>
+          <div class="relative px-12 py-10 mt-12 rounded-md md:mr-40 bg-lequColors-yellow">
             <img class="absolute left-0 top-4" src="https://lequ.nl/assets/images/shape_block_left.png" />
             <div class="relative z-1">
               <AMSubtitle class="mb-2" variant="medium" as="h5">Meer kinderen laten lezen in de klas?</AMSubtitle>
@@ -85,8 +85,8 @@
             <img class="absolute -right-20 -bottom-10" src="@/assets/lequ/group_dots.png" />
           </div>
         </AMGrid>
-        <AMGrid item>
-          <div class="relative w-4/5 px-12 py-10 rounded-md bg-lequColors-purple">
+        <AMGrid md="5" item>
+          <div class="relative px-12 py-10 rounded-md bg-lequColors-purple">
             <img class="absolute top-0 right-0" src="https://lequ.nl/assets/images/shape_block_right.png" />
             <div class="relative z-1">
               <AMSubtitle class="mb-2" variant="medium" as="h5">Toffe prijzen winnen?</AMSubtitle>
@@ -101,7 +101,7 @@
             <img class="absolute -right-20 -bottom-10" src="@/assets/lequ/group_dots.png" />
           </div>
 
-          <div class="relative w-2/3 px-12 py-10 mt-24 rounded-md bg-lequColors-light-blue">
+          <div class="relative w-11/12 px-12 py-10 mt-24 rounded-md bg-lequColors-light-blue">
             <img class="absolute bottom-0 left-0" src="https://lequ.nl/assets/images/shape-login-block.png" />
             <div class="relative z-1">
               <AMSubtitle class="mb-2" variant="medium" as="h5">Webinar Lequ volgen?</AMSubtitle>
@@ -123,7 +123,7 @@
     </AMContainer>
     <AMContainer>
       <AMGrid class="text-lequColors-black-light" container spacing="10">
-        <AMGrid item xs="7">
+        <AMGrid item sm="7">
           <div class="relative px-10 py-12 rounded-md bg-lequColors-green">
             <AMSubtitle class="mb-4" variant="medium" as="h5">Stuur ons een bericht</AMSubtitle>
             <form @submit.prevent="handleSubmit" novalidate>
@@ -138,7 +138,7 @@
             <img class="absolute -right-8 -bottom-20" src="@/assets/lequ/group_dots.png" />
           </div>
         </AMGrid>
-        <AMGrid item xs="5">
+        <AMGrid item sm="5">
           <div class="relative h-full px-10 py-12 rounded-md bg-lequColors-light-blue">
             <div class="relative z-10">
               <AMSubtitle class="mb-4" variant="medium" as="h5">Vragen?</AMSubtitle>

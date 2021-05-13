@@ -27,79 +27,35 @@ const StyledGrid = (StyledProps) => {
 };
 
 const StyledGridItem = (StyledProps) => {
-  const { xs, sm, md, lg, xl, xxl } = StyledProps;
-  const noBreakpoints = Object.values(StyledProps).every(
-    (prop) => prop === null
-  );
   return styled.div`
-    ${(props) => noBreakpoints && DefaultStyling(props)}
-    ${(props) => xs && XSStyling(props, xs)}
-    @media (min-width: 640px) {
-      ${(props) => sm && SMStyling(props, sm)}
-    }
-    @media (min-width: 768px) {
-      ${(props) => md && MDStyling(props, md)}
-    }
-    @media (min-width: 1024px) {
-      ${(props) => lg && LGStyling(props, lg)}
-    }
-    @media (min-width: 1280px) {
-      ${(props) => xl && XLStyling(props, xl)}
-    }
-    @media (min-width: 1440px) {
-      ${(props) => xxl && XXLStyling(props, xxl)}
-    }
+    ${(props) => breakpoints(props, StyledProps)}
   `;
 };
 
-const DefaultStyling = (props) => {
-  return css`
-    max-width: 100%;
-    flex-grow: 1;
-    flex-basis: 0;
-  `;
-};
-
-const XSStyling = (props, columns) => {
-  return css`
-    flex-basis: ${(columns / 12) * 100}%;
-    max-width: ${(columns / 12) * 100}%;
-  `;
-};
-
-const SMStyling = (props, columns) => {
-  return css`
-    flex-basis: ${(columns / 12) * 100}%;
-    max-width: ${(columns / 12) * 100}%;
-  `;
-};
-
-const MDStyling = (props, columns) => {
-  return css`
-    flex-basis: ${(columns / 12) * 100}%;
-    max-width: ${(columns / 12) * 100}%;
-  `;
-};
-
-const LGStyling = (props, columns) => {
-  return css`
-    flex-basis: ${(columns / 12) * 100}%;
-    max-width: ${(columns / 12) * 100}%;
-  `;
-};
-
-const XLStyling = (props, columns) => {
-  return css`
-    flex-basis: ${(columns / 12) * 100}%;
-    max-width: ${(columns / 12) * 100}%;
-  `;
-};
-
-const XXLStyling = (props, columns) => {
-  return css`
-    flex-basis: ${(columns / 12) * 100}%;
-    max-width: ${(columns / 12) * 100}%;
-  `;
+const breakpoints = (props, StyledProps) => {
+  const noBreakpoints = Object.values(StyledProps).every(
+    (prop) => prop === undefined
+  );
+  if (noBreakpoints) {
+    return css`
+      max-width: 100%;
+      flex-grow: 1;
+      flex-basis: 0;
+    `;
+  } else {
+    const container = props.theme.cores.container;
+    return css`
+      ${Object.entries(StyledProps).map((entry) => {
+        if (entry[0] !== "default" && entry[1] !== undefined) {
+          return css`
+            @media (min-width: ${container[entry[0]].breakpoint}) {
+              flex-basis: ${(entry[1] / 12) * 100}%;
+            }
+          `;
+        }
+      })}
+    `;
+  }
 };
 
 export { StyledGrid, StyledGridItem };

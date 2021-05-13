@@ -54,6 +54,13 @@ module.exports = {
         "pink-dark": "#b15572",
       },
     },
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      xxl: "1536px",
+    },
     extend: {
       margin: {
         "1/3": "33%",

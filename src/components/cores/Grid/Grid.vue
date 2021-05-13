@@ -25,40 +25,11 @@ export default {
       type: Boolean,
       required: false,
     },
-    xs: {
-      type: String,
-      default: null,
-      required: false,
-    },
-    sm: {
-      type: String,
-      default: null,
-      required: false,
-    },
-    md: {
-      type: String,
-      default: null,
-      required: false,
-    },
-    lg: {
-      type: String,
-      default: null,
-      required: false,
-    },
-    xl: {
-      type: String,
-      default: null,
-      required: false,
-    },
-    xxl: {
-      type: String,
-      default: null,
-      required: false,
-    },
   },
   data() {
     return {
       space: this.spacing,
+      responsive: null,
     };
   },
   computed: {
@@ -69,16 +40,22 @@ export default {
       return StyledGrid(data);
     },
     GridItemComponent() {
-      const data = {
-        xs: this.xs,
-        sm: this.sm,
-        md: this.md,
-        lg: this.lg,
-        xl: this.xl,
-        xxl: this.xxl,
-      };
-      return StyledGridItem(data);
+      return StyledGridItem(this.responsive);
     },
+  },
+  created() {
+    let object = {};
+    const containerKeys = this.__theme.cores.container;
+    if (Object.keys(this.$attrs).length > 0 === true) {
+      Object.keys(containerKeys).forEach((key) => {
+        Object.assign(object, { [key]: this.$attrs[key] });
+      });
+    } else {
+      Object.keys(containerKeys).forEach((key) => {
+        Object.assign(object, { [key]: undefined });
+      });
+    }
+    this.$data.responsive = object;
   },
 };
 </script>
