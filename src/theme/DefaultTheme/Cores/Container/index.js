@@ -22,6 +22,10 @@ const container = {
     breakpoint: screens["xl"],
     padding: spacing["12"],
   },
+  xxl: {
+    breakpoint: screens["xxl"],
+    padding: spacing["12"],
+  },
 };
 
 export default container;

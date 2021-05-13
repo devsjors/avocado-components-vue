@@ -21,13 +21,13 @@
 
       <router-view />
 
-      <!-- <AMContainer :class="showGrid" class="top-0 w-full h-screen transform -translate-x-1/2 -z-1 left-1/2">
+      <AMContainer :class="showGrid" class="top-0 w-full h-screen transform -translate-x-1/2 -z-1 left-1/2">
         <AMGrid container style="box-shadow: 0 0 0 1px #eeeeee">
           <AMGrid item class="h-screen" xs="4" />
           <AMGrid item class="h-screen" xs="4" style="box-shadow: 0 0 0 1px #eeeeee" />
           <AMGrid item class="h-screen" xs="4" />
         </AMGrid>
-      </AMContainer> -->
+      </AMContainer>
     </CustomThemeProvider>
   </div>
 </template>
