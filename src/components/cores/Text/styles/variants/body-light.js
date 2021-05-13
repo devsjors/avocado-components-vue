@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const BodyLightStyling = (props) => {
   const bodyLight = props.theme.cores.typography.text["body-light"];
   return css`
+    font-family: ${bodyLight.fontFamily};
     font-size: ${bodyLight.mobile.fontSize};
     font-weight: ${bodyLight.mobile.fontWeight};
     line-height: ${bodyLight.mobile.lineHeight};

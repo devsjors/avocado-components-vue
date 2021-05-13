@@ -11,7 +11,7 @@ const StyledInput = (StyledProps) => {
 };
 
 const DefaultStyling = (props) => {
-  const { grey } = props.theme.cores.colors.base;
+  const def = props.theme.atoms.input.default;
   return css`
   .input-wrapper {
     display: flex;
@@ -20,12 +20,12 @@ const DefaultStyling = (props) => {
       border: none;
       outline: none;
       width: 100%;
-      padding: 12px 20px;
-      border-radius: 8px;
-      color: ${grey["900"]}
-      box-shadow: inset 0 0 0 1px ${grey["400"]};
+      padding: ${def.padding};
+      border-radius: ${def.borderRadius};
+      color: ${def.labelColor}
+      box-shadow: inset 0 0 0 1px ${def.borderColor};
       ::placeholder {
-        color: ${grey["400"]};
+        color: ${def.placeholderColor};
       }
       -webkit-appearance: none;
       &[type="search"]::-webkit-search-cancel-button,
@@ -41,6 +41,7 @@ const DefaultStyling = (props) => {
   .label {
     display: block;
     margin-bottom: 4px;
+    color: ${def.labelColor};
   }
   .icon {
     position: absolute;
@@ -53,64 +54,78 @@ const DefaultStyling = (props) => {
 };
 
 const HoverStyling = (props) => {
-  const { primary } = props.theme.cores.colors;
+  const hover = props.theme.atoms.input.hover;
   return css`
     .input-wrapper:hover input,
     .input-wrapper:focus input,
     .input-wrapper:focus-within input,
     textarea:hover,
     textarea:focus {
-      box-shadow: inset 0 0 0 1px ${primary["slime-light"]};
+      box-shadow: inset 0 0 0 1px ${hover.borderColor};
     }
   `;
 };
 
 const IconStyling = (props) => {
-  const { base, primary } = props.theme.cores.colors;
+  const def = props.theme.atoms.input.default;
+  const hover = props.theme.atoms.input.hover;
+  const [paddingHorizontal = [0], paddingVertical = [1]] = def.padding.split(
+    / /
+  );
   return css`
     &:focus-within .input-icon,
     &:hover .input-icon {
-      fill: ${primary["slime-light"]};
+      fill: ${hover.iconColor};
     }
     .input-icon {
-      margin: 14px 8px 14px 20px;
-      fill: ${base.grey["500"]};
+      top: 50%;
+      left: ${paddingVertical};
+      transform: translateY(-50%);
+      fill: ${def.iconColor};
     }
     .input-wrapper input,
     input-wrapper textarea {
-      padding: 12px 20px 12px 48px;
+      padding: ${paddingHorizontal} ${paddingVertical} ${paddingHorizontal}
+        calc(${paddingVertical} + 20px + 8px);
     }
   `;
 };
 
 const ErrorStyling = (props) => {
-  const { base, primary, feedback } = props.theme.cores.colors;
+  const def = props.theme.atoms.input.default;
+  const [paddingHorizontal = [0], paddingVertical = [1]] = def.padding.split(
+    / /
+  );
+  const error = props.theme.atoms.input.error;
   return css`
     .input-wrapper.error {
       &:focus-within,
       &:hover {
         .input-icon {
-          fill: ${feedback.error};
+          fill: ${error.iconColor};
         }
       }
       .input-icon {
-        margin: 14px 8px 14px 20px;
-        fill: ${feedback.error};
+        top: 50%;
+        left: ${paddingVertical};
+        transform: translateY(-50%);
+        fill: ${error.iconColor};
       }
       .error-icon {
-        margin: 14px 20px 14px 8px;
-        right: 0;
-        fill: ${feedback.error};
+        top: 50%;
+        right: ${paddingVertical};
+        transform: translateY(-50%);
+        fill: ${error.iconColor};
       }
       input,
       textarea {
-        box-shadow: inset 0 0 0 1px ${feedback.error};
-        color: ${feedback.error};
-        padding-right: 48px;
+        box-shadow: inset 0 0 0 1px ${error.borderColor};
+        color: ${error.message};
+        padding-right: calc(${paddingVertical} + 20px + 8px);
       }
     }
     .error-message {
-      color: ${feedback.error};
+      color: ${error.message};
     }
   `;
 };

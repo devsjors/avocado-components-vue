@@ -1,6 +1,5 @@
 module.exports = {
   purge: ["./src/**/*.{vue,js,ts,jsx,tsx}"],
-  darkMode: false, // or 'media' or 'class'
   theme: {
     colors: {
       primary: {
@@ -31,6 +30,29 @@ module.exports = {
         warning: "#F48A1E",
         error: "#E01447",
       },
+      lequColors: {
+        grey: "#EAEAEA",
+        "dark-blue": "#173260",
+        "lequ-red": "#E00F21",
+        "dark-red": "#C70E1E",
+        "dark-grey": "#6A6A6A",
+        "light-grey": "#F6F6F6",
+        "grey-border": "#E5E7EB",
+        green: "#7F9A84",
+        "green-dark": "#667d6a",
+        "grey-white": "#E6E6E6",
+        "near-white": "#F1F1F1",
+        "cover-gray": "#959595",
+        "gray-5": "#E0E0E0",
+        "black-light": "#2A2A2A",
+        "light-blue": "#668CB7",
+        "light-blue-dark": "#516f92",
+        yellow: "#C5A730",
+        "yellow-light": "#FFED76",
+        purple: "#B7A9C8",
+        pink: "#E06D92",
+        "pink-dark": "#b15572",
+      },
     },
     extend: {
       margin: {
@@ -38,6 +60,9 @@ module.exports = {
       },
       zIndex: {
         "-1": "-1",
+      },
+      minWidth: {
+        32: "8rem",
       },
     },
   },

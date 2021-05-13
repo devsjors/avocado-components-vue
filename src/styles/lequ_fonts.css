@@ -1,0 +1,39 @@
+@font-face {
+  font-family: 'Pluto Heavy';
+  src: url('../assets/lequ/fonts/PlutoHeavy.woff2') format('woff2'),
+    url('../assets/lequ/fonts/PlutoHeavy.woff') format('woff'),
+    url('../assets/lequ/fonts/PlutoHeavy.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pluto Medium';
+  src: url('../assets/lequ/fonts/PlutoMedium.woff2') format('woff2'),
+    url('../assets/lequ/fonts/PlutoMedium.woff') format('woff'),
+    url('../assets/lequ/fonts/PlutoMedium.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Pluto Regular';
+  src: url('../assets/lequ/fonts/PlutoRegular.woff2') format('woff2'),
+    url('../assets/lequ/fonts/PlutoRegular.woff') format('woff'),
+    url('../assets/lequ/fonts/PlutoRegular.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXTBook Bold';
+  src: url('../assets/lequ/fonts/NEXTBook-Bold.woff2') format('woff2'),
+    url('../assets/lequ/fonts/NEXTBook-Bold.woff') format('woff'),
+    url('../assets/lequ/fonts/NEXTBook-Bold.ttf') format('truetype');
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'NEXTBook Regular';
+  src: url('../assets/lequ/fonts/NEXTBook-Regular.woff2') format('woff2'),
+    url('../assets/lequ/fonts/NEXTBook-Regular.woff') format('woff'),
+    url('../assets/lequ/fonts/NEXTBook-Regular.ttf') format('truetype');
+  font-display: swap;
+}

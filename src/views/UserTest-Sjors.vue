@@ -21,10 +21,7 @@
     <AMContainer class="pb-24">
       <AMGrid container>
         <AMGrid item class="w-full ml-auto -mt-64" md="8">
-          <div class="bg-center bg-no-repeat bg-cover bg-base-grey-100" style="
-              padding-bottom: 56%;
-              background-image: url(https://picsum.photos/2000/3000);
-            " />
+          <div class="bg-center bg-no-repeat bg-cover bg-base-grey-100" :style="`padding-bottom: 56%; background-image: url(${require('@/assets/avocado_media/office.jpeg')})`" />
         </AMGrid>
         <AMGrid item class="ml-auto" md="8">
           <AMTitle class="mt-12 md:max-w-xl text-base-grey-900" variant="epic" as="h2">Wij helpen ondernemingen de volgende stap te zetten</AMTitle>
@@ -42,40 +39,38 @@
     <AMContainer maxWidth="xl" class="pb-32">
       <AMGrid container class="overflow-hidden rounded-md bg-secondary-mist" :class="[flowOrder(index), spaceBetween(index)]" :key="index" v-for="index in 3">
         <AMGrid item class="p-6 md:p-10" md="6">
-          <AMSubtitle class="mb-6 text-primary-slime-light" variant="small" as="h4">CompanyName</AMSubtitle>
-          <AMTitle class="mb-4 text-base-grey-900" variant="epic" as="h3">Title {{ index }}</AMTitle>
+          <AMSubtitle class="mb-6 text-primary-slime-light" variant="small" as="h4">{{ caseCompany(index) }}</AMSubtitle>
+          <AMTitle class="mb-4 text-base-grey-900" variant="epic" as="h3">
+            {{ caseTitle(index) }}
+          </AMTitle>
           <AMText class="mb-4 lg:w-4/5 text-base-grey-900" variant="body-light">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-            aliquip ex ea commodo consequat.
+            {{ caseDescription(index) }}
           </AMText>
-          <AMLink label="Read more about title" href="/" />
+          <AMLink :label="caseLink(index)" href="/" />
         </AMGrid>
         <AMGrid item md="6">
-          <div class="flex h-full bg-center bg-no-repeat bg-base-grey-100" style="background-image: url(https://picsum.photos/1000/800)" />
+          <div class="flex h-full bg-center bg-no-repeat bg-contain" :style="`background-image: url(${require('@/assets/avocado_media/' +
+              caseImage(index) +
+              '')})`" />
         </AMGrid>
       </AMGrid>
       <div class="flex items-center justify-center mt-8">
         <AMButton href="/sjors" variant="secondary" label="Bekijk alle cases" />
       </div>
     </AMContainer>
-    <div class="my-24 bg-primary-navy">
+    <div class="mt-24 mb-36 bg-primary-navy">
       <AMContainer>
         <AMGrid container>
           <AMGrid item class="-mt-24" md="6">
-            <div class="bg-center bg-no-repeat bg-cover bg-base-grey-100" style="
-                padding-bottom: 56%;
-                background-image: url(https://picsum.photos/720/420);
-              " />
+            <div class="bg-center bg-no-repeat bg-cover bg-base-grey-100" :style="`padding-bottom: 56%; background-image: url(${require('@/assets/avocado_media/sjors_marvin_design.jpeg')})`" />
           </AMGrid>
         </AMGrid>
       </AMContainer>
       <AMContainer>
         <AMGrid container>
-          <AMGrid item class="pt-12 pb-20" md="6">
+          <AMGrid item class="pt-12 pb-20" md="7">
             <AMTitle class="mt-8 text-primary-slime-light" variant="epic" as="h2">Specialist in online platforms</AMTitle>
-            <AMText class="mt-3 text-base-white lg:mr-20" variant="body-light">
+            <AMText class="mt-3 text-base-white xl:mr-20" variant="body-light">
               Aan de basis van ieder project staat een centraal vraagstuk. Een
               uitdaging die vraagt om een oplossing. De ontwikkeling van een
               online platform kan in veel gevallen uitkomst bieden. Wij bundelen
@@ -86,38 +81,38 @@
             </AMText>
             <AMButton class="mt-6" href="/sjors" variant="primary" label="Meer over online platforms" />
           </AMGrid>
-          <AMGrid item class="relative ml-auto -mt-36" md="4">
-            <div class="absolute w-full bg-center bg-no-repeat bg-cover bg-base-grey-100" style="
-                padding-bottom: 135%;
-                background-image: url(https://picsum.photos/480/650);
-              " />
+          <AMGrid item class="relative ml-auto xl:-mt-36 lg:mt-24" md="4">
+            <div class="absolute w-full bg-center bg-no-repeat bg-cover bg-base-grey-100" :style="`padding-bottom: 135%; background-image: url(${require('@/assets/avocado_media/sjors_development.jpeg')})`" />
           </AMGrid>
         </AMGrid>
       </AMContainer>
     </div>
-    <AMContainer maxWidth="md" class="py-20 mt-12">
-      <AMTitle variant="large" as="h4" class="mb-8">Hoe kunnen wij je helpen?</AMTitle>
-      <form @submit.prevent="handleSubmit" novalidate v-if="!loaded">
-        <AMGrid container spacing="3">
-          <AMGrid item class="mb-4" xs="12" md="6">
-            <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.name" type="text" placeholder="Volledige naam" id="form-name" />
+    <div class="relative">
+      <div class="absolute w-1/2 h-full bg-secondary-mist" />
+      <AMContainer maxWidth="md" class="relative py-20 mt-12">
+        <AMTitle variant="large" as="h4" class="mb-8">Hoe kunnen wij je helpen?</AMTitle>
+        <form @submit.prevent="handleSubmit" novalidate v-if="!loaded">
+          <AMGrid container spacing="3">
+            <AMGrid item class="mb-4" xs="12" md="6">
+              <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.name" type="text" placeholder="Volledige naam" id="form-name" />
+            </AMGrid>
+            <AMGrid item class="mb-4" xs="12" md="6">
+              <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.email" type="email" required placeholder="Emailadres" id="form-mail" icon="mail" />
+            </AMGrid>
+            <AMGrid item class="mb-4" xs="12">
+              <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.message" type="textarea" required placeholder="Vertel iets over het project" id="form-bericht" />
+            </AMGrid>
+            <AMGrid item xs="12" md="12">
+              <AMButton type="submit" :loading="loading" variant="primary" label="Verzenden" />
+            </AMGrid>
           </AMGrid>
-          <AMGrid item class="mb-4" xs="12" md="6">
-            <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.email" type="email" required placeholder="Emailadres" id="form-mail" icon="mail" />
-          </AMGrid>
-          <AMGrid item class="mb-4" xs="12">
-            <AMInput @error="pushErrors" :validate="trigger" :errorMessages="errorMessages" v-model="form.message" type="textarea" required placeholder="Vertel iets over het project" id="form-bericht" />
-          </AMGrid>
-          <AMGrid item xs="12" md="12">
-            <AMButton type="submit" :loading="loading" variant="primary" label="Verzenden" />
-          </AMGrid>
-        </AMGrid>
-      </form>
-      <AMSubtitle v-if="loaded" variant="small" as="p">
-        Bedankt voor het invullen! Wij nemen zo spoedig mogelijk contact met je
-        op.
-      </AMSubtitle>
-    </AMContainer>
+        </form>
+        <AMSubtitle v-if="loaded" variant="small" as="p">
+          Bedankt voor het invullen! Wij nemen zo spoedig mogelijk contact met
+          je op.
+        </AMSubtitle>
+      </AMContainer>
+    </div>
   </main>
 </template>
 
@@ -184,6 +179,51 @@ export default {
     },
     spaceBetween(index) {
       return index !== 1 && "mt-12";
+    },
+    caseCompany(index) {
+      if (index === 1) {
+        return "Lequ";
+      } else if (index === 2) {
+        return "PLYGRND";
+      } else {
+        return "SIEO";
+      }
+    },
+    caseTitle(index) {
+      if (index === 1) {
+        return "Leesbevordering voor jongeren in het basisonderwijs";
+      } else if (index === 2) {
+        return "Online impact voor een betere buurt";
+      } else {
+        return "Platform voor innovatieve economie methode";
+      }
+    },
+    caseDescription(index) {
+      if (index === 1) {
+        return "Nederlandse jongeren lezen minder vaak en met minder plezier. Lequ helpt hen bij de ontdekkingstocht naar hun favoriete leessmaak. Middels een online platform en een tijdschrift biedt Lequ de leukste leestips, strips en boeken die je doen voelen als een kind in een boekwinkel.";
+      } else if (index === 2) {
+        return "PLYGRND.city richt zich op stedelijke ontwikkeling middels actieonderzoek. Door het inzetten van verschillende producten ondervindt PLYGRND wat er speelt in de stad en onder haar buurtbewoners.";
+      } else {
+        return "Stichting Innovatie Economie-Onderwijs (SIEO) streeft naar het verbeteren van het economie onderwijs. Hiervoor ontwikkelen zij keuzekaternen en een nieuwe economiemethode.";
+      }
+    },
+    caseLink(index) {
+      if (index === 1) {
+        return "Lees meer over Lequ";
+      } else if (index === 2) {
+        return "Lees meer over PLYGRND";
+      } else {
+        return "Lees meer over SIEO";
+      }
+    },
+    caseImage(index) {
+      if (index === 1) {
+        return "lequ_platform.png";
+      } else if (index === 2) {
+        return "plygrnd_platform.png";
+      } else {
+        return "sieo_platform.png";
+      }
     },
   },
 };

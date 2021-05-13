@@ -36,6 +36,11 @@ const routes = [
     component: () => import("../views/UserTest-Sjors.vue"),
   },
   {
+    path: "/lequ",
+    name: "Lequ",
+    component: () => import("../views/Lequ.vue"),
+  },
+  {
     path: "/usertest-sem",
     name: "Usertest-Sem",
     component: () => import("../views/Usertest-Sem.vue"),

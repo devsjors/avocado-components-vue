@@ -3,6 +3,7 @@ import styled, { css } from "vue-styled-components";
 const BodyBoldStyling = (props) => {
   const bodyBold = props.theme.cores.typography.text["body-bold"];
   return css`
+    font-family: ${bodyBold.fontFamily};
     font-size: ${bodyBold.mobile.fontSize};
     font-weight: ${bodyBold.mobile.fontWeight};
     line-height: ${bodyBold.mobile.lineHeight};
