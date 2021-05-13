@@ -69,23 +69,33 @@ const HoverStyling = (props) => {
 const IconStyling = (props) => {
   const def = props.theme.atoms.input.default;
   const hover = props.theme.atoms.input.hover;
+  const [paddingHorizontal = [0], paddingVertical = [1]] = def.padding.split(
+    / /
+  );
   return css`
     &:focus-within .input-icon,
     &:hover .input-icon {
       fill: ${hover.iconColor};
     }
     .input-icon {
-      margin: 14px 8px 14px 20px;
+      top: 50%;
+      left: ${paddingVertical};
+      transform: translateY(-50%);
       fill: ${def.iconColor};
     }
     .input-wrapper input,
     input-wrapper textarea {
-      padding: 12px 20px 12px 48px;
+      padding: ${paddingHorizontal} ${paddingVertical} ${paddingHorizontal}
+        calc(${paddingVertical} + 20px + 8px);
     }
   `;
 };
 
 const ErrorStyling = (props) => {
+  const def = props.theme.atoms.input.default;
+  const [paddingHorizontal = [0], paddingVertical = [1]] = def.padding.split(
+    / /
+  );
   const error = props.theme.atoms.input.error;
   return css`
     .input-wrapper.error {
@@ -96,19 +106,22 @@ const ErrorStyling = (props) => {
         }
       }
       .input-icon {
-        margin: 14px 8px 14px 20px;
+        top: 50%;
+        left: ${paddingVertical};
+        transform: translateY(-50%);
         fill: ${error.iconColor};
       }
       .error-icon {
-        margin: 14px 20px 14px 8px;
-        right: 0;
+        top: 50%;
+        right: ${paddingVertical};
+        transform: translateY(-50%);
         fill: ${error.iconColor};
       }
       input,
       textarea {
         box-shadow: inset 0 0 0 1px ${error.borderColor};
         color: ${error.message};
-        padding-right: 48px;
+        padding-right: calc(${paddingVertical} + 20px + 8px);
       }
     }
     .error-message {

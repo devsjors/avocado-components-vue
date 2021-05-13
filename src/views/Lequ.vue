@@ -35,16 +35,22 @@
             <div class="relative h-full">
               <img class="absolute top-0 right-0 w-full" src="https://lequ.nl/assets/images/shape_block_right.png" />
               <img class="absolute bottom-0 left-0 w-3/4" src="https://lequ.nl/assets/images/shape-login-block.png" />
+              <img class="absolute left-1/4 -z-1 -top-20" src="@/assets/lequ/group_dots.png" />
             </div>
           </div>
           <div :style="`width: 400px; height: 600px; background-image: url('https://lequ.nl/img/32521dcf-2fe3-48d6-b1b9-a8c914b11f73/rsz-3gorgels-1-jochem-myjer.jpg')`" class="relative ml-auto mr-20 bg-center bg-no-repeat bg-cover rounded-md shadow-xl z-1 bg-base-grey-400" />
         </AMGrid>
         <AMGrid class="my-6 text-lequColors-black-light" item lg="6">
-          <AMSubtitle variant="small" as="h4" class="mb-2 text-lequColors-lequ-red">Uitgelicht</AMSubtitle>
+          <div class="relative">
+            <div class="absolute w-full transform -translate-y-1/2 bg-base-white -z-1 top-1/2 -left-full">
+              <div class="w-1/2 ml-auto mr-4 h-0.5 bg-lequColors-lequ-red" />
+            </div>
+            <AMSubtitle variant="small" as="h4" class="mb-2 text-lequColors-lequ-red">Uitgelicht</AMSubtitle>
+          </div>
           <AMTitle variant="large" as="h3" class="mb-2 uppercase">De Gorgels (deel 1)</AMTitle>
           <AMText variant="body-bold" class="mb-6">Jochem Myjer</AMText>
           <div class="flex flex-wrap gap-0 mb-4 -mx-2">
-            <AMText variant="body-bold" class="flex-shrink-0 w-auto px-2 py-1 mx-2 text-center rounded min-w-32 bg-base-grey-100" :key="index" v-for="index in 3">
+            <AMText variant="body-regular" class="flex-shrink-0 w-auto px-2 py-1 mx-2 text-center rounded min-w-32 bg-base-grey-100" :key="index" v-for="index in 3">
               Tag
             </AMText>
           </div>
