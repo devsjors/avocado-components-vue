@@ -16,8 +16,6 @@ const DefaultStyling = (props) => {
     background: ${grey["200"]};
     box-shadow: 0 0 0 1px ${grey["300"]};
     .header-wrapper {
-      max-width: 1440px;
-      margin: auto;
       height: 80px;
     }
   `;

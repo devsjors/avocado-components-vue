@@ -9,37 +9,38 @@ const StyledContainer = (StyledProps) => {
 };
 
 const DefaultStyling = (props) => {
-  return css`
-    max-width: 1440px;
-    margin: auto;
-    padding-left: 24px;
-    padding-right: 24px;
-    @media (min-width: 640px) {
-      padding-left: 16px;
-      padding-right: 16px;
+  const containerStyles = props.theme.cores.container;
+  for (const [key, value] of Object.entries(containerStyles)) {
+    if (key === "default") {
+      return css`
+        max-width: ${value.maxWidth};
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: ${value.padding};
+        padding-right: ${value.padding};
+      `;
+    } else {
+      return css`
+        @media (min-width: ${value.breakpoint}) {
+          padding-left: ${value.padding};
+          padding-right: ${value.padding};
+        }
+      `;
     }
-    @media (min-width: 1280px) {
-      padding-left: 24px;
-      padding-right: 24px;
-    }
-    @media (min-width: 1440px) {
-      padding-left: 40px;
-      padding-right: 40px;
-    }
-    @media (min-width: 1520px) {
-      padding-left: 0;
-      padding-right: 0;
-    }
-  `;
+  }
 };
 
 const maxWidthStyling = (props, maxWidth) => {
-  return css`
-    ${maxWidth === "sm" && "max-width: 640px;"}
-    ${maxWidth === "md" && "max-width: 768px;"}
-    ${maxWidth === "lg" && "max-width: 1024px;"}
-    ${maxWidth === "xl" && "max-width: 1280px;"}
-  `;
+  const containerStyles = props.theme.cores.container;
+  for (const [key, value] of Object.entries(containerStyles)) {
+    if (key !== "default") {
+      if (key === maxWidth) {
+        return css`
+          max-width: ${value.breakpoint};
+        `;
+      }
+    }
+  }
 };
 
 export default StyledContainer;
