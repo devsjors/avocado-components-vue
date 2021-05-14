@@ -10,25 +10,13 @@ Vue.config.productionTip = false;
 
 const theme = () => {
   if (window.location.pathname === "/lequ") {
-    return {
-      computed: {
-        __theme() {
-          return LequTheme;
-        },
-      },
-    };
+    return LequTheme;
   } else {
-    return {
-      computed: {
-        __theme() {
-          return DefaultTheme;
-        },
-      },
-    };
+    return DefaultTheme;
   }
 };
 
-Vue.mixin(theme());
+Vue.prototype.__theme = theme();
 new Vue({
   router,
   render: (h) => h(App),
