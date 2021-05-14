@@ -33,7 +33,6 @@
 </template>
 
 <script>
-/* eslint-disable vue/no-unused-components */
 import CustomThemeProvider from "@/theme/Provider";
 import AMHeader from "@/components/organisms/Header/Header";
 import AMHeaderName from "@/components/organisms/Header/HeaderName";
@@ -54,11 +53,6 @@ export default {
     AMHeaderMenuItem,
     AMContainer,
     AMGrid,
-  },
-  methods: {
-    sjors(event) {
-      console.log(event);
-    },
   },
   computed: {
     showGrid() {

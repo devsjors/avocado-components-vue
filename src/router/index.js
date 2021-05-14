@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import LequTheme from "@/theme/LequTheme";
 
 Vue.use(VueRouter);
 
@@ -44,6 +45,11 @@ const routes = [
     path: "/usertest-sem",
     name: "Usertest-Sem",
     component: () => import("../views/Usertest-Sem.vue"),
+  },
+  {
+    path: "/components",
+    name: "components",
+    component: () => import("../views/Components.vue"),
   },
 ];
 
