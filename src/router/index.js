@@ -1,6 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
+import Cores from "../views/Cores.vue";
 
 Vue.use(VueRouter);
 
@@ -13,7 +14,7 @@ const routes = [
   {
     path: "/cores",
     name: "cores",
-    component: () => import("../views/Cores.vue"),
+    component: Cores,
   },
   {
     path: "/atoms",
