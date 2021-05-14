@@ -53,4 +53,19 @@ const router = new VueRouter({
   routes,
 });
 
+router.afterEach((to, from) => {
+  if (to.path === "/lequ") {
+    if (!window.location.hash) {
+      window.location = `${window.location}#loaded`;
+      window.location.reload();
+    }
+  }
+  if (from.path === "/lequ") {
+    if (!window.location.hash) {
+      window.location = `${window.location}#loaded`;
+      window.location.reload();
+    }
+  }
+});
+
 export default router;
