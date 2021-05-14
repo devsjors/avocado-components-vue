@@ -8,80 +8,99 @@ const toCss = (string) =>
     .replace(/((?<=[a-z\d])[A-Z]|(?<=[A-Z\d])[A-Z](?=[a-z]))/g, "-$1")
     .toLowerCase();
 
-const ObjectToCss = (object) => {
-  return Object.entries(object[1]).map((styles) => {
-    let property, value;
-    if (styles[0] === "borderColor") {
-      property = "box-shadow";
-      value = `0 0 0 1px ${styles[1]}`;
-    } else {
-      property = toCss(styles[0]);
-      value = styles[1];
-    }
-    return css`
-      ${property}: ${value};
-    `;
-  });
-};
-
-let basicStyles,
-  hoverStyles,
-  disabledStyles,
-  loadingDefault,
-  loadingHover,
-  loadingDisabled;
-
 const StyledButton = (StyledProps) => {
-  const { start, end, variant, disabled, buttonTheme } = StyledProps;
-  for (const [key, value] of Object.entries(buttonTheme)) {
-    if (key !== "default" && variant === key) {
-      Object.entries(value).forEach((entry) => {
-        if (entry[0] === "default") {
-          basicStyles = ObjectToCss(entry);
-          loadingDefault = Object.entries(entry[1]).filter(
-            (item) => item[0] === "color"
-          );
-        } else if (entry[0] === "hover") {
-          hoverStyles = ObjectToCss(entry);
-          loadingHover = Object.entries(entry[1]).filter(
-            (item) => item[0] === "color"
-          );
-        } else if (entry[0] === "disabled") {
-          disabledStyles = ObjectToCss(entry);
-          loadingDisabled = Object.entries(entry[1]).filter(
-            (item) => item[0] === "color"
-          );
-        }
-      });
-    }
-  }
-
+  const { start, end, variant } = StyledProps;
   return styled.button`
     ${(props) => DefaultStyling(props)};
+    ${(props) => Styling(props, variant)}
     ${IconStyling(start, end)};
-    ${basicStyles};
     transition: all 0.15s;
-    ${(props) => StateStyling(props, disabled)}
-    ${(props) => LoaderStyling(props, loadingDefault[0][1])}
   `;
 };
 
-const StateStyling = (props, disabled) => {
-  if (disabled) {
+const Styling = (props, variant) => {
+  let baseStyle = [];
+  let hoverStyle = [];
+  let disabledStyle = [];
+  const styles = props.theme.atoms.button[variant];
+  for (const [key, value] of Object.entries(styles)) {
+    const loaderColor = value.color ? value.color : "#FFFFFF";
+    if (key === "default") {
+      for (const [key, value] of Object.entries(value)) {
+        let prop, style;
+        prop = key;
+        style = value;
+        if (key === "borderColor") {
+          prop = "box-shadow";
+          style = `0 0 0 1px ${value}`;
+        }
+        baseStyle.push(css`
+          ${toCss(prop)}: ${style};
+        `);
+      }
+      baseStyle.push(
+        css`
+          ${LoaderStyling(props, loaderColor)}
+        `
+      );
+    }
+    if (key === "hover") {
+      for (const [key, value] of Object.entries(value)) {
+        let prop, style;
+        prop = key;
+        style = value;
+        if (key === "borderColor") {
+          prop = "box-shadow";
+          style = `0 0 0 1px ${value}`;
+        }
+        hoverStyle.push(css`
+          ${toCss(prop)}: ${style};
+        `);
+      }
+      hoverStyle.push(
+        css`
+          ${LoaderStyling(props, loaderColor)}
+        `
+      );
+    }
+    if (key === "disabled") {
+      for (const [key, value] of Object.entries(value)) {
+        let prop, style;
+        prop = key;
+        style = value;
+        if (key === "borderColor") {
+          prop = "box-shadow";
+          style = `0 0 0 1px ${value}`;
+        }
+        disabledStyle.push(css`
+          ${toCss(prop)}: ${style};
+        `);
+      }
+      disabledStyle.push(
+        css`
+          ${LoaderStyling(props, loaderColor)}
+        `
+      );
+    }
+  }
+
+  const state = () => {
     return css`
-      pointer-events: none;
-      ${disabledStyles}
-      ${(props) => LoaderStyling(props, loadingDisabled[0][1])}
-    `;
-  } else {
-    return css`
+      &.disabled {
+        pointer-events: none;
+        ${disabledStyle}
+      }
       &:hover,
       &:focus {
-        ${hoverStyles}
-        ${(props) => LoaderStyling(props, loadingHover[0][1])}
+        ${hoverStyle}
       }
     `;
-  }
+  };
+
+  return css`
+    ${baseStyle}
+    ${state()}
+  `;
 };
 
 const StyledAnchor = (start, end) =>

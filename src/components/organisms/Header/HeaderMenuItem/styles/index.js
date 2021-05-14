@@ -46,6 +46,9 @@ const DefaultStyling = (props) => {
       background-position: 100%;
       transition: background-position 0.2s;
     }
+    .router-link-active {
+      background-position: 0 100%;
+    }
   `;
 };
 
@@ -61,7 +64,7 @@ const HoverStyling = (props) => {
 const ActiveStyling = (props, active) => {
   const { primary } = props.theme.cores.colors;
   return css`
-    a {
+    .router-link-active {
       background-position: 0 100%;
     }
   `;

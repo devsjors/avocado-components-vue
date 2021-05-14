@@ -1,8 +1,23 @@
 import cores from "../../Cores";
-import twConfig from "@/theme/tailwind-js";
+import twConfig from "../../../tailwind-js";
 
 const { typography } = cores;
 const { colors, spacing, borderRadius } = twConfig.theme;
+
+const primary = {
+  default: {
+    color: colors.base.white,
+    backgroundColor: colors.primary["slime-light"],
+  },
+  hover: {
+    color: colors.base.white,
+    backgroundColor: colors.primary["slime-dark"],
+  },
+  disabled: {
+    color: colors.base.white,
+    backgroundColor: colors.base.grey["300"],
+  },
+};
 
 const button = {
   default: {
@@ -11,14 +26,15 @@ const button = {
     textTransform: "uppercase",
     borderRadius: spacing["2"],
   },
-  primary: {
+  primary,
+  primaryRed: {
     default: {
       color: colors.base.white,
-      backgroundColor: colors.primary["slime-light"],
+      backgroundColor: "tomato",
     },
     hover: {
-      color: colors.base.white,
-      backgroundColor: colors.primary["slime-dark"],
+      color: "green",
+      backgroundColor: "red",
     },
     disabled: {
       color: colors.base.white,

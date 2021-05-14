@@ -37,6 +37,7 @@
 import AMContainer from "@/components/cores/Container";
 import AMGrid from "@/components/cores/Grid";
 import AMTitle from "@/components/cores/Title";
+import AMButton from "@/components/atoms/Button";
 
 export default {
   name: "Home",
@@ -44,6 +45,7 @@ export default {
     AMContainer,
     AMGrid,
     AMTitle,
+    AMButton,
   },
 };
 </script>

@@ -131,7 +131,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import AMButton from "@/components/atoms/Button";
 import AMLink from "@/components/atoms/Link";
 import AMInput from "@/components/atoms/Input";
@@ -173,19 +172,6 @@ export default {
       const errors = await this.errors;
 
       console.log("error", this.form);
-
-      if (!errors.length) {
-        axios
-          .post("/atoms", this.form)
-          .then(() => {
-            console.log("success", this.form);
-
-            // Write action
-          })
-          .catch(() => {
-            // Write fallback
-          });
-      }
     },
   },
 };

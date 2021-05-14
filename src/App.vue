@@ -4,17 +4,17 @@
       <AMHeader>
         <AMHeaderName href="/">Logo</AMHeaderName>
         <AMHeaderNavigation>
-          <AMHeaderMenuItem href="/cores" label="Cores" />
-          <AMHeaderMenuItem href="/atoms" label="Atoms" />
-          <AMHeaderMenuItem href="/molecules" label="Molecules" />
-          <AMHeaderMenuItem href="/organisms" label="Organisms" />
-          <AMHeaderMenuItem href="/sjors" label="Sjors" />
-          <AMHeaderMenuItem href="/lequ" label="Lequ" />
+          <AMHeaderMenuItem routerLink href="/cores" label="Cores" />
+          <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" />
+          <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" />
+          <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" />
+          <AMHeaderMenuItem routerLink href="/sjors" label="Sjors" />
+          <AMHeaderMenuItem routerLink href="/lequ" label="Lequ" />
           <AMHeaderMenu label="Components">
-            <AMHeaderMenuItem href="/cores" label="Cores" />
-            <AMHeaderMenuItem href="/atoms" label="Atoms" />
-            <AMHeaderMenuItem href="/molecules" label="Molecules" />
-            <AMHeaderMenuItem href="/organisms" label="Organisms" />
+            <AMHeaderMenuItem routerLink href="/cores" label="Cores" />
+            <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" />
+            <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" />
+            <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" />
           </AMHeaderMenu>
         </AMHeaderNavigation>
       </AMHeader>
@@ -54,6 +54,11 @@ export default {
     AMHeaderMenuItem,
     AMContainer,
     AMGrid,
+  },
+  methods: {
+    sjors(event) {
+      console.log(event);
+    },
   },
   computed: {
     showGrid() {
