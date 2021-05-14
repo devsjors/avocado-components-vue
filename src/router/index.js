@@ -60,13 +60,7 @@ const router = new VueRouter({
 });
 
 router.afterEach((to, from) => {
-  if (to.path === "/lequ") {
-    if (!window.location.hash) {
-      window.location = `${window.location}#loaded`;
-      window.location.reload();
-    }
-  }
-  if (from.path === "/lequ") {
+  if (to.path === "/lequ" || from.path === "/lequ") {
     if (!window.location.hash) {
       window.location = `${window.location}#loaded`;
       window.location.reload();
