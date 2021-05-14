@@ -1,5 +1,5 @@
 <template>
-  <component :is="ButtonComponent" :href="href" @click="clickHandle()" :class="loading && 'loading'">
+  <component :is="ButtonComponent" :href="href" @click="clickHandle()" :class="{ loading: loading, disabled: disabled }">
     <IconBase v-if="iconStart" :name="iconStart" />
     <span>{{ label }}</span>
     <span class="spinner" />
@@ -61,8 +61,6 @@ export default {
         variant: this.variant,
         start: this.iconStart,
         end: this.iconEnd,
-        disabled: this.disabled,
-        buttonTheme: this.__theme.atoms.button,
       };
       return this.href ? StyledAnchor(data) : StyledButton(data);
     },

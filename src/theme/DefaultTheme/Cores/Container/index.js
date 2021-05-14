@@ -1,4 +1,4 @@
-import twConfig from "@/theme/tailwind-js";
+import twConfig from "../../../tailwind-js";
 const { screens, spacing, maxWidth } = twConfig.theme;
 
 const container = {

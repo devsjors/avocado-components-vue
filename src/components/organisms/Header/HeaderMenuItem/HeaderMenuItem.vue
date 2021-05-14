@@ -1,6 +1,7 @@
 <template>
   <component :is="HeaderMenuItemComponent">
-    <a :href="href">{{ label }}</a>
+    <router-link v-if="routerLink" :to="href">{{ label }}</router-link>
+    <a v-else :href="href">{{ label }}</a>
   </component>
 </template>
 
@@ -11,6 +12,11 @@ export default {
   name: "AMHeaderMenuItem",
   components: {},
   props: {
+    routerLink: {
+      type: Boolean,
+      required: false,
+      default: false,
+    },
     href: {
       type: String,
       required: true,

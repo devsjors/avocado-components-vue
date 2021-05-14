@@ -1,5 +1,5 @@
 import cores from "../../Cores";
-import twConfig from "@/theme/tailwind-js";
+import twConfig from "../../../tailwind-js";
 
 const { typography } = cores;
 const { colors } = twConfig.theme;
