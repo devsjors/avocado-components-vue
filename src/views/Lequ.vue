@@ -157,6 +157,7 @@
 </template>
 
 <script>
+import LequTheme from "../theme/LequTheme";
 import AMContainer from "@/components/cores/Container";
 import AMGrid from "@/components/cores/Grid";
 import AMTitle from "@/components/cores/Title";
@@ -209,6 +210,11 @@ export default {
         }, 2000);
       }
     },
+  },
+  beforeCreate() {
+    // console.log(this.__theme.atoms.button.default.padding);
+    this.__theme = LequTheme;
+    // console.log(this.__theme.atoms.button.default.padding);
   },
 };
 </script>
