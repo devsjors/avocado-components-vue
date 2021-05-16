@@ -69,9 +69,8 @@ const HoverStyling = (props) => {
 const IconStyling = (props) => {
   const def = props.theme.atoms.input.default;
   const hover = props.theme.atoms.input.hover;
-  const [paddingHorizontal = [0], paddingVertical = [1]] = def.padding.split(
-    / /
-  );
+  const [paddingHorizontal = [0], paddingVertical = [1]] =
+    def.padding.split(/ /);
   return css`
     &:focus-within .input-icon,
     &:hover .input-icon {
@@ -93,9 +92,8 @@ const IconStyling = (props) => {
 
 const ErrorStyling = (props) => {
   const def = props.theme.atoms.input.default;
-  const [paddingHorizontal = [0], paddingVertical = [1]] = def.padding.split(
-    / /
-  );
+  const [paddingHorizontal = [0], paddingVertical = [1]] =
+    def.padding.split(/ /);
   const error = props.theme.atoms.input.error;
   return css`
     .input-wrapper.error {

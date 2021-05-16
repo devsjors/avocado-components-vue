@@ -150,7 +150,7 @@ spacing: {
     codeTheme() {
       return `// theme / Cores / Container
 
-import twConfig from "";
+import twConfig from "...";
 const { screens, spacing } = twConfig.theme;
 
 const container = {

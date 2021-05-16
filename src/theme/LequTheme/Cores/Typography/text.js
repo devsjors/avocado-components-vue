@@ -1,7 +1,7 @@
 const fallback = ", serif";
 const text = {
-  fontFamily: `NEXTBook Regular${fallback}`,
   introduction: {
+    fontFamily: `NEXTBook Regular${fallback}`,
     desktop: {
       fontSize: "20px",
       fontWeight: "500",
