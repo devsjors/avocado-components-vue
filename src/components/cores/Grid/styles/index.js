@@ -40,7 +40,7 @@ const breakpoints = (props, StyledProps) => {
     return css`
       max-width: 100%;
       flex-grow: 1;
-      flex-basis: 0;
+      flex-basis: 100%;
     `;
   } else {
     const container = props.theme.cores.container;
@@ -48,8 +48,12 @@ const breakpoints = (props, StyledProps) => {
       ${Object.entries(StyledProps).map((entry) => {
         if (entry[0] !== "default" && entry[1] !== undefined) {
           return css`
+            max-width: 100%;
+            flex-grow: 1;
+            flex-basis: 100%;
             @media (min-width: ${container[entry[0]].breakpoint}) {
               flex-basis: ${(entry[1] / 12) * 100}%;
+              max-width: ${(entry[1] / 12) * 100}%;
             }
           `;
         }

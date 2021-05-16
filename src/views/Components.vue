@@ -1,35 +1,26 @@
 <template>
   <div>
     <div :style="sidebarWidth" class="fixed left-0 px-4 py-8 top-24 bg-base-grey-200">
-      <AMText @click.native="handlePreview($event)" variant="introduction">Cores</AMText>
-      <AMText @click.native="handlePreview($event)" variant="body-light">Container</AMText>
-      <AMText @click.native="handlePreview($event)" variant="body-light">Grid</AMText>
-      <AMText @click.native="handlePreview($event)" variant="body-light">Title</AMText>
-      <AMText @click.native="handlePreview($event)" variant="body-light">Subtitle</AMText>
-      <AMText @click.native="handlePreview($event)" variant="body-light">Text</AMText>
+      <div>
+        <AMText variant="introduction">Cores</AMText>
+        <AMLink href="" label="Container" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Grid" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Title" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Subtitle" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Text" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+      </div>
+      <div class="mt-10">
+        <AMText variant="introduction">Atoms</AMText>
+        <AMLink href="" label="Button" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Link" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Input" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Checkbox" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+        <AMLink href="" label="Radio" style="display: block" class="mt-1" @click.native="handlePreview($event)" />
+      </div>
     </div>
 
     <AMContainer>
-      <!-- <AMTitle as="h1" variant="huge">Components</AMTitle>
-      <AMText variant="introduction">Cores</AMText>
-      <AMText variant="body-light">Container</AMText>
-      <AMText variant="body-light">Grid</AMText>
-      <AMText variant="body-light">Title</AMText>
-      <AMText variant="body-light">Subtitle</AMText>
-      <AMText variant="body-light">Text</AMText>
-
-      <AMText variant="introduction">Atoms</AMText>
-      <AMText variant="body-light">Button</AMText>
-      <AMText variant="body-light">Checkbox</AMText>
-      <AMText variant="body-light">Input</AMText>
-      <AMText variant="body-light">Link</AMText>
-      <AMText variant="body-light">Radio</AMText>
-
-      <AMText variant="introduction">Organisms</AMText>
-      <AMText variant="body-light">Header</AMText>
-      <AMText variant="body-light">Form</AMText> -->
-
-      <component :is="previewComponent">Hallo</component>
+      <component :is="previewComponent" />
     </AMContainer>
   </div>
 </template>
@@ -39,8 +30,21 @@
 import AMContainer from "@/components/cores/Container";
 import AMTitle from "@/components/cores/Title";
 import AMText from "@/components/cores/Text";
+import AMLink from "@/components/atoms/Link";
 
+// Cores
 import DocContainer from "@/documentation/cores/Container";
+import DocGrid from "@/documentation/cores/Grid";
+import DocTitle from "@/documentation/cores/Title";
+import DocSubtitle from "@/documentation/cores/Subtitle";
+import DocText from "@/documentation/cores/Text";
+
+// Atoms
+import DocButton from "@/documentation/atoms/Button";
+import DocCheckbox from "@/documentation/atoms/Checkbox";
+import DocInput from "@/documentation/atoms/Input";
+import DocLink from "@/documentation/atoms/Link";
+import DocRadio from "@/documentation/atoms/Radio";
 
 export default {
   name: "Components",
@@ -48,23 +52,34 @@ export default {
     AMContainer,
     AMTitle,
     AMText,
+    AMLink,
     DocContainer,
+    DocGrid,
+    DocTitle,
+    DocSubtitle,
+    DocText,
+    DocButton,
+    DocCheckbox,
+    DocInput,
+    DocLink,
+    DocRadio,
   },
   data() {
     return {
-      previewComponent: null,
+      previewComponent: "DocGrid",
     };
   },
   computed: {
     sidebarWidth() {
-      const containerWidth = document.querySelector(".grid-container")
-        .offsetWidth;
+      const containerWidth =
+        document.querySelector(".grid-container").offsetWidth;
       const width = (window.innerWidth - containerWidth) / 2 - 20;
       return `width: ${width}px`;
     },
   },
   methods: {
     handlePreview(event) {
+      event.preventDefault();
       const component = event.target.textContent;
       this.previewComponent = "Doc" + component;
     },

@@ -2,6 +2,7 @@ import Vue from "vue";
 import App from "./App.vue";
 import router from "./router";
 import "@/styles/index.css/";
+
 import DefaultTheme from "@/theme/DefaultTheme";
 import LequTheme from "@/theme/LequTheme";
 
@@ -15,6 +16,10 @@ router.beforeEach((to, from, next) => {
   }
   next();
 });
+
+import hljs from "highlight.js";
+import "highlight.js/styles/night-owl.css";
+Vue.use(hljs.vuePlugin);
 
 new Vue({
   router,

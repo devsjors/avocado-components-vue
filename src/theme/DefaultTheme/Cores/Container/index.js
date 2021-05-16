@@ -1,10 +1,10 @@
 import twConfig from "../../../tailwind-js";
-const { screens, spacing, maxWidth } = twConfig.theme;
+const { screens, spacing } = twConfig.theme;
 
 const container = {
   default: {
-    maxWidth: maxWidth["screen-xl"],
-    padding: spacing["12"],
+    maxWidth: screens["xl"],
+    padding: spacing["4"],
   },
   sm: {
     breakpoint: screens["sm"],
@@ -16,7 +16,7 @@ const container = {
   },
   lg: {
     breakpoint: screens["lg"],
-    padding: spacing["12"],
+    padding: spacing["8"],
   },
   xl: {
     breakpoint: screens["xl"],
@@ -24,7 +24,7 @@ const container = {
   },
   xxl: {
     breakpoint: screens["xxl"],
-    padding: spacing["12"],
+    padding: spacing["0"],
   },
 };
 

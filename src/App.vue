@@ -78,13 +78,7 @@ export default {
   gap: 40px;
   flex-wrap: wrap;
 }
-.flex-column {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  margin-bottom: 20px;
-  gap: 20px;
-}
+
 #nav {
   margin-bottom: 32px;
 }
