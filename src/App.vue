@@ -4,18 +4,21 @@
       <AMHeader>
         <AMHeaderName href="/">Logo</AMHeaderName>
         <AMHeaderNavigation>
-          <AMHeaderMenuItem routerLink href="/cores" label="Cores" />
-          <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" />
-          <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" />
-          <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" />
-          <AMHeaderMenuItem routerLink href="/sjors" label="Sjors" />
-          <AMHeaderMenuItem routerLink href="/lequ" label="Lequ" />
-          <AMHeaderMenu label="Components">
+          <!-- <AMHeaderMenuItem routerLink href="/cores" label="Cores" /> -->
+          <!-- <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" /> -->
+          <!-- <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" /> -->
+          <!-- <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" /> -->
+          <!-- <AMHeaderMenuItem routerLink href="/sjors" label="Sjors" /> -->
+          <!-- <AMHeaderMenuItem routerLink href="/lequ" label="Lequ" /> -->
+          <AMHeaderMenuItem routerLink href="/usertest-part-1" label="Usertest - deel 1" />
+          <AMHeaderMenuItem routerLink href="/usertest-part-2" label="Usertest - deel 2" />
+          <AMHeaderMenuItem routerLink href="/documentation" label="Documentation" />
+          <!-- <AMHeaderMenu label="Components">
             <AMHeaderMenuItem routerLink href="/cores" label="Cores" />
             <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" />
             <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" />
             <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" />
-          </AMHeaderMenu>
+          </AMHeaderMenu> -->
         </AMHeaderNavigation>
       </AMHeader>
 
@@ -33,6 +36,7 @@
 </template>
 
 <script>
+/* eslint-disable vue/no-unused-components */
 import CustomThemeProvider from "@/theme/Provider";
 import AMHeader from "@/components/organisms/Header/Header";
 import AMHeaderName from "@/components/organisms/Header/HeaderName";
@@ -56,7 +60,10 @@ export default {
   },
   computed: {
     showGrid() {
-      return window.location.pathname === "/lequ" ? "hidden" : "fixed";
+      return window.location.pathname === "/lequ" ||
+        window.location.pathname === "/usertest-part-2"
+        ? "hidden"
+        : "fixed";
     },
   },
 };

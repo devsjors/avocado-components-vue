@@ -126,7 +126,7 @@
         </AMText>
         <CodeBlock :code="codeLoading">
           <div class="flex justify-around w-full">
-            <AMButton variant="primary" label="I am a loading primary button" />
+            <AMButton variant="primary" loading label="Button" />
           </div>
         </CodeBlock>
       </div>
