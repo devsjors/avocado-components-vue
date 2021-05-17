@@ -6,6 +6,7 @@
 
 <script>
 import { ThemeProvider } from "vue-styled-components";
+import DefaultTheme from "../DefaultTheme";
 
 export default {
   name: "CustomThemeProvider",

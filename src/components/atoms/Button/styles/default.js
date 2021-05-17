@@ -1,12 +1,8 @@
 import styled, { css } from "vue-styled-components";
 
 const DefaultStyling = (props) => {
-  const {
-    padding,
-    typography,
-    textTransform,
-    borderRadius,
-  } = props.theme.atoms.button.default;
+  const { padding, typography, textTransform, borderRadius } =
+    props.theme.atoms.button.default;
   return css`
     border: none;
     text-decoration: none;
@@ -16,6 +12,7 @@ const DefaultStyling = (props) => {
     padding: ${padding};
     text-transform: ${textTransform};
     border-radius: ${borderRadius};
+    font-family: ${typography.fontFamily};
     @media (max-width: 767px) {
       font-size: ${typography.mobile.fontSize};
       font-weight: ${typography.mobile.fontWeight};
