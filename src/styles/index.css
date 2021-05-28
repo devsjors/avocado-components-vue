@@ -9,3 +9,41 @@
 html {
   scroll-behavior: smooth;
 }
+
+.wrapper h1 {
+  display: block !important;
+  font-size: 2em !important;
+  margin-block-start: 0.67em !important;
+  margin-block-end: 0.67em !important;
+  margin-inline-start: 0px !important;
+  margin-inline-end: 0px !important;
+  margin-right: 220px !important;
+  font-family: "Arial" !important;
+  color: black !important;
+  line-height: auto !important;
+}
+.wrapper p {
+  display: block !important;
+  margin-block-start: 1em !important;
+  margin-block-end: 1em !important;
+  margin-inline-start: 0px !important;
+  margin-inline-end: 0px !important;
+  font-family: "Arial" !important;
+  color: black !important;
+  line-height: auto !important;
+  font-weight: unset !important;
+  font-size: unset !important;
+}
+.wrapper a {
+  color: -webkit-link !important;
+  cursor: pointer !important;
+  text-decoration: underline !important;
+  font-family: "Arial" !important;
+  line-height: auto !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  background: none !important;
+  text-transform: none !important;
+  font-weight: unset !important;
+  font-size: unset !important;
+}

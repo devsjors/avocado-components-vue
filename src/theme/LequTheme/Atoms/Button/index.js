@@ -7,12 +7,12 @@ const colors = twConfig.theme.colors.lequColors;
 
 const primary = {
   default: {
-    color: colors["black-light"],
-    backgroundColor: colors["yellow-light"],
+    color: "white",
+    backgroundColor: colors["lequ-red"],
   },
   hover: {
-    color: colors["black-light"],
-    backgroundColor: colors["yellow"],
+    color: "white",
+    backgroundColor: colors["dark-red"],
   },
   disabled: {
     color: "white",
@@ -27,6 +27,20 @@ const button = {
     borderRadius: borderRadius.full,
   },
   primary,
+  primaryYellow: {
+    default: {
+      color: colors["black-light"],
+      backgroundColor: colors["yellow-light"],
+    },
+    hover: {
+      color: colors["black-light"],
+      backgroundColor: colors["yellow"],
+    },
+    disabled: {
+      color: "white",
+      backgroundColor: colors["gray-5"],
+    },
+  },
   primaryRed: {
     default: {
       color: "white",

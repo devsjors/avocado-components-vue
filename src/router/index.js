@@ -61,6 +61,16 @@ const routes = [
     name: "usertest-part-2",
     component: () => import("../views/Usertest_2/part_2.vue"),
   },
+  {
+    path: "/avocado-media-theme",
+    name: "avocado-media-theme",
+    component: () => import("../views/avocado-media-example.vue"),
+  },
+  {
+    path: "/lequ-theme",
+    name: "lequ-theme",
+    component: () => import("../views/lequ-example.vue"),
+  },
 ];
 
 const router = new VueRouter({
@@ -76,7 +86,11 @@ router.afterEach((to, from) => {
     to.path === "/usertest-part-1" ||
     from.path === "/usertest-part-1" ||
     to.path === "/usertest-part-2" ||
-    from.path === "/usertest-part-2"
+    from.path === "/usertest-part-2" ||
+    to.path === "/avocado-media-theme" ||
+    from.path === "/avocado-media-theme" ||
+    to.path === "/lequ-theme" ||
+    from.path === "/lequ-theme"
   ) {
     if (!window.location.hash) {
       window.location = `${window.location}#loaded`;

@@ -3,7 +3,7 @@ const { screens, spacing } = twConfig.theme;
 
 const container = {
   default: {
-    maxWidth: screens["xl"],
+    maxWidth: screens["example"],
     padding: spacing["4"],
   },
   sm: {

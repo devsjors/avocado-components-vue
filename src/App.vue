@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <CustomThemeProvider>
-      <AMHeader>
+      <AMHeader class="hidden">
         <AMHeaderName href="/">Logo</AMHeaderName>
         <AMHeaderNavigation>
           <!-- <AMHeaderMenuItem routerLink href="/cores" label="Cores" /> -->
@@ -26,9 +26,9 @@
 
       <AMContainer :class="showGrid" class="top-0 w-full h-screen transform -translate-x-1/2 -z-1 left-1/2">
         <AMGrid container style="box-shadow: 0 0 0 1px #eeeeee">
-          <AMGrid item class="h-screen" xs="4" />
-          <AMGrid item class="h-screen" xs="4" style="box-shadow: 0 0 0 1px #eeeeee" />
-          <AMGrid item class="h-screen" xs="4" />
+          <AMGrid item class="h-screen" sm="4" />
+          <AMGrid item class="h-screen" sm="4" style="box-shadow: 0 0 0 1px #eeeeee" />
+          <AMGrid item class="h-screen" sm="4" />
         </AMGrid>
       </AMContainer>
     </CustomThemeProvider>
@@ -61,7 +61,9 @@ export default {
   computed: {
     showGrid() {
       return window.location.pathname === "/lequ" ||
-        window.location.pathname === "/usertest-part-2"
+        window.location.pathname === "/usertest-part-2" ||
+        window.location.pathname === "/video" ||
+        window.location.pathname === "/video2"
         ? "hidden"
         : "fixed";
     },
@@ -70,7 +72,7 @@ export default {
 </script>
 
 <style lang="css">
-#app {
+header {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -84,9 +86,5 @@ export default {
   display: flex;
   gap: 40px;
   flex-wrap: wrap;
-}
-
-#nav {
-  margin-bottom: 32px;
 }
 </style>

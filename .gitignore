@@ -2,6 +2,26 @@
 node_modules
 /dist
 
+# develop and testing file
+src/assets
+src/theme/Avocado_Theme
+src/theme/Lequ_Theme
+src/theme/userTestSem
+src/theme/DefaultTheme/cores/Container_video
+src/theme/DefaultTheme/cores/Typography_video
+src/usertest_components
+src/video
+src/views/Usertest_2
+src/views/avocado-media-example_copy.vue
+src/views/avocado-media-example.vue
+src/views/lequ-example_copy.vue
+src/views/lequ-example.vue
+src/views/Usertest-Sem.vue
+tailwind.config_avocado-media.js
+tailwind.config_lequ.js
+tailwind.config_video copy.js
+tailwind.config_video_2.js
+
 # local env files
 .env.local
 .env.*.local

@@ -24,6 +24,10 @@ module.exports = {
           900: "#212121",
         },
         white: "#FFFFFF",
+        black: {
+          light: "#424242",
+          dark: "#000000",
+        },
       },
       feedback: {
         success: "#14AD48",
@@ -52,6 +56,14 @@ module.exports = {
         purple: "#B7A9C8",
         pink: "#E06D92",
         "pink-dark": "#b15572",
+        black: {
+          light: "#2A2A2A",
+          dark: "#000000",
+        },
+        primary: {
+          red: "#E00F21",
+          "dark-red": "#C70E1E",
+        },
       },
     },
     screens: {
