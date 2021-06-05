@@ -9,7 +9,7 @@ import LequTheme from "@/theme/LequTheme";
 Vue.config.productionTip = false;
 
 router.beforeEach((to, from, next) => {
-  if (to.path === "/lequ" || to.path === "/usertest-part-2") {
+  if (to.path === "/lequ") {
     Vue.prototype.__theme = LequTheme;
   } else {
     Vue.prototype.__theme = DefaultTheme;
