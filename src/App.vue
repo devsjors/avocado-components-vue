@@ -4,21 +4,9 @@
       <AMHeader>
         <AMHeaderName href="/">Logo</AMHeaderName>
         <AMHeaderNavigation>
-          <!-- <AMHeaderMenuItem routerLink href="/cores" label="Cores" /> -->
-          <!-- <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" /> -->
-          <!-- <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" /> -->
-          <!-- <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" /> -->
-          <!-- <AMHeaderMenuItem routerLink href="/sjors" label="Sjors" /> -->
-          <!-- <AMHeaderMenuItem routerLink href="/lequ" label="Lequ" /> -->
-          <AMHeaderMenuItem routerLink href="/usertest-part-1" label="Usertest - deel 1" />
-          <AMHeaderMenuItem routerLink href="/usertest-part-2" label="Usertest - deel 2" />
+          <AMHeaderMenuItem routerLink href="/sjors" label="Avocado Media Clone" />
+          <AMHeaderMenuItem routerLink href="/lequ" label="Lequ Clone" />
           <AMHeaderMenuItem routerLink href="/documentation" label="Documentation" />
-          <!-- <AMHeaderMenu label="Components">
-            <AMHeaderMenuItem routerLink href="/cores" label="Cores" />
-            <AMHeaderMenuItem routerLink href="/atoms" label="Atoms" />
-            <AMHeaderMenuItem routerLink href="/molecules" label="Molecules" />
-            <AMHeaderMenuItem routerLink href="/organisms" label="Organisms" />
-          </AMHeaderMenu> -->
         </AMHeaderNavigation>
       </AMHeader>
 
