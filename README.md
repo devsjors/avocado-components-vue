@@ -2,13 +2,21 @@
 
 ## Install notes
 Clone the repo<br/>
-```https://github.com/devsjors/avocado-components-vue.git```
+```
+https://github.com/devsjors/avocado-components-vue.git
+```
 
 Navigate to local repo<br/>
-```cd avocado-components-vue```
+```
+cd avocado-components-vue
+```
 
 Install all dependencies<br/>
-```npm i```
+```
+npm i
+```
 
 Run the application<br/>
-```npm run serve```
+```
+npm run serve
+```
